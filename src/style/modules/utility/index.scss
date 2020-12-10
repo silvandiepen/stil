@@ -1,6 +1,4 @@
 @mixin utility-classes() {
-  $spacing: settings($settings, "spacing");
-
   @if export($output, "utility.border") {
     [class*="border--"] {
       border-style: solid;
@@ -12,7 +10,7 @@
     // Borders
     @for $i from 1 through 10 {
       .border--#{$i} {
-        border-width: (($spacing / 20) * $i);
+        border-width: ((space() / 20) * $i);
       }
     }
   }
@@ -33,7 +31,7 @@
   @if export($output, "utility.border-radius") {
     @for $i from 1 through 10 {
       .border-radius--#{$i} {
-        border-radius: (($spacing / 5) * $i);
+        border-radius: ((space() / 5) * $i);
       }
     }
   }
@@ -43,7 +41,7 @@
   @if export($output, "utility.space") {
     @for $i from 1 through 10 {
       .space--#{$i} {
-        padding: (($spacing / 5) * $i);
+        padding: ((space() / 5) * $i);
       }
     }
   }
@@ -51,7 +49,7 @@
     // spacing top
     @for $i from 1 through 10 {
       .space-top--#{$i} {
-        margin-top: (($spacing / 5) * $i);
+        margin-top: ((space() / 5) * $i);
       }
     }
   }
@@ -60,14 +58,14 @@
   @if export($output, "utility.width") {
     @for $i from 1 through 10 {
       .width--#{$i} {
-        width: (($spacing / 5) * $i);
+        width: ((space() / 5) * $i);
       }
     }
   }
   @if export($output, "utility.height") {
     @for $i from 1 through 10 {
       .height--#{$i} {
-        height: (($spacing / 5) * $i);
+        height: ((space() / 5) * $i);
       }
     }
   }
@@ -78,7 +76,7 @@
       .gap--#{$i} {
         display: inline-flex;
         flex-flow: row;
-        gap: (($spacing / 5) * $i);
+        gap: ((space() / 5) * $i);
       }
     }
   }
@@ -87,7 +85,7 @@
     // Font-size
     @for $i from 1 through 10 {
       .font-size--#{$i} {
-        font-size: (($spacing / 5) * $i);
+        font-size: ((space() / 5) * $i);
       }
     }
   }

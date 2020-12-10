@@ -19,7 +19,7 @@ Just implement the css and create simple pages just using classes. Or include it
 
 </div>
 </section>
-<section class="section background--black">
+<section class="section background--deepblue" style="--current-color: var(--secondary)">
 
 <div class="wrap">
 
@@ -70,7 +70,36 @@ Check the Settings and Output guide to see more settings and use cases.
 
 ### All colors
 
-<color-table :colors="['Red','Orange','Yellow','Green','Blue','Brown','Purple','Pink','Turquoise','Gray','Black','White']" />
+<color-table :colors="['Red','Orange','Yellow','Lime','Grass','Green','Sky','Water','Blue','DeepBlue','Brown','Purple','DeepPurple','Rose','Lavender','Pink','Berry','Pomegranate','Turquoise','Gray','Black','White']" />
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="wrap">
+
+### Defined colors
+
+<color-table :colors="['Primary','Secondary','Tertiary','Alert','Warning','Info','Dark','Light','Accent']" />
+
+</div>
+</section>
+
+<section class="section background--gray-90">
+
+<div class="wrap">
+
+### Gradients
+
+<div class="boxes boxes--auto gap--2">
+<div class="box background--gradient"></div>
+
+<div class="box background--gradient" style="--gradient-from: var(--red); --gradient-to: var(--blue)">
+</div>
+<div class="box background--gradient" style="--gradient-from: var(--green-30); --gradient-to: var(--green-40); --gradient-direction: to bottom;">
+</div>
+</div>
 
 </div>
 </section>
@@ -85,41 +114,61 @@ Check the Settings and Output guide to see more settings and use cases.
 
 #### Partials
 
-<div class="rowgap--1 space--2 background--green border-radius--2">
+Stil works just with named partials. Just add the partial name to your column (in a row) and it will be the right width.
+
+<div class="row gap--1 space--2 background--green border-radius--2">
     <div class="column full space--2 border-radius--1 background--white">
-        <p>column full</p>
+        <code>column full</code>
     </div>
 </div>
 
 <div class="row gap--2 space--2 background--green border-radius--2 space-top--3">
      <div class="column half space--2 border-radius--1 background--white">
-        <p>column half</p>
+        <code>column half</code>
     </div>
      <div class="column half space--2 border-radius--1 background--white">
-        <p>column half</p>
+        <code>column half</code>
     </div>
 </div>
 
 <div class="row gap--2 space--2 background--green border-radius--2 space-top--3">
     <div class="column third space--2 border-radius--1 background--white">
-        <p><code>column third</code></p>
+       <code>column third</code>
     </div>
     <div class="column two-third space--2 border-radius--1 background--white">
-        <p>column two-third</p>
+        <code>column two-third</code>
     </div>
 </div>
 
 <div class="row gap--2 space--2 background--green border-radius--2 space-top--3">
     <div class="column quarter space--2 border-radius--1 background--white">
-        <p>column quarter</p>
+        <code>column quarter</code>
     </div>
     <div class="column three-quarter space--2 border-radius--1 background--white">
-        <p>column three-quarter</p>
+        <code>column three-quarter</code>
     </div>
 </div>
 
 </div>
+</section>
+<section class="section background--green">
+<div class="wrap">
 
-#### Toolset
+#### Responsive Partials
 
+Try resizing your window and see how the blocks will go from third on a big screen, halfs on a medium screen and full on mobile.
+
+<div class="row gap--2 space--2 background--white border-radius--2">
+    <div class="column small--full medium--half large--third space--2 border-radius--1 background--green-20">
+        <code>column small--full medium--half large--third</code>
+    </div>  
+    <div class="column small--full medium--half large--third space--2 border-radius--1 background--green-30">
+        <code>column small--full medium-half large--third</code>
+    </div>  
+    <div class="column small--full medium--half large--third space--2 border-radius--1 background--green-40">
+        <code>column small--full medium--half large--third</code>
+    </div>  
+</div>
+
+</div>
 </section>

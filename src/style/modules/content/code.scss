@@ -7,6 +7,12 @@
  * Ported for PrismJS by Albert Vallverdu [@byverdu]
  */
 
+    :not([class*="language-"]) code:not([class*="language-"]) {
+      font-family: value(code-font);
+      line-height: value(line-height);
+      font-size: 0.875em;
+    }
+
     [class*="language-"],
     code[class*="language-"],
     pre[class*="language-"] {
@@ -25,7 +31,7 @@
 
     /* Code blocks */
     [class*="language-"] pre {
-      padding: value(spacing);
+      padding: value(space);
       overflow: auto;
       border-radius: value(border-radius);
     }

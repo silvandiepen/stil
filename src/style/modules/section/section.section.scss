@@ -2,7 +2,7 @@
   @if export($output, "section.section") {
     .section {
       position: relative;
-      padding: calc(#{value(spacing)} * 2);
+      padding: calc(#{value(space)} * 2);
       > .wrap {
         max-width: value("content.max-width");
         margin-left: auto;

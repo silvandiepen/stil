@@ -1,12 +1,10 @@
 @mixin section-navigation() {
   @if export($output, "section.navigation") {
-    $spacing: settings($settings, "spacing");
-
     .navigation {
       position: relative;
       display: flex;
       a {
-        padding: value(spacing);
+        padding: value(space);
         text-decoration: none;
         color: currentColor;
       }

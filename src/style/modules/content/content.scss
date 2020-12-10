@@ -23,7 +23,7 @@
         font-family: inherit;
         font-size: value(font-size, 1em);
         line-height: value(line-height, 1.5);
-        padding: value(spacing);
+        padding: value(space);
         line-height: value(line-height, 1.5);
       }
     }
@@ -31,8 +31,8 @@
   @if export($output, "content.default") or export($output, "content.table") {
     #{$parent} {
       table {
-        width: calc(100% + (#{value(spacing)} * 1));
-        margin-left: calc((#{value(spacing)} / 2) * -1);
+        width: calc(100% + (#{value(space)} * 1));
+        margin-left: calc((#{value(space)} / 2) * -1);
 
         &.middle {
           th,
@@ -43,7 +43,7 @@
         th,
         td {
           text-align: left;
-          padding: calc(#{value(spacing)} / 2);
+          padding: calc(#{value(space)} / 2);
         }
         th {
           font-weight: value(text-bold, bold);

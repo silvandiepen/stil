@@ -3,7 +3,7 @@
 }
 @function contra($color, $black: black, $white: white) {
   $_val: black;
-  @if lightness($color) > 55 {
+  @if lightness($color) > 45 {
     $_val: $black;
   } @else {
     $_val: $white;
@@ -14,31 +14,47 @@
 // Colors
 $color-palette: () !default;
 $color-palette-base: (
-  "Red": #dd0d0d,
-  "Orange": #ffa51d,
-  "Yellow": #ffdc13,
+  "Red": #ea2027,
+  "Orange": #f79f1f,
+  "Yellow": #ffc312,
+  "Lime": #c4e538,
+  "Grass": #a3cb38,
   "Green": #2f9915,
-  "Blue": #1b41e7,
+  "Sky": #3cc6e9,
+  "Water": #1289a7,
+  "Blue": #0652dd,
+  "DeepBlue": #1b1464,
   "Brown": #975d12,
-  "Purple": #8c12d3,
+  "Purple": #833471,
+  "DeepPurple": #6f1e51,
+  "Rose": #fda7df,
+  "Lavender": #d980fa,
   "Pink": #ff7cae,
-  "Turquoise": #0fd3b9,
+  "Berry": #b53471,
+  "Pomegranate": #ed4c67,
+  "Turquoise": #12cbc4,
   "Gray": #7f8688,
   "Black": #111111,
   "White": #ffffff,
 ) !default;
 
 $color-palette-defined: (
-  "Primary": purple,
-  "Secondary": Yellow,
-  "Tertiary": rgb(62, 212, 62),
-  "Alert": red,
-  "Warning": orange,
-  "Info": skyblue,
-  "Dark": #222222,
-  "Light": #f7f7f7,
-  "Accent": #f1f1f1,
+  "Primary": map-get($color-palette-base, "Pomegranate"),
+  "Secondary": map-get($color-palette-base, "Turquoise"),
+  "Tertiary": map-get($color-palette-base, "Water"),
+  "Alert": map-get($color-palette-base, "Red"),
+  "Warning": map-get($color-palette-base, "Orange"),
+  "Info": map-get($color-palette-base, "Sky"),
 ) !default;
+
+$color-palette-defined: map-merge(
+  $color-palette-defined,
+  (
+    "Dark": to-lightness(map-get($color-palette-defined, "Primary"), 10),
+    "Light": to-lightness(map-get($color-palette-defined, "Primary"), 90),
+    "Accent": to-lightness(map-get($color-palette-defined, "Secondary"), 90),
+  )
+);
 
 @each $color-name, $color-value in $color-palette-base {
   $color-palette: map-merge(

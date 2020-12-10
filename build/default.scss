@@ -34,6 +34,7 @@ $stil-output: (
   "color.classes.background",
   "color.classes.background+text",
   "color.classes.color",
+  "color.gradients",
   "grid.default",
   "grid.row",
   "grid.column",
@@ -48,7 +49,8 @@ $stil-output: (
   "utility.width",
   "utility.height",
   "utility.gap",
-  "utility.font-size"
+  "utility.font-size",
+  "box"
 );
 
 $stil-settings: (

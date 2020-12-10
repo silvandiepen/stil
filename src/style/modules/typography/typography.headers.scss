@@ -13,6 +13,7 @@
         font-weight: value("h#{$i}.font-weight", bold);
         text-transform: value("h#{$i}.text-transform", none);
         letter-spacing: value("h#{$i}.letter-spacing", none);
+        color: value("h#{$i}.color", currentColor);
       }
     }
   }
