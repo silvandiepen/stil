@@ -18,6 +18,14 @@
   @if export($output, "grid.column") or export($output, "grid.default") {
     .#{settings($settings,"grid.column")} {
       width: 100%;
+      &--middle {
+        display: flex;
+        align-items: center;
+      }
+      &--center {
+        display: flex;
+        justify-content: center;
+      }
     }
 
     $breakpoint-names: settings($settings, "grid.breakpoint.names");

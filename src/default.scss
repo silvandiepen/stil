@@ -22,7 +22,7 @@ $settings: map-merge(
     "h6.font-size": 14px,
     "h6.text-transform": uppercase,
     "h6.letter-spacing": 0.1em,
-    "h6.color": var(--current-color, var(--primary)),
+    "h6.color": var(--current-color, var(--contra, var(--primary))),
     "grid.row": "row",
     "grid.column": "column",
     "grid.breakpoint.names": (

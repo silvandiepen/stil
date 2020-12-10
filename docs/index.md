@@ -7,7 +7,9 @@
     </nav>
 </header>
 
-<section class="section section--h-3-4">
+<section class="section section--h-3-4 clipped">
+
+<h1 class="centered opacity--10" style="--centered-position: fixed; --centered-translate-y: -100%; --centered-top: 100%;color: var(--secondary); font-size: 80vw">stil</h1>
 
 <div class="wrap">
 

@@ -12,6 +12,8 @@
     // Build all background classes
     @each $color-name, $color-value in $color-palette {
       .background--#{$color-name} {
+        --accent: #{darken($color-value, 10%)};
+        --contra: #{adjust-hue($color-value, 180deg)};
         background-color: var(--#{$color-name}, #{$color-value});
         color: var(--#{$color-name}-text, contra($color-value, $black, $white));
       }

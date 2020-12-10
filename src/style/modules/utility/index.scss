@@ -35,7 +35,14 @@
       }
     }
   }
-
+  // Opacity
+  @if export($output, "utility.opacity") {
+    @for $i from 1 through 10 {
+      .opacity--#{$i*10} {
+        opacity: #{$i/10};
+      }
+    }
+  }
   // Spacing
 
   @if export($output, "utility.space") {
@@ -87,6 +94,30 @@
       .font-size--#{$i} {
         font-size: ((space() / 5) * $i);
       }
+    }
+  }
+
+  @if export($output, "utility.fixed") {
+    .fixed {
+      position: fixed;
+      top: var(--fixed-top, 0);
+      left: var(--fixed-left, 0);
+    }
+  }
+  @if export($output, "utility.clipped") {
+    .clipped {
+      clip-path: inset(var(--clip-path, 0 0 0 0));
+    }
+  }
+  @if export($output, "utility.centered") {
+    .centered {
+      position: var(--centered-position, absolute);
+      left: var(--centered-left, 50%);
+      top: var(--centered-top, 50%);
+      transform: translate(
+        var(--centered-translate-x, -50%),
+        var(--centered-translate-y, -50%)
+      );
     }
   }
 }
