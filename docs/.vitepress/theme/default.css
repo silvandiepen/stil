@@ -144,7 +144,12 @@ body {
 
 .section {
   position: relative;
-  padding: calc(var(--stil-space, 2em) * 2);
+  padding: calc(var(--stil-space, 2em));
+}
+@media screen and (min-width: 720px) {
+  .section {
+    padding: calc(var(--stil-space, 2em) * 2);
+  }
 }
 .section > .wrap {
   max-width: var(--stil-content-max-width, max(75ch, 720px));
