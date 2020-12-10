@@ -1,0 +1,21 @@
+@mixin section-section() {
+  @if export($output, "section.section") {
+    .section {
+      position: relative;
+      padding: calc(#{value(spacing)} * 2);
+      > .wrap {
+        max-width: value("content.max-width");
+        margin-left: auto;
+        margin-right: auto;
+        & + .wrap {
+          margin-top: 1em;
+        }
+      }
+      @if export($output, "section.section.heights") {
+        &--h3-4 {
+          min-height: 75vh;
+        }
+      }
+    }
+  }
+}

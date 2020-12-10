@@ -1,0 +1,35 @@
+@mixin color-classes() {
+  @if export($output, "color.classes.background+text") {
+    // Define black and white. If they exist in the color palette, return those
+    $black: black;
+    @if color-exists("black") {
+      $black: color("black");
+    }
+    $white: white;
+    @if color-exists("white") {
+      $white: color("white");
+    }
+    // Build all background classes
+    @each $color-name, $color-value in $color-palette {
+      .background--#{$color-name} {
+        background-color: var(--#{$color-name}, #{$color-value});
+        color: var(--#{$color-name}-text, contra($color-value, $black, $white));
+      }
+    }
+  } @else if export($output, "color.classes.background") {
+    // Build all background classes
+    @each $color-name, $color-value in $color-palette {
+      .background--#{$color-name} {
+        background-color: var(--#{$color-name}, #{$color-value});
+      }
+    }
+  }
+  @if export($output, "color.classes.color") {
+    // Build all text color classes
+    @each $color-name, $color-value in $color-palette {
+      .color--#{$color-name} {
+        color: var(--#{$color-name}, #{$color-value});
+      }
+    }
+  }
+}

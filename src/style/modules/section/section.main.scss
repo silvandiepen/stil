@@ -1,0 +1,7 @@
+@mixin section-main() {
+  @if export($output, "section.main") {
+    .main {
+      position: relative;
+    }
+  }
+}

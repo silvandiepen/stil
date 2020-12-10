@@ -1,0 +1,67 @@
+@mixin styled-content() {
+  $parent: settings($settings, "content.block");
+  @if export($output, "content.default") or
+    export($output, "content.paragraphs")
+  {
+    #{$parent} {
+      p {
+        font-family: inherit;
+        font-size: value(font-size, 1em);
+        line-height: value(line-height, 1.5);
+        max-width: value("content.paragraph.max-width");
+        &:first-of-type {
+          font-size: value(font-size-first, 1.25em);
+        }
+      }
+    }
+  }
+  @if export($output, "content.default") or
+    export($output, "content.blockquote")
+  {
+    #{$parent} {
+      blockquote {
+        font-family: inherit;
+        font-size: value(font-size, 1em);
+        line-height: value(line-height, 1.5);
+        padding: value(spacing);
+        line-height: value(line-height, 1.5);
+      }
+    }
+  }
+  @if export($output, "content.default") or export($output, "content.table") {
+    #{$parent} {
+      table {
+        width: calc(100% + (#{value(spacing)} * 1));
+        margin-left: calc((#{value(spacing)} / 2) * -1);
+
+        &.middle {
+          th,
+          td {
+            vertical-align: middle;
+          }
+        }
+        th,
+        td {
+          text-align: left;
+          padding: calc(#{value(spacing)} / 2);
+        }
+        th {
+          font-weight: value(text-bold, bold);
+        }
+        @media #{breakpoint(small,only)} {
+          &.wrap {
+            tr {
+              display: flex;
+              flex-direction: column;
+              flex-wrap: wrap;
+              th,
+              td {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

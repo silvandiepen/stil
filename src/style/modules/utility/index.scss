@@ -1,0 +1,95 @@
+@mixin utility-classes() {
+  $spacing: settings($settings, "spacing");
+
+  @if export($output, "utility.border") {
+    [class*="border--"] {
+      border-style: solid;
+      border-color: currentColor;
+    }
+  }
+
+  @if export($output, "utility.border.width") {
+    // Borders
+    @for $i from 1 through 10 {
+      .border--#{$i} {
+        border-width: (($spacing / 20) * $i);
+      }
+    }
+  }
+
+  @if export($output, "utility.border.styles") {
+    // Border style
+    .border--solid {
+      border-style: solid;
+    }
+    .border--dotted {
+      border-style: dotted;
+    }
+    .border--dashed {
+      border-style: dashed;
+    }
+  }
+
+  @if export($output, "utility.border-radius") {
+    @for $i from 1 through 10 {
+      .border-radius--#{$i} {
+        border-radius: (($spacing / 5) * $i);
+      }
+    }
+  }
+
+  // Spacing
+
+  @if export($output, "utility.space") {
+    @for $i from 1 through 10 {
+      .space--#{$i} {
+        padding: (($spacing / 5) * $i);
+      }
+    }
+  }
+  @if export($output, "utility.space-top") {
+    // spacing top
+    @for $i from 1 through 10 {
+      .space-top--#{$i} {
+        margin-top: (($spacing / 5) * $i);
+      }
+    }
+  }
+  // Width
+
+  @if export($output, "utility.width") {
+    @for $i from 1 through 10 {
+      .width--#{$i} {
+        width: (($spacing / 5) * $i);
+      }
+    }
+  }
+  @if export($output, "utility.height") {
+    @for $i from 1 through 10 {
+      .height--#{$i} {
+        height: (($spacing / 5) * $i);
+      }
+    }
+  }
+
+  @if export($output, "utility.gap") {
+    // Gap
+    @for $i from 1 through 10 {
+      .gap--#{$i} {
+        display: inline-flex;
+        flex-flow: row;
+        gap: (($spacing / 5) * $i);
+      }
+    }
+  }
+
+  @if export($output, "utility.font-size") {
+    // Font-size
+    @for $i from 1 through 10 {
+      .font-size--#{$i} {
+        font-size: (($spacing / 5) * $i);
+      }
+    }
+  }
+}
+@include utility-classes();

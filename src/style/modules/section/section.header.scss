@@ -1,0 +1,18 @@
+@mixin section-header() {
+  @if export($output, "section.header") {
+    .header {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      &--sticky {
+        position: sticky;
+        top: 0;
+      }
+    }
+
+    .header .logo {
+      padding: value(spacing);
+      font-weight: bold;
+    }
+  }
+}

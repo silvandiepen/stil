@@ -1,0 +1,47 @@
+@mixin grid-row() {
+  @if export($output, "grid.row") or export($output, "grid.default") {
+    .#{settings($settings,"grid.row")} {
+      display: flex;
+      flex-flow: wrap;
+      width: 100%;
+      &--auto {
+        flex-flow: row;
+      }
+      &--space-between {
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@mixin grid-column() {
+  @if export($output, "grid.column") or export($output, "grid.default") {
+    .#{settings($settings,"grid.column")} {
+      width: 100%;
+    }
+
+    $breakpoint-names: settings($settings, "grid.breakpoint.names");
+    $breakpoint-sizes: settings($settings, "grid.breakpoint.sizes");
+
+    @if export($output, "grid.column.partials") {
+      @each $breakpoint in $breakpoint-names {
+        @each $size-name, $size-value in $breakpoint-sizes {
+          .#{$size-name} {
+            width: (100% * $size-value);
+          }
+        }
+      }
+    }
+    @if export($output, "grid.column.responsive-partials") {
+      @each $breakpoint in $breakpoint-names {
+        @media #{breakpoint($breakpoint)} {
+          @each $size-name, $size-value in $breakpoint-sizes {
+            .#{$breakpoint}--#{$size-name} {
+              width: (100% * $size-value);
+            }
+          }
+        }
+      }
+    }
+  }
+}

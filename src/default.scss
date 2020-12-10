@@ -1,0 +1,53 @@
+@import "color";
+
+// Settings
+$stil-settings: () !default;
+
+$settings: map-merge(
+  $stil-settings,
+  (
+    "font-family":
+      '-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe ui", Arial, sans-serif',
+    "code-font": 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
+    "spacing": 2em,
+    "line-height": 1.5,
+    "font-size": 1em,
+    "font-size-first": 1.25em,
+    "content.block": ".content",
+    "content.paragraph.max-width": max(75ch, 960px),
+    "content.max-width": max(75ch, 720px),
+    "color.primary": red,
+    "color.secondary": blue,
+    "h6.font-size": 14px,
+    "h6.text-transform": uppercase,
+    "h6.letter-spacing": 0.1em,
+    "grid.row": "row",
+    "grid.column": "column",
+    "grid.breakpoint.names": (
+      "small",
+      "medium",
+      "large",
+    ),
+    "grid.breakpoint.sizes": (
+      "full": 1/1,
+      "half": 1/2,
+      "third": 1/3,
+      "two-third": 2/3,
+      "quarter": 1/4,
+      "three-quarter": 3/4,
+    ),
+    "grid.breakpoint.small": 0,
+    "grid.breakpoint.medium": 720,
+    "grid.breakpoint.large": 1280,
+  )
+) !default;
+
+// Output
+
+$stil-output: () !default;
+$output: ();
+@if length($stil-output) == 0 {
+  $output: ("*") !default;
+} @else {
+  $output: $stil-output;
+}

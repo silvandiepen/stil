@@ -1,0 +1,25 @@
+@function value($key, $fallback: null) {
+  $value: null;
+
+  $prefix: null;
+  @if setting-exists($settings, "prefix") {
+    $prefix: "#{settings($settings,"prefix")}-";
+  }
+
+  @if setting-exists($settings, "#{$key}") {
+    $value: settings($settings, "#{$key}");
+    @if type-of($value) == "list" {
+      $value: list-to-str($value);
+    }
+  } @else if not setting-exists($settings, $key) and $fallback != null {
+    $value: $fallback;
+  }
+
+  $key: str-replace($key, ".", "-");
+
+  @if $value {
+    @return var(--#{$prefix}#{$key}, #{$value});
+  } @else {
+    @return var(--#{$prefix}#{$key});
+  }
+}

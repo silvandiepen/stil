@@ -1,0 +1,42 @@
+{
+  "name": "stil.style",
+  "version": "0.0.1",
+  "description": "Base CSS Design System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:style && cpy build/default.css docs/.vitepress/theme",
+    "build:style": "sass build/ dist/",
+    "dev:style": "npm run build:style -- --watch",
+    "stylelint": "stylelint 'src/scss/**/*.scss'",
+    "stylelint:fix": "stylelint 'src/scss/**/*.scss' --fix",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/silvandiepen/stil.git"
+  },
+  "keywords": [
+    "css",
+    "design",
+    "system",
+    "base"
+  ],
+  "author": "Sil van Diepen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silvandiepen/stil/issues"
+  },
+  "homepage": "https://github.com/silvandiepen/stil#readme",
+  "devDependencies": {
+    "cpy-cli": "^3.1.1",
+    "sass": "^1.30.0",
+    "stylelint": "^13.8.0",
+    "stylelint-logical-order": "^0.1.0",
+    "stylelint-order": "^4.1.0",
+    "vite-plugin-components": "^0.5.0",
+    "vitepress": "^0.9.1"
+  }
+}

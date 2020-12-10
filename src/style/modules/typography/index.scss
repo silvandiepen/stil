@@ -1,0 +1,7 @@
+@import "typography.fonts";
+@import "typography.spacing";
+@import "typography.headers";
+
+@include typography-fonts;
+@include typography-spacing;
+@include typography-headers;

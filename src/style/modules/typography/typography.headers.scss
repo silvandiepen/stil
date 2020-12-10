@@ -1,0 +1,45 @@
+@mixin typography-headers() {
+  $header-elements: (h1, h2, h3, h4, h5, h6);
+
+  @if export($output, "typography.headers") {
+    $base: 5;
+    @for $i from 1 through 6 {
+      h#{$i} {
+        font-size: value(
+          "h#{$i}.font-size",
+          calc(#{(($base / $i) * 1em)} + 0.5vw)
+        );
+        line-height: value("h#{$i}.line-height", 1);
+        font-weight: value("h#{$i}.font-weight", bold);
+        text-transform: value("h#{$i}.text-transform", none);
+        letter-spacing: value("h#{$i}.letter-spacing", none);
+      }
+    }
+  }
+
+  @if export($output, "typography.headers.anchors") {
+    $elements: ();
+    @each $element in $header-elements {
+      $elements: append($elements, "#{$element} .header-anchor");
+    }
+    #{list-to-str($elements,', ')} {
+      color: inherit;
+      font-size: 0.5em;
+      text-decoration: none;
+      position: absolute;
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    $elements-hover: ();
+
+    @each $element in $header-elements {
+      $elements-hover: append(
+        $elements-hover,
+        "#{$element}:hover .header-anchor"
+      );
+    }
+    #{list-to-str( $elements-hover,', ')} {
+      opacity: 1;
+    }
+  }
+}

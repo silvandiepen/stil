@@ -1,0 +1,13 @@
+@mixin color-custom-properties() {
+  @if export($output, "color.custom-properties") and
+    export($output, "custom-properties")
+  {
+    @at-root {
+      :root {
+        @each $color-name, $color-value in $color-palette {
+          --#{$color-name}: #{$color-value};
+        }
+      }
+    }
+  }
+}

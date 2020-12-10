@@ -1,0 +1,9 @@
+@function export($output, $key) {
+  $_out: false;
+  @if list-contains($output, "*") {
+    $_out: true;
+  } @else if list-contains($output, $key) {
+    $_out: true;
+  }
+  @return $_out;
+}

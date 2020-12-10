@@ -1,0 +1,68 @@
+@function to-lightness($color, $lightness) {
+  @return hsl(hue($color), saturation($color), $lightness);
+}
+@function contra($color, $black: black, $white: white) {
+  $_val: black;
+  @if lightness($color) > 55 {
+    $_val: $black;
+  } @else {
+    $_val: $white;
+  }
+  @return $_val;
+}
+
+// Colors
+$color-palette: () !default;
+$color-palette-base: (
+  "Red": #dd0d0d,
+  "Orange": #ffa51d,
+  "Yellow": #ffdc13,
+  "Green": #2f9915,
+  "Blue": #1b41e7,
+  "Brown": #975d12,
+  "Purple": #8c12d3,
+  "Pink": #ff7cae,
+  "Turquoise": #0fd3b9,
+  "Gray": #7f8688,
+  "Black": #111111,
+  "White": #ffffff,
+) !default;
+
+$color-palette-defined: (
+  "Primary": purple,
+  "Secondary": Yellow,
+  "Tertiary": rgb(62, 212, 62),
+  "Alert": red,
+  "Warning": orange,
+  "Info": skyblue,
+  "Dark": #222222,
+  "Light": #f7f7f7,
+  "Accent": #f1f1f1,
+) !default;
+
+@each $color-name, $color-value in $color-palette-base {
+  $color-palette: map-merge(
+    $color-palette,
+    (
+      "#{to-lower-case($color-name)}": $color-value,
+    )
+  );
+  @for $i from 1 through 9 {
+    $color-palette: map-merge(
+      $color-palette,
+      (
+        "#{to-lower-case($color-name)}-#{$i * 10}":
+          to-lightness($color-value, $i * 10),
+      )
+    );
+  }
+}
+
+@each $color-name, $color-value in $color-palette-defined {
+  $color-palette: map-merge(
+    $color-palette,
+    (
+      to-lower-case($color-name): $color-value,
+    )
+  );
+}
