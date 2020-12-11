@@ -26,7 +26,7 @@ Proin luctus elementum nulla et aliquam. Suspendisse semper porttitor purus. Nul
 
 </section>
 
-<Section>
+<Section color="purple">
 
 ### Lists
 
@@ -55,5 +55,27 @@ Proin luctus elementum nulla et aliquam. Suspendisse semper porttitor purus. Nul
    2. Which also needs to
       1. Keep counting
       2. And look good.
+
+</Section>
+
+<Section color="purple-20">
+
+### Links
+
+this is a text with [a link](#in-it) in it.
+
+[this is a direct link](#in-it)
+
+</Section>
+
+<Section>
+
+#### And when the section doesn't have a color
+
+The color should fall back to the secondary color, or if not defined, just the currentColor of the text.
+
+this is a text with [a link](#in-it) in it.
+
+[this is a direct link](#in-it)
 
 </Section>

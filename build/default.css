@@ -214,6 +214,10 @@ body {
   line-height: var(--stil-line-height, 1.5);
 }
 
+.content a:not([class]) {
+  color: var(--contra, var(--secondary, currentColor));
+}
+
 .content ul:not([class]) + ol, .content ul:not([class]) + ul,
 .content ol:not([class]) + ol,
 .content ol:not([class]) + ul {
@@ -233,6 +237,10 @@ body {
 .content ul:not([class]) li::before,
 .content ol:not([class]) li::before {
   padding-right: 1em;
+}
+.content ul:not([class]) li + li,
+.content ol:not([class]) li + li {
+  margin-top: 0.5em;
 }
 .content ul:not([class]) > li::before {
   content: "—";
