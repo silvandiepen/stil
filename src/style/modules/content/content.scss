@@ -27,6 +27,69 @@
       }
     }
   }
+  @if export($output, "content.default") or export($output, "content.lists") {
+    #{$parent} {
+      ul:not([class]),
+      ol:not([class]) {
+        & + ol,
+        & + ul {
+          margin-top: 1em;
+        }
+        ul:not([class]),
+        ol:not([class]) {
+          padding-left: 1em;
+        }
+        li {
+          line-height: value(line-height);
+          font-size: value(font-size);
+          &::before {
+            padding-right: space() / 2;
+          }
+        }
+      }
+      ul:not([class]) {
+        > li {
+          &::before {
+            content: "\2014";
+          }
+        }
+      }
+      ol:not([class]) {
+        counter-reset: list;
+        ol {
+          counter-reset: sublist;
+          > li {
+            counter-increment: sublist;
+            &::before {
+              content: counter(list) "." counter(sublist) ".";
+            }
+            > ol {
+              counter-reset: subsublist;
+              > li {
+                counter-increment: subsublist;
+                &::before {
+                  content: counter(list)
+                    "."
+                    counter(sublist)
+                    "."
+                    counter(subsublist)
+                    ".";
+                }
+              }
+            }
+          }
+        }
+        > li {
+          counter-increment: list;
+          &::before {
+            font-variant-numeric: tabular-nums;
+            content: counter(list) ".";
+          }
+        }
+      }
+    }
+  }
+
   @if export($output, "content.default") or export($output, "content.table") {
     #{$parent} {
       table {

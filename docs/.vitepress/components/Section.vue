@@ -1,6 +1,6 @@
 <template>
 	<section class="section" :class="backgroundClass">
-		<div class="wrap">
+		<div class="container">
 			<slot />
 		</div>
 	</section>

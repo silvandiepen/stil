@@ -45,6 +45,13 @@ $settings: map-merge(
     "grid.breakpoint.small": 0,
     "grid.breakpoint.medium": 720,
     "grid.breakpoint.large": 1280,
+    "define.section.class": "section",
+    "define.container.class": "container",
+    "define.main.class": "main",
+    "define.header.class": "header",
+    "define.logo.class": "logo",
+    "define.footer.class": "footer",
+    "define.navigation.class": "navigation",
   )
 ) !default;
 

@@ -1,6 +1,8 @@
 @mixin section-navigation() {
   @if export($output, "section.navigation") {
-    .navigation {
+    $navigation: settings($settings, "define.navigation.class");
+
+    .#{$navigation} {
       position: relative;
       display: flex;
       a {

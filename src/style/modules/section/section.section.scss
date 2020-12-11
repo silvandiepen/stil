@@ -1,16 +1,19 @@
 @mixin section-section() {
   @if export($output, "section.section") {
-    .section {
+    $section: settings($settings, "define.section.class");
+    $container: settings($settings, "define.container.class");
+
+    .#{$section} {
       position: relative;
       padding: calc(#{value(space)});
       @media #{breakpoint(medium)} {
         padding: calc(#{value(space)} * 2);
       }
-      > .wrap {
+      > .#{$container} {
         max-width: value("content.max-width");
         margin-left: auto;
         margin-right: auto;
-        & + .wrap {
+        & + .#{$container} {
           margin-top: 1em;
         }
       }

@@ -220,3 +220,35 @@ Try resizing your window and see how the blocks will go from third on a big scre
 <FontsTable :fonts="['sans-serif','serif','code','Helvetica','Avenir', 'Inter','Poppins','Raleway','Work Sans']" />
 
 </Section>
+
+<Section color="purple-20">
+
+# A test with lists
+
+- A regular list
+- With items
+- Which sometimes can be pretty long, which means they will come to the next line. In that case they should be looking good too.
+- Or not ofcourse
+
+1. And there are
+2. Numbered lists
+3. Because sometimes
+4. You just want to sum something up.
+
+- And don't forget
+- There might be
+  1. Sub lists
+  2. Which have to look good too
+     - Even sub sub, should again look good.
+     - Let's see
+  3. How that will work out.
+- With these.
+
+1. And there is
+2. The sublist
+   1. In a sublist
+   2. Which also needs to
+      1. Keep counting
+      2. And look good.
+
+</Section>

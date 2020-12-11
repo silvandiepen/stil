@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body,
 div,
@@ -151,12 +152,12 @@ body {
     padding: calc(var(--stil-space, 2em) * 2);
   }
 }
-.section > .wrap {
+.section > .container {
   max-width: var(--stil-content-max-width, max(75ch, 720px));
   margin-left: auto;
   margin-right: auto;
 }
-.section > .wrap + .wrap {
+.section > .container + .container {
   margin-top: 1em;
 }
 .section--h-3-4 {
@@ -211,6 +212,58 @@ body {
   line-height: var(--stil-line-height, 1.5);
   padding: var(--stil-space, 2em);
   line-height: var(--stil-line-height, 1.5);
+}
+
+.content ul:not([class]) + ol, .content ul:not([class]) + ul,
+.content ol:not([class]) + ol,
+.content ol:not([class]) + ul {
+  margin-top: 1em;
+}
+.content ul:not([class]) ul:not([class]),
+.content ul:not([class]) ol:not([class]),
+.content ol:not([class]) ul:not([class]),
+.content ol:not([class]) ol:not([class]) {
+  padding-left: 1em;
+}
+.content ul:not([class]) li,
+.content ol:not([class]) li {
+  line-height: var(--stil-line-height, 1.5);
+  font-size: var(--stil-font-size, 1em);
+}
+.content ul:not([class]) li::before,
+.content ol:not([class]) li::before {
+  padding-right: 1em;
+}
+.content ul:not([class]) > li::before {
+  content: "—";
+}
+.content ol:not([class]) {
+  counter-reset: list;
+}
+.content ol:not([class]) ol {
+  counter-reset: sublist;
+}
+.content ol:not([class]) ol > li {
+  counter-increment: sublist;
+}
+.content ol:not([class]) ol > li::before {
+  content: counter(list) "." counter(sublist) ".";
+}
+.content ol:not([class]) ol > li > ol {
+  counter-reset: subsublist;
+}
+.content ol:not([class]) ol > li > ol > li {
+  counter-increment: subsublist;
+}
+.content ol:not([class]) ol > li > ol > li::before {
+  content: counter(list) "." counter(sublist) "." counter(subsublist) ".";
+}
+.content ol:not([class]) > li {
+  counter-increment: list;
+}
+.content ol:not([class]) > li::before {
+  font-variant-numeric: tabular-nums;
+  content: counter(list) ".";
 }
 
 .content table {
@@ -708,28 +761,34 @@ pre[class*=language-] {
   font-weight: 600;
 }
 
-h1 + h1, h2 + h1, h3 + h1, h4 + h1, h5 + h1, h6 + h1, p + h1, div + h1 {
+h1 + h1, h2 + h1, h3 + h1, h4 + h1, h5 + h1, h6 + h1, p + h1, div + h1, ul + h1, ol + h1 {
   margin-top: 1em;
 }
-h1 + h2, h2 + h2, h3 + h2, h4 + h2, h5 + h2, h6 + h2, p + h2, div + h2 {
+h1 + h2, h2 + h2, h3 + h2, h4 + h2, h5 + h2, h6 + h2, p + h2, div + h2, ul + h2, ol + h2 {
   margin-top: 1em;
 }
-h1 + h3, h2 + h3, h3 + h3, h4 + h3, h5 + h3, h6 + h3, p + h3, div + h3 {
+h1 + h3, h2 + h3, h3 + h3, h4 + h3, h5 + h3, h6 + h3, p + h3, div + h3, ul + h3, ol + h3 {
   margin-top: 1em;
 }
-h1 + h4, h2 + h4, h3 + h4, h4 + h4, h5 + h4, h6 + h4, p + h4, div + h4 {
+h1 + h4, h2 + h4, h3 + h4, h4 + h4, h5 + h4, h6 + h4, p + h4, div + h4, ul + h4, ol + h4 {
   margin-top: 1em;
 }
-h1 + h5, h2 + h5, h3 + h5, h4 + h5, h5 + h5, h6 + h5, p + h5, div + h5 {
+h1 + h5, h2 + h5, h3 + h5, h4 + h5, h5 + h5, h6 + h5, p + h5, div + h5, ul + h5, ol + h5 {
   margin-top: 1em;
 }
-h1 + h6, h2 + h6, h3 + h6, h4 + h6, h5 + h6, h6 + h6, p + h6, div + h6 {
+h1 + h6, h2 + h6, h3 + h6, h4 + h6, h5 + h6, h6 + h6, p + h6, div + h6, ul + h6, ol + h6 {
   margin-top: 1em;
 }
-h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p, p + p, div + p {
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p, p + p, div + p, ul + p, ol + p {
   margin-top: 1em;
 }
-h1 + div, h2 + div, h3 + div, h4 + div, h5 + div, h6 + div, p + div, div + div {
+h1 + div, h2 + div, h3 + div, h4 + div, h5 + div, h6 + div, p + div, div + div, ul + div, ol + div {
+  margin-top: 1em;
+}
+h1 + ul, h2 + ul, h3 + ul, h4 + ul, h5 + ul, h6 + ul, p + ul, div + ul, ul + ul, ol + ul {
+  margin-top: 1em;
+}
+h1 + ol, h2 + ol, h3 + ol, h4 + ol, h5 + ol, h6 + ol, p + ol, div + ol, ul + ol, ol + ol {
   margin-top: 1em;
 }
 
@@ -737,7 +796,7 @@ div + div {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, div {
+h1, h2, h3, h4, h5, h6, p, div, ul, ol {
   margin: 0;
 }
 

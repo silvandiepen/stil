@@ -1,6 +1,8 @@
 @mixin section-footer() {
   @if export($output, "section.footer") {
-    .footer {
+    $footer: settings($settings, "define.footer.class");
+
+    .#{$footer} {
       position: relative;
     }
   }

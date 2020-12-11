@@ -1,6 +1,8 @@
 @mixin section-main() {
   @if export($output, "section.main") {
-    .main {
+    $main: settings($settings, "define.main.class");
+
+    .#{$main} {
       position: relative;
     }
   }

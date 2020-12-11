@@ -1,6 +1,9 @@
 @mixin section-header() {
   @if export($output, "section.header") {
-    .header {
+    $header: settings($settings, "define.header.class");
+    $logo: settings($settings, "define.logo.class");
+
+    .#{$header} {
       position: relative;
       display: flex;
       justify-content: space-between;
@@ -10,7 +13,7 @@
       }
     }
 
-    .header .logo {
+    .#{$header} .#{$logo} {
       padding: value(space);
       font-weight: bold;
     }
