@@ -8,8 +8,10 @@
         font-size: value(font-size, 1em);
         line-height: value(line-height, 1.5);
         max-width: value("content.paragraph.max-width");
-        &:first-of-type {
-          font-size: value(font-size-first, 1.25em);
+        @if export($output, "content.paragraphs.first") {
+          &:first-of-type {
+            font-size: value(font-size-first, 1.25em);
+          }
         }
       }
     }
