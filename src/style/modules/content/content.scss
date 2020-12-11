@@ -30,19 +30,17 @@
   @if export($output, "content.default") or export($output, "content.links") {
     #{$parent} {
       a:not([class]) {
-        $link-color: settings($settings, "content.link.colors");
+        $link-colors: list-reverse(settings($settings, "content.link.colors"));
 
-        $link: "";
+        $link-color: "";
         @for $i from 1 through length($link-colors) {
           @if $i == 1 {
+            $link-color: var(--#{nth($link-colors, $i)}, currentColor);
           } @else {
-            $link: var(--#{$color}, $link);
+            $link-color: var(--#{nth($link-colors, $i)}, $link-color);
           }
         }
-        @each $color in $link-colors {
-          @if;
-        }
-        color: var(--contra, var(--secondary, currentColor));
+        color: $link-color;
       }
     }
   }

@@ -1,17 +1,8 @@
-<header class="header header--sticky">
-    <a class="logo">Stil</a>
-    <nav class="navigation">
-        <a href="#about">About</a>
-        <a href="#colors">Colors</a>
-        <a href="#grid">Grid</a>
-    </nav>
-</header>
-
 <section class="section section--h-3-4 clipped">
 
 <h1 class="centered opacity--10" style="--centered-position: fixed; --centered-translate-y: -100%; --centered-top: 100%;color: var(--secondary); font-size: 80vw">stil</h1>
 
-<div class="wrap">
+<div class="container">
 
 ###### About
 
@@ -23,7 +14,7 @@ Just implement the css and create simple pages just using classes. Or include it
 </section>
 <section class="section background--deepblue" style="--current-color: var(--secondary)">
 
-<div class="wrap">
+<div class="container">
 
 ###### installation
 
@@ -64,9 +55,7 @@ Check the Settings and Output guide to see more settings and use cases.
 
 </section>
 
-<section class="section">
-
-<div class="wrap">
+<Section>
 
 ###### Colors
 
@@ -74,19 +63,15 @@ Check the Settings and Output guide to see more settings and use cases.
 
 <color-table :colors="['Red','Orange','Yellow','Lime','Grass','Green','Sky','Water','Blue','DeepBlue','Brown','Purple','DeepPurple','Rose','Lavender','Pink','Berry','Pomegranate','Turquoise','Gray','Black','White']" />
 
-</div>
-</section>
+</Section>
 
-<section class="section">
-
-<div class="wrap">
+<Section>
 
 ### Defined colors
 
 <color-table :colors="['Primary','Secondary','Tertiary','Alert','Warning','Info','Dark','Light','Accent']" />
 
-</div>
-</section>
+</Section>
 
 <Section color="gray-90">
 
@@ -218,37 +203,5 @@ Try resizing your window and see how the blocks will go from third on a big scre
 <Section color="blue-30">
 
 <FontsTable :fonts="['sans-serif','serif','code','Helvetica','Avenir', 'Inter','Poppins','Raleway','Work Sans']" />
-
-</Section>
-
-<Section color="purple-20">
-
-# A test with lists
-
-- A regular list
-- With items
-- Which sometimes can be pretty long, which means they will come to the next line. In that case they should be looking good too.
-- Or not ofcourse
-
-1. And there are
-2. Numbered lists
-3. Because sometimes
-4. You just want to sum something up.
-
-- And don't forget
-- There might be
-  1. Sub lists
-  2. Which have to look good too
-     - Even sub sub, should again look good.
-     - Let's see
-  3. How that will work out.
-- With these.
-
-1. And there is
-2. The sublist
-   1. In a sublist
-   2. Which also needs to
-      1. Keep counting
-      2. And look good.
 
 </Section>

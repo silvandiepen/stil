@@ -17,6 +17,10 @@ $settings: map-merge(
     "content.block": ".content",
     "content.paragraph.max-width": max(75ch, 960px),
     "content.max-width": max(75ch, 720px),
+    "content.link.colors": (
+      contra,
+      secondary,
+    ),
     "color.primary": red,
     "color.secondary": blue,
     "h6.font-size": 14px,
