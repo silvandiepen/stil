@@ -1,0 +1,32 @@
+@mixin box() {
+  @if export($output, "box") {
+    .boxes {
+      width: 100%;
+      display: flex;
+      &--inline {
+        display: flex-inline;
+      }
+      &--row {
+        flex-direction: row;
+      }
+      &--column {
+        flex-direction: column;
+      }
+      &--auto {
+        .box {
+          width: var(--box-width, 100%);
+          padding-bottom: var(--box-height, 100%);
+        }
+      }
+    }
+    .box {
+      width: var(--box-width, value(space, 100%));
+      height: var(--box-height, value(space, 100%));
+      border-radius: var(--box-border-radius, value(border-radius));
+      &--auto {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}

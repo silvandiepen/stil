@@ -4,6 +4,9 @@
       display: flex;
       flex-flow: wrap;
       width: 100%;
+      &--gap {
+        gap: 1em;
+      }
       &--auto {
         flex-flow: row;
       }

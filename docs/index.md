@@ -88,9 +88,7 @@ Check the Settings and Output guide to see more settings and use cases.
 </div>
 </section>
 
-<section class="section background--gray-90">
-
-<div class="wrap">
+<Section color="gray-90">
 
 ### Gradients
 
@@ -103,12 +101,9 @@ Check the Settings and Output guide to see more settings and use cases.
 </div>
 </div>
 
-</div>
-</section>
+</Section>
 
-<section class="section background--green-40">
-
-<div class="wrap">
+<Section color="green-40">
 
 ###### Grid
 
@@ -118,59 +113,110 @@ Check the Settings and Output guide to see more settings and use cases.
 
 Stil works just with named partials. Just add the partial name to your column (in a row) and it will be the right width.
 
-<div class="row gap--1 space--2 background--green border-radius--2">
-    <div class="column full space--2 border-radius--1 background--white">
-        <code>column full</code>
-    </div>
-</div>
+<Row class="gap--1 space--2 background--green border-radius--2">
+<Column class="full space--2 border-radius--1 background--white">
+    column 
+    full
+</Column>
+</Row>
 
-<div class="row gap--2 space--2 background--green border-radius--2 space-top--3">
-     <div class="column half space--2 border-radius--1 background--white">
-        <code>column half</code>
-    </div>
-     <div class="column half space--2 border-radius--1 background--white">
-        <code>column half</code>
-    </div>
-</div>
+<Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
+<Column class="half space--2 border-radius--1 background--white">
+    column 
+    half
+</Column>
 
-<div class="row gap--2 space--2 background--green border-radius--2 space-top--3">
-    <div class="column third space--2 border-radius--1 background--white">
-       <code>column third</code>
-    </div>
-    <div class="column two-third space--2 border-radius--1 background--white">
-        <code>column two-third</code>
-    </div>
-</div>
+<Column class="half space--2 border-radius--1 background--white">
+    column 
+    half
+</Column>
+</Row>
 
-<div class="row gap--2 space--2 background--green border-radius--2 space-top--3">
-    <div class="column quarter space--2 border-radius--1 background--white">
-        <code>column quarter</code>
-    </div>
-    <div class="column three-quarter space--2 border-radius--1 background--white">
-        <code>column three-quarter</code>
-    </div>
-</div>
+<Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
 
-</div>
-</section>
-<section class="section background--green">
-<div class="wrap">
+<Column class="third space--2 border-radius--1 background--white">
+    column 
+    third
+</Column>
+
+<Column class="two-third space--2 border-radius--1 background--white">
+    column 
+    two-third
+</Column>
+
+</Row>
+
+<Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
+
+<Column class="quarter space--2 border-radius--1 background--white">
+    column 
+    quarter
+</Column>
+
+<Column class="three-quarter space--2 border-radius--1 background--white">
+    column 
+    three-quarter
+</Column>
+
+</Row>
+
+</Section>
+
+<Section color="green">
 
 #### Responsive Partials
 
 Try resizing your window and see how the blocks will go from third on a big screen, halfs on a medium screen and full on mobile.
 
-<div class="row gap--2 space--2 background--white border-radius--2">
-    <div class="column small--full medium--half large--third space--2 border-radius--1 background--green-20">
-        <code>column small--full medium--half large--third</code>
-    </div>  
-    <div class="column small--full medium--half large--third space--2 border-radius--1 background--green-30">
-        <code>column small--full medium-half large--third</code>
-    </div>  
-    <div class="column small--full medium--half large--third space--2 border-radius--1 background--green-40">
-        <code>column small--full medium--half large--third</code>
-    </div>  
-</div>
+<Row class="gap--2 space--2 background--white border-radius--2">
 
-</div>
-</section>
+<Column class="small--full medium--half large--third space--2 border-radius--1 background--green-20">
+    column 
+    small--full 
+    medium--half 
+    large--third
+</Column>
+
+<Column class="small--full medium--half large--third space--2 border-radius--1 background--green-30">
+    column 
+    small--full 
+    medium-half 
+    large--third
+</Column>
+
+<Column class="small--full medium--half large--third space--2 border-radius--1 background--green-40">
+    column 
+    small--full 
+    medium--half 
+    large--third
+</Column>
+
+</Row>
+
+</Section>
+
+<Section color="blue-20">
+
+###### typography
+
+### Headers
+
+# The quick brown fox jumps over the lazy dog
+
+## The quick brown fox jumps over the lazy dog
+
+### The quick brown fox jumps over the lazy dog
+
+#### The quick brown fox jumps over the lazy dog
+
+##### The quick brown fox jumps over the lazy dog
+
+###### The quick brown fox jumps over the lazy dog
+
+</Section>
+
+<Section color="blue-30">
+
+<FontsTable :fonts="['sans-serif','serif','code','Helvetica','Avenir', 'Inter','Poppins','Raleway','Work Sans']" />
+
+</Section>

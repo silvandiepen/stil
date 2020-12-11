@@ -14,10 +14,6 @@
       family: "Consolas, monaco, monospace",
     ),
     (
-      name: "courier",
-      family: '"Courier Next", courier, monospace',
-    ),
-    (
       name: "Helvetica",
       family: '"Helvetica neue", helvetica, sans-serif',
     ),
@@ -26,37 +22,33 @@
       family: '"Avenir Next", Avenir, sans-serif',
     ),
     (
-      name: "Athelas",
-      family: "athelas, georgia, serif",
-    ),
-    (
-      name: "Georgia",
-      family: "georgia, serif",
-    ),
-    (
-      name: "Times",
-      family: "times, serif",
-    ),
-    (
-      name: "Bodoni",
-      family: '"Bodoni MT", times, serif;',
-    ),
-    (
-      name: "Calisto",
-      family: '"Calisto MT", serif',
-    ),
-    (
-      name: "Garamond",
-      family: " garamond, serif",
-    ),
-    (
-      name: "Baskerville",
-      family: "baskerville, serif",
+      name: "Poppins",
+      family: "Poppins, -apple-system, BlinkMacSystemFont, sans-serif",
+      google: true,
+      display: swap,
+      weights: (
+        "light": 200,
+        "regular": 400,
+        "medium": 500,
+        "bold": 600,
+      ),
     ),
     (
       name: "Inter",
-      key: "PrintOutInter",
       family: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+      google: true,
+      display: swap,
+      weights: (
+        "light": 200,
+        "regular": 400,
+        "medium": 500,
+        "bold": 600,
+      ),
+    ),
+    (
+      name: "Work Sans",
+      key: "work-sans",
+      family: "Work Sans, -apple-system, BlinkMacSystemFont, sans-serif",
       google: true,
       display: swap,
       weights: (
@@ -79,8 +71,11 @@
       "typography.fonts.#{to-lower-case(to-str($name))}"
     );
 
+    $_name: str-replace($name, " ", "-");
+
     @if export($output, $key) {
-      .font-#{to-lower-case($name)} {
+      .font--#{to-lower-case($_name)} {
+        --current-font: unquote(to-str($family));
         font-family: unquote(to-str($family));
       }
 
@@ -88,14 +83,14 @@
       @if $weights {
         @if type-of($weights) == "list" {
           @each $weight in $weights {
-            .font-#{to-lower-case($name)}--#{$weight} {
+            .font--#{to-lower-case($_name)}--#{$weight} {
               font-family: unquote(to-str($family));
               font-weight: #{$weight};
             }
           }
         } @else if type-of($weights) == "map" {
           @each $weight_name, $weight_value in $weights {
-            .font-#{to-lower-case($name)}--#{$weight_name} {
+            .font--#{to-lower-case($_name)}--#{$weight_name} {
               font-family: unquote(to-str($family));
               font-weight: #{$weight_value};
             }
@@ -107,27 +102,25 @@
       @if $google {
         // Google Weights for import
         $_g_weights: 400;
-
+        $_g_name: str-replace($name, " ", "+");
         @if $weights {
           @if type-of($weights) == "list" {
             $_g_weights: list-to-string($weights, ";");
           }
           @if type-of($weights) == "map" {
             $_g_weights_list: ();
-            @each $weight-value in $weights {
+            @each $weight-name, $weight-value in $weights {
               $_g_weights_list: append($_g_weights_list, $weight-value);
             }
-            $_g_weights: list-to-string($_g_weights_list, ";");
+            $_g_weights: list-to-str($_g_weights_list, ";");
           }
         }
 
         $_g_display: if-else($display "swap");
 
-        $_g_url: "https://fonts.googleapis.com/css2?family=#{$name}:wght@#{$_g_weights}&display=#{$_g_display}";
-        @debug $_g_url;
-        // @at-root {
-        //   @import "#{unquote($_g_url)}";
-        // }
+        $_g_url: "https://fonts.googleapis.com/css2?family=#{$_g_name}:wght@#{$_g_weights}&display=#{$_g_display}.css";
+
+        // @import $_g_url;
       }
     }
   }

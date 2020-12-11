@@ -2,7 +2,7 @@
   "name": "stil-style",
   "version": "0.0.1",
   "description": "Base CSS Design System",
-  "main": "index.js",
+  "main": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:style && cpy build/default.css docs/.vitepress/theme",
