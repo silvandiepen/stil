@@ -1,6 +1,7 @@
 @mixin section-navigation() {
   @if export($output, "section.navigation") {
     $navigation: settings($settings, "define.navigation.class");
+    $header: settings($settings, "define.header.class");
 
     .#{$navigation} {
       position: relative;
@@ -9,6 +10,117 @@
         padding: value(space);
         text-decoration: none;
         color: currentColor;
+      }
+      &-toggle {
+        &:hover {
+          background-color: var(--primary);
+        }
+        background-color: var(--secondary);
+
+        position: fixed;
+        top: space(0.5);
+        right: space(0.5);
+        z-index: 11;
+        border-radius: value(border-radius);
+
+        width: space(2);
+        height: space(2);
+        align-items: center;
+        justify-content: center;
+
+        display: flex;
+
+        @media #{breakpoint(medium)} {
+          display: none;
+        }
+        span {
+          display: block;
+          width: space();
+          height: 2px;
+          background-color: currentColor;
+          position: relative;
+          &::before,
+          &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background-color: inherit;
+          }
+          &::before {
+            transform: translateY(-500%);
+          }
+          &::after {
+            transform: translateY(400%);
+          }
+          &,
+          &:before,
+          &:after {
+            transition: transform 0.3s;
+          }
+        }
+      }
+      &-input {
+        position: absolute;
+        width: 0;
+        height: 0;
+        clip-path: inset(100% 100% 100% 100%);
+        opacity: 0;
+        & ~ .#{navigation},
+        & ~ #{$header} .#{navigation} {
+          @media #{breakpoint(small,only)} {
+            --delay: 0.5s;
+            position: fixed;
+            flex-direction: column;
+            background-color: inherit;
+            width: 100vw;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.5);
+            transition: transform var(--timing, 0.3s) var(--delay, 0s)
+                ease-in-out,
+              opacity var(--timing, 0.3s) var(--delay, 0s) ease-in-out;
+            opacity: 0;
+            pointer-events: none;
+            a {
+              --delay: 0s;
+              transition: transform var(--timing, 0.3s) var(--delay, 0s)
+                  ease-in-out,
+                opacity var(--timing, 0.3s) var(--delay, 0s) ease-in-out;
+              transform: scale(0.5);
+              opacity: 0;
+            }
+          }
+        }
+        &:checked {
+          & + .#{$navigation}-toggle {
+            span {
+              transform: rotate(45deg);
+              &::before {
+                transform: translateY(0%) rotate(-90deg);
+              }
+              &::after {
+                transform: translateY(0%) rotate(90deg);
+              }
+            }
+          }
+          & ~ .#{navigation},
+          & ~ #{$header} .#{navigation} {
+            @media #{breakpoint(small,only)} {
+              --delay: 0s;
+              transform: scale(1);
+              opacity: 1;
+              pointer-events: all;
+              a {
+                --delay: 0.5s;
+                transform: scale(1);
+                opacity: 1;
+              }
+            }
+          }
+        }
       }
     }
   }

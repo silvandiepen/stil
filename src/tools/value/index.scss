@@ -24,6 +24,6 @@
   }
 }
 
-@function space() {
-  @return settings($settings, "space");
+@function space($v: 1) {
+  @return settings($settings, "space") * $v;
 }

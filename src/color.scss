@@ -63,14 +63,16 @@ $color-palette-defined: map-merge(
       "#{to-lower-case($color-name)}": $color-value,
     )
   );
-  @for $i from 1 through 9 {
-    $color-palette: map-merge(
-      $color-palette,
-      (
-        "#{to-lower-case($color-name)}-#{$i * 10}":
-          to-lightness($color-value, $i * 10),
-      )
-    );
+  @if export($output, "color.shades") {
+    @for $i from 1 through 9 {
+      $color-palette: map-merge(
+        $color-palette,
+        (
+          "#{to-lower-case($color-name)}-#{$i * 10}":
+            to-lightness($color-value, $i * 10),
+        )
+      );
+    }
   }
 }
 
