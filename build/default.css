@@ -195,7 +195,40 @@ body {
 .navigation a {
   padding: var(--stil-space, 2em);
   text-decoration: none;
+  position: relative;
   color: currentColor;
+  display: block;
+}
+.navigation a span {
+  position: relative;
+  z-index: 2;
+}
+.navigation a::before {
+  content: "";
+  display: block;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  width: calc(100% - var(--stil-space, 2em));
+  height: calc(100% - var(--stil-space, 2em));
+  background-color: var(--sky-80);
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.75);
+  border-radius: var(--stil-border-radius, 0.3em);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out;
+}
+.navigation a:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.navigation a:focus {
+  outline: none;
+}
+.navigation a:not(:hover):focus::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  background-color: var(--yellow-80);
 }
 .navigation-toggle {
   background-color: var(--secondary);

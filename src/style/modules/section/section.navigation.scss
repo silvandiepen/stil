@@ -9,7 +9,41 @@
       a {
         padding: value(space);
         text-decoration: none;
+        position: relative;
         color: currentColor;
+        display: block;
+
+        span {
+          position: relative;
+          z-index: 2;
+        }
+        &::before {
+          content: "";
+          display: block;
+          z-index: 1;
+          position: absolute;
+          left: 50%;
+          width: calc(100% - #{value(space)});
+          height: calc(100% - #{value(space)});
+          background-color: var(--sky-80);
+          top: 50%;
+          transform: translate(-50%, -50%) scale(0.75);
+          border-radius: value(border-radius);
+          opacity: 0;
+          transition: transform 0.3s ease-in-out;
+        }
+        &:hover::before {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+        &:focus {
+          outline: none;
+        }
+        &:not(:hover):focus::before {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          background-color: var(--yellow-80);
+        }
       }
       &-toggle {
         &:hover {
