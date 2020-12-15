@@ -190,64 +190,65 @@
 
         & ~ .#{navigation},
         & ~ #{$header} .#{navigation} {
-          --delay: 0.5s;
-          position: fixed;
-          flex-direction: column;
-          background-color: inherit;
-          top: 50%;
-          left: 50%;
-          // width: calc(100vw - (#{value(space)} * 4));
-          // height: calc(100vh - (#{value(space)} * 4));
-          // top: calc(#{value(space)} * 2);
-          // left: calc(#{value(space)} * 2);
-          padding: value(space);
-          border: 2px solid var(--accent);
-          border-radius: value(border-radius);
-          align-items: center;
-          justify-content: center;
-          transform: translate(-50%, -100%) scale(0.5);
-          transition: transform var(--timing, 0.3s) var(--delay, 0s) ease-in-out,
-            opacity var(--timing, 0.3s) var(--delay, 0s) ease-in-out;
-          opacity: 0;
-          pointer-events: none;
-          a {
-            --delay: 0s;
-            transition: transform
-                var(--timing, 0.3s)
-                var(--delay, 0s)
+          @media #{breakpoint(small,only)} {
+            --delay: 0.5s;
+            position: fixed;
+            flex-direction: column;
+            background-color: inherit;
+            top: 50%;
+            left: 50%;
+            // width: calc(100vw - (#{value(space)} * 4));
+            // height: calc(100vh - (#{value(space)} * 4));
+            // top: calc(#{value(space)} * 2);
+            // left: calc(#{value(space)} * 2);
+            padding: value(space);
+            border: 2px solid var(--accent);
+            border-radius: value(border-radius);
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%, -100%) scale(0.5);
+            transition: transform var(--timing, 0.3s) var(--delay, 0s)
                 ease-in-out,
               opacity var(--timing, 0.3s) var(--delay, 0s) ease-in-out;
-            transform: scale(0.5);
             opacity: 0;
-          }
-        }
-      }
-      &:checked {
-        & ~ .#{navigation}-background {
-          pointer-events: all;
-        }
-        & + .#{$navigation}-toggle {
-          span {
-            transform: rotate(45deg);
-            &::before {
-              transform: translateY(0%) rotate(-90deg);
-            }
-            &::after {
-              transform: translateY(0%) rotate(90deg);
-            }
-          }
-        }
-        & ~ .#{navigation},
-        & ~ #{$header} .#{navigation} {
-          @media #{breakpoint(small,only)} {
-            --delay: 0s;
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-            pointer-events: all;
+            pointer-events: none;
             a {
-              --delay: 0.5s;
-              transform: scale(1);
+              --delay: 0s;
+              transition: transform var(--timing, 0.3s) var(--delay, 0s)
+                  ease-in-out,
+                opacity var(--timing, 0.3s) var(--delay, 0s) ease-in-out;
+              transform: scale(0.5);
+              opacity: 0;
+            }
+          }
+        }
+        &:checked {
+          & ~ .#{navigation}-background {
+            pointer-events: all;
+          }
+          & + .#{$navigation}-toggle {
+            span {
+              transform: rotate(45deg);
+              &::before {
+                transform: translateY(0%) rotate(-90deg);
+              }
+              &::after {
+                transform: translateY(0%) rotate(90deg);
+              }
+            }
+          }
+          & ~ .#{navigation},
+          & ~ #{$header} .#{navigation} {
+            @media #{breakpoint(small,only)} {
+              --delay: 0s;
+              transform: translate(-50%, -50%) scale(1);
               opacity: 1;
+              pointer-events: all;
+              a {
+                --delay: 0.5s;
+                transform: scale(1);
+                opacity: 1;
+              }
             }
           }
         }
