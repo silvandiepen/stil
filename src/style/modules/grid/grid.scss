@@ -4,9 +4,6 @@
       display: flex;
       flex-flow: wrap;
       width: 100%;
-      &--gap {
-        gap: 1em;
-      }
       &--auto {
         flex-flow: row;
       }
@@ -38,7 +35,7 @@
       @each $breakpoint in $breakpoint-names {
         @each $size-name, $size-value in $breakpoint-sizes {
           .#{$size-name} {
-            width: (100% * $size-value);
+            width: calc(#{(100% * $size-value)} - var(--gap-width));
           }
         }
       }
@@ -48,7 +45,7 @@
         @media #{breakpoint($breakpoint)} {
           @each $size-name, $size-value in $breakpoint-sizes {
             .#{$breakpoint}--#{$size-name} {
-              width: (100% * $size-value);
+              width: calc(#{(100% * $size-value)} - var(--gap-width));
             }
           }
         }

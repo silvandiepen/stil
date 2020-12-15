@@ -73,19 +73,52 @@ Check the Settings and Output guide to see more settings and use cases.
 
 </Section>
 
-<Section color="gray-90">
+<Section color="purple-80" style="--stil-content-max-width: 100%">
 
 ### Gradients
 
-<div class="boxes boxes--auto gap--2">
+<div class="card-group gap--1">
+<article class="card card--third">
+<figure class="background--gradient">
+</figure>
+
+```html
 <div class="box background--gradient"></div>
+```
 
-<div class="box background--gradient" style="--gradient-from: var(--red); --gradient-to: var(--blue)">
-</div>
-<div class="box background--gradient" style="--gradient-from: var(--green-30); --gradient-to: var(--green-40); --gradient-direction: to bottom;">
-</div>
-</div>
+</article>
 
+<article class="card card--third">
+<figure class="background--gradient" style="--gradient-from: var(--red); --gradient-to: var(--blue)">
+</figure>
+
+```html
+<div
+  class="background--gradient"
+  style="
+            --gradient-from: var(--red);
+            --gradient-to: var(--blue)"
+></div>
+```
+
+</article>
+
+<article class="card card--third">
+<figure class="background--gradient" style=" height: 5em; --gradient-from: var(--green-30); --gradient-to: var(--green-40); --gradient-direction: to bottom;"><p>fdasfa</p>
+</figure>
+
+```html
+<div
+  class="background--gradient"
+  style="
+        --gradient-from: var(--green-30);
+        --gradient-to: var(--green-40);
+        --gradient-direction: to bottom;"
+></div>
+```
+
+</article>
+</div>
 </Section>
 
 <Section color="green-40">
@@ -100,19 +133,19 @@ Stil works just with named partials. Just add the partial name to your column (i
 
 <Row class="gap--1 space--2 background--green border-radius--2">
 <Column class="full space--2 border-radius--1 background--white">
-    column 
+    column
     full
 </Column>
 </Row>
 
 <Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
 <Column class="half space--2 border-radius--1 background--white">
-    column 
+    column
     half
 </Column>
 
 <Column class="half space--2 border-radius--1 background--white">
-    column 
+    column
     half
 </Column>
 </Row>
@@ -120,12 +153,12 @@ Stil works just with named partials. Just add the partial name to your column (i
 <Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
 
 <Column class="third space--2 border-radius--1 background--white">
-    column 
+    column
     third
 </Column>
 
 <Column class="two-third space--2 border-radius--1 background--white">
-    column 
+    column
     two-third
 </Column>
 
@@ -134,13 +167,36 @@ Stil works just with named partials. Just add the partial name to your column (i
 <Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
 
 <Column class="quarter space--2 border-radius--1 background--white">
-    column 
+    column
     quarter
 </Column>
 
 <Column class="three-quarter space--2 border-radius--1 background--white">
-    column 
+    column
     three-quarter
+</Column>
+
+</Row>
+<Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
+
+<Column class="quarter space--2 border-radius--1 background--white">
+    column
+    quarter
+</Column>
+
+<Column class="quarter space--2 border-radius--1 background--white">
+    column
+    quarter
+</Column>
+
+<Column class="quarter space--2 border-radius--1 background--white">
+    column
+    quarter
+</Column>
+
+<Column class="quarter space--2 border-radius--1 background--white">
+    column
+    quarter
 </Column>
 
 </Row>
@@ -156,23 +212,23 @@ Try resizing your window and see how the blocks will go from third on a big scre
 <Row class="gap--2 space--2 background--white border-radius--2">
 
 <Column class="small--full medium--half large--third space--2 border-radius--1 background--green-20">
-    column 
-    small--full 
-    medium--half 
+    column
+    small--full
+    medium--half
     large--third
 </Column>
 
 <Column class="small--full medium--half large--third space--2 border-radius--1 background--green-30">
-    column 
-    small--full 
-    medium-half 
+    column
+    small--full
+    medium-half
     large--third
 </Column>
 
 <Column class="small--full medium--half large--third space--2 border-radius--1 background--green-40">
-    column 
-    small--full 
-    medium--half 
+    column
+    small--full
+    medium--half
     large--third
 </Column>
 
@@ -188,20 +244,108 @@ Try resizing your window and see how the blocks will go from third on a big scre
 
 # The quick brown fox jumps over the lazy dog
 
+    h1
+
 ## The quick brown fox jumps over the lazy dog
+
+    h2
 
 ### The quick brown fox jumps over the lazy dog
 
+    h3
+
 #### The quick brown fox jumps over the lazy dog
+
+    h4
 
 ##### The quick brown fox jumps over the lazy dog
 
+    h5
+
 ###### The quick brown fox jumps over the lazy dog
+
+    h6
+
+<h1 class="font--light">The quick brown fox jumps over the lazy dog</h1>
+
+    h1.font--light
+
+<h2 class="font--light">The quick brown fox jumps over the lazy dog</h2>
+
+    h2.font--light
+
+<h3 class="font--light">The quick brown fox jumps over the lazy dog</h3>
+
+    h3.font--light
+
+<h4 class="font--light">The quick brown fox <strong>jumps</strong> over the lazy dog</h4>
+
+    h4.font--light
+
+<h5 class="font--light">The quick brown fox jumps over the lazy dog</h5>
+
+    h5.font--light
+
+<h6 class="font--light">The quick brown fox jumps over the lazy dog</h6>
+
+    h6.font--light
 
 </Section>
 
 <Section color="blue-30">
 
 <FontsTable :fonts="['sans-serif','serif','code','Helvetica','Avenir', 'Inter','Poppins','Raleway','Work Sans']" />
+
+</Section>
+
+<Section color="yellow-80">
+
+###### Principles
+
+#### Responsive
+
+#### Accessible
+
+#### Customisable
+
+No website is the same, thats why Stil is fully customatisable.
+
+#### Understandable
+
+Understandable in the sense that everyone who has a little bit of styling should understand it. It should be easily usuable for a beginner and an advanced user.
+
+#### Fun to use
+
+With all the principles above in place, Stil should be fun to use. When it's easy and gives fast good looking results. It's becomes fun to use automatically.
+
+</Section>
+
+<Section color="yellow-70" >
+
+###### customizability
+
+## Every brand has it's own identity
+
+<h4 class="font--normal" style="color: var(--negative)">Stil has it's opinions, but encourages you to have your own.</h4>
+
+Stil is fully customisable, no two website should look the same. From the colors to the settings, sizes and all css outputs. Everything is customisable just defining some settings.
+
+#### Colors
+
+Stil comes with a set of colors which can be used by anybody. But if want to define your own colors, you can simple redefine the colors using custom properties. Or define a new colorset and generate all css using those colors.
+
+<a href="/settings#colors" class="button">Settings for Colors</a>
+
+#### Sizes
+
+We defined a few sizes, for different screens, spacings, font-sizes, but if you don't agree with them, it's up to you to just redefine the sizes. No problem!
+
+<a href="/settings#sizes" class="button">Settings for Sizes</a>
+
+#### Naming
+
+We have our preferences for naming, but we can imagine you do too. That's why we keep it fully open how you call your elements. We like to use rows and columns, but you like to use groups and cols? A button should be a btn? It's up to you
+
+<a href="/settings#naming" class="button">Settings for Naming</a>
 
 </Section>

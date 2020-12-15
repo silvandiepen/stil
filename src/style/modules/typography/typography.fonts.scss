@@ -57,6 +57,18 @@
         "medium": 500,
         "bold": 600,
       ),
+    ),
+    (
+      name: "Raleway",
+      family: "Raleway, -apple-system, BlinkMacSystemFont, sans-serif",
+      google: true,
+      display: swap,
+      weights: (
+        "light": 200,
+        "regular": 400,
+        "medium": 500,
+        "bold": 600,
+      ),
     )
   ) !default;
 
@@ -116,10 +128,11 @@
           }
         }
 
-        $_g_display: if-else($display "swap");
+        // $_g_display: if-else($display "swap");
+        $_g_display: "swap";
 
         $_g_url: "https://fonts.googleapis.com/css2?family=#{$_g_name}:wght@#{$_g_weights}&display=#{$_g_display}.css";
-
+        @debug $_g_url;
         // @import $_g_url;
       }
     }

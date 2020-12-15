@@ -1,0 +1,25 @@
+@mixin tooltip() {
+  @if export($output, "elements.tooltip") {
+    .tooltip {
+      top: calc(100% + 0.5em);
+      transform: translate(-50%, 50%);
+      padding: 0.5em;
+      position: absolute;
+      border-radius: 0.5em;
+      opacity: 0;
+      pointer-events: none;
+      background-color: var(--current);
+      transition: transform 0.3s ease-in-out;
+      code {
+        white-space: nowrap;
+      }
+    }
+
+    span:hover {
+      .tooltip {
+        opacity: 1;
+        transform: translate(-50%, 0%);
+      }
+    }
+  }
+}

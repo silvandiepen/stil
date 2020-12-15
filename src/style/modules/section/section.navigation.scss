@@ -6,6 +6,83 @@
     .#{$navigation} {
       position: relative;
       display: flex;
+
+      &.align-right {
+        ul ul {
+          right: 0;
+        }
+      }
+      &.align-right {
+        ul ul {
+          left: 0;
+        }
+      }
+      &.align-center {
+        ul ul {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      ul {
+        display: flex;
+        background-color: inherit;
+        @media #{breakpoint('small',only)} {
+          flex-direction: column;
+        }
+        ul {
+          position: absolute;
+          border: 2px solid var(--accent);
+          background-color: var(--current);
+          border-radius: value(border-radius);
+          @media #{breakpoint('small',only)} {
+            flex-direction: column;
+          }
+          &::before {
+            content: "";
+            width: 1em;
+            height: 1em;
+            background-color: var(--accent);
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-top-left-radius: value(border-radius);
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            clip-path: polygon(0 0, 0 100%, 100% 0%);
+            border: 2px solid var(--accent);
+            background-color: var(--current);
+          }
+          display: none;
+          top: 100%;
+          li a {
+            padding: calc(#{value(space)} / 2);
+          }
+          li + li {
+            @media #{breakpoint('medium')} {
+              margin-left: calc((#{value(space)} / 2) * -1);
+            }
+            @media #{breakpoint('small',only)} {
+              margin-top: calc((#{value(space)}) * -1);
+            }
+          }
+        }
+        li:hover ul,
+        li:focus ul,
+        li:focus-within ul {
+          display: flex;
+        }
+      }
+      li {
+        position: relative;
+      }
+      li,
+      li a {
+        padding: calc(#{value(space)} / 2);
+      }
+      li a::before {
+        width: 100%;
+        height: 100%;
+      }
       a {
         padding: value(space);
         text-decoration: none;

@@ -81,9 +81,11 @@
     // Gap
     @for $i from 1 through 10 {
       .gap--#{$i} {
-        display: inline-flex;
-        flex-flow: row;
-        gap: ((space() / 5) * $i);
+        --gap: #{(space(0.5) * $i)};
+        // --gap-width: calc(var(--gap) * 0.75);
+
+        width: calc(100% + (var(--gap) * 0.625));
+        gap: var(--gap);
       }
     }
   }
@@ -92,8 +94,33 @@
     // Font-size
     @for $i from 1 through 10 {
       .font-size--#{$i} {
-        font-size: ((space() / 5) * $i);
+        font-size: (space(0.2) * $i);
       }
+    }
+  }
+
+  @if export($output, "utility.font-styles") {
+    // Font style
+    .font--light {
+      font-weight: 200;
+      strong {
+        font-weight: 600;
+      }
+    }
+    .font--normal {
+      font-weight: 400;
+      strong {
+        font-weight: 600;
+      }
+    }
+    .font--bold {
+      font-weight: 600;
+    }
+    .font--italic {
+      font-style: italic;
+    }
+    .font--underline {
+      text-decoration: underline;
     }
   }
 

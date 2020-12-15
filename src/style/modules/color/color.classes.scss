@@ -15,7 +15,12 @@
         $negative-color: adjust-hue($color-value, 180deg);
         $negative-lightness: 100 - lightness($negative-color);
 
+        --current: #{$color-value};
+        --current-saturation: #{saturation($color-value)};
+        --current-10: #{to-lightness($color-value, 10)};
+        --current-90: #{to-lightness($color-value, 90)};
         --accent: #{darken($color-value, 10%)};
+        --negative-lightness: #{$negative-lightness};
         --negative: #{hsl(
             hue($negative-color),
             saturation($negative-color),
@@ -26,8 +31,28 @@
             saturation($color-value),
             $negative-lightness
           )};
+
         background-color: var(--#{$color-name}, #{$color-value});
-        color: var(--#{$color-name}-text, contra($color-value, $black, $white));
+
+        @if settings($settings, "content.color.current10") {
+          $threshold: settings($settings, "color.contra.threshold");
+          @if lightness($color-value) > $threshold {
+            color: var(
+              --#{$color-name}-text,
+              var(--current-10, contra($color-value, $black, $white))
+            );
+          } @else {
+            color: var(
+              --#{$color-name}-text,
+              contra($color-value, $black, $white)
+            );
+          }
+        } @else {
+          color: var(
+            --#{$color-name}-text,
+            contra($color-value, $black, $white)
+          );
+        }
       }
     }
   } @else if export($output, "color.classes.background") {

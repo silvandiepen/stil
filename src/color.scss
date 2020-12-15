@@ -3,7 +3,10 @@
 }
 @function contra($color, $black: black, $white: white) {
   $_val: black;
-  @if lightness($color) > 45 {
+
+  $threshold: map-get($settings, "color.contra.threshold");
+
+  @if lightness($color) > $threshold {
     $_val: $black;
   } @else {
     $_val: $white;

@@ -4,7 +4,7 @@ import FontsTable from "../components/FontsTable.vue";
 import Section from "../components/Section.vue";
 import Row from "../components/Row.vue";
 import Column from "../components/Column.vue";
-import "./default.css";
+import "./app.scss";
 
 export default {
   Layout,

@@ -5,8 +5,8 @@
   "main": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build:style && cpy build/default.css docs/.vitepress/theme",
-    "build:style": "sass build/ dist/",
+    "build": "npm run build:style",
+    "build:style": "sass build/ dist/ --style=compressed",
     "dev:style": "npm run build:style -- --watch",
     "stylelint": "stylelint 'src/scss/**/*.scss'",
     "stylelint:fix": "stylelint 'src/scss/**/*.scss' --fix",

@@ -12,9 +12,11 @@ $settings: map-merge(
     "font-size": 1em,
     "font-size-first": 1.25em,
     "border-radius": 0.3em,
+    "color.contra.threshold": 45,
     "content.block": ".content",
     "content.paragraph.max-width": max(75ch, 960px),
     "content.max-width": max(75ch, 720px),
+    "content.color.current10": true,
     "content.link.colors": (
       contra,
       secondary,
@@ -54,6 +56,9 @@ $settings: map-merge(
     "define.logo.class": "logo",
     "define.footer.class": "footer",
     "define.navigation.class": "navigation",
+    "define.tooltip.class": "tooltip",
+    "define.button.class": "button",
+    "define.card.class": "card",
   )
 ) !default;
 
