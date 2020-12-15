@@ -32,6 +32,9 @@
             $negative-lightness
           )};
 
+        --text: #{contra($color-value)};
+        --text-negative: #{contra($color-value)};
+
         background-color: var(--#{$color-name}, #{$color-value});
 
         @if settings($settings, "content.color.current10") {

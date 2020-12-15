@@ -61,6 +61,7 @@ Check the Settings and Output guide to see more settings and use cases.
 
 ### All colors
 
+<all-colors shades :colors="['Red','Orange','Yellow','Lime','Grass','Green','Sky','Water','Blue','DeepBlue','Brown','Purple','DeepPurple','Rose','Lavender','Pink','Berry','Pomegranate','Turquoise','Gray','Black','White']" />
 <color-table shades :colors="['Red','Orange','Yellow','Lime','Grass','Green','Sky','Water','Blue','DeepBlue','Brown','Purple','DeepPurple','Rose','Lavender','Pink','Berry','Pomegranate','Turquoise','Gray','Black','White']" />
 
 </Section>
@@ -69,6 +70,7 @@ Check the Settings and Output guide to see more settings and use cases.
 
 ### Defined colors
 
+<all-colors :colors="['Primary','Secondary','Tertiary','Alert','Warning','Info','Dark','Light','Accent']" />
 <color-table :colors="['Primary','Secondary','Tertiary','Alert','Warning','Info','Dark','Light','Accent']" />
 
 </Section>
