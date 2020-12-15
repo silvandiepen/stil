@@ -302,9 +302,15 @@ Try resizing your window and see how the blocks will go from third on a big scre
 
 ###### Principles
 
+Everyone has it's principles, so has **Stil**. Here's a brief overview of what Stil stands for..
+
 #### Responsive
 
+In a way we shouldn't have to mark this here, because it's a given. If you don't build your website to be able to use on all devices, you are doing something wrong. But yeah, **Stil** is fully ready to create your responsive projects.
+
 #### Accessible
+
+Everyone should be able to visit a website, with styling we can already do a lot to make this possible. **Stil** tries to enforce the users as much as possible to create accessible projects.
 
 #### Customisable
 
@@ -312,11 +318,11 @@ No website is the same, thats why Stil is fully customatisable.
 
 #### Understandable
 
-Understandable in the sense that everyone who has a little bit of styling should understand it. It should be easily usuable for a beginner and an advanced user.
+Understandable in the sense that everyone who has a little bit of styling should understand it. It should be easily usable for a beginner and an advanced user.
 
 #### Fun to use
 
-With all the principles above in place, Stil should be fun to use. When it's easy and gives fast good looking results. It's becomes fun to use automatically.
+With all the principles above in place, **Stil** should be fun to use. When it's easy and gives fast good looking results. It's becomes fun to use automatically.
 
 </Section>
 

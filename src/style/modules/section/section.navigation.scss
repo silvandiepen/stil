@@ -129,8 +129,8 @@
         background-color: var(--secondary);
 
         position: fixed;
-        top: space(0.5);
-        right: space(0.5);
+        top: calc(#{value(space)} / 4);
+        right: calc(#{value(space)} / 4);
         z-index: 11;
         border-radius: value(border-radius);
 
@@ -172,12 +172,22 @@
           }
         }
       }
+      &-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        pointer-events: none;
+      }
       &-input {
         position: absolute;
         width: 0;
         height: 0;
         clip-path: inset(100% 100% 100% 100%);
         opacity: 0;
+
         & ~ .#{navigation},
         & ~ #{$header} .#{navigation} {
           @media #{breakpoint(small,only)} {
@@ -185,8 +195,12 @@
             position: fixed;
             flex-direction: column;
             background-color: inherit;
-            width: 100vw;
-            height: 100vh;
+            width: calc(100vw - (#{value(space)} * 4));
+            height: calc(100vh - (#{value(space)} * 4));
+            top: calc(#{value(space)} * 2);
+            left: calc(#{value(space)} * 2);
+            border: 2px solid var(--accent);
+            border-radius: value(border-radius);
             align-items: center;
             justify-content: center;
             transform: scale(0.5);
@@ -206,6 +220,9 @@
           }
         }
         &:checked {
+          & ~ .#{navigation}-background {
+            pointer-events: all;
+          }
           & + .#{$navigation}-toggle {
             span {
               transform: rotate(45deg);
