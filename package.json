@@ -5,7 +5,7 @@
   "main": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build:style",
+    "build": "npm run build:config && npm run build:style",
     "build:style": "sass build/ dist/ --style=compressed",
     "build:config": "node node_modules/@sil/jsonto/dist/index.js src/data/default.json src/default-settings.scss src/data/default-settings.scss.template",
     "dev:style": "npm run build:style -- --watch",
@@ -38,9 +38,8 @@
     "stylelint-logical-order": "^0.1.0",
     "stylelint-order": "^4.1.0",
     "vite-plugin-components": "^0.5.0",
-    "vitepress": "^0.9.1"
-  },
-  "dependencies": {
+    "vitepress": "^0.9.1",
     "@sil/jsonto": "0.0.3"
-  }
+  },
+  "dependencies": {}
 }

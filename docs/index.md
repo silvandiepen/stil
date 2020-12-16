@@ -140,7 +140,7 @@ Stil works just with named partials. Just add the partial name to your column (i
 </Column>
 </Row>
 
-<Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
+<Row class="gap--1 space--2 background--green border-radius--2 space-top--3">
 <Column class="half space--2 border-radius--1 background--white">
     column
     half
@@ -152,7 +152,7 @@ Stil works just with named partials. Just add the partial name to your column (i
 </Column>
 </Row>
 
-<Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
+<Row class="gap--1 space--2 background--green border-radius--2 space-top--3">
 
 <Column class="third space--2 border-radius--1 background--white">
     column
@@ -166,7 +166,7 @@ Stil works just with named partials. Just add the partial name to your column (i
 
 </Row>
 
-<Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
+<Row class="gap--1 space--2 background--green border-radius--2 space-top--3">
 
 <Column class="quarter space--2 border-radius--1 background--white">
     column
@@ -179,7 +179,7 @@ Stil works just with named partials. Just add the partial name to your column (i
 </Column>
 
 </Row>
-<Row class="gap--2 space--2 background--green border-radius--2 space-top--3">
+<Row class="gap--1 space--2 background--green border-radius--2 space-top--3">
 
 <Column class="quarter space--2 border-radius--1 background--white">
     column

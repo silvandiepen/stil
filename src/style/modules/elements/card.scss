@@ -2,12 +2,6 @@
   @if export($output, "elements.card") {
     $card: settings($settings, "define.card.class");
     .#{$card} {
-      &--half {
-        width: calc(50% - var(--gap));
-      }
-      &--third {
-        width: calc(33.33% - var(--gap));
-      }
       figure {
         display: block;
         width: calc(100% + (#{space(2)}));
@@ -30,9 +24,8 @@
   @if export($output, "elements.card.group") {
     $card: settings($settings, "define.card.class");
     .#{$card}-group {
-      display: flex;
-      gap: space(1);
-      --gap: (space(1) / 0.75);
+      @include row();
+      @include column(#{$card});
     }
   }
 }

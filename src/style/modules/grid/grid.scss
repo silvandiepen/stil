@@ -1,15 +1,49 @@
+$breakpoint-names: settings($settings, "grid.breakpoint.names");
+$breakpoint-sizes: settings($settings, "grid.breakpoint.sizes");
+$grid-total: settings($settings, "grid.total");
+
+@mixin row($settings: ()) {
+  $row-settings: map-merge(
+    (
+      gap: 0,
+      total: $grid-total,
+    ),
+    $settings
+  );
+  display: grid;
+  grid-auto-flow: row;
+  grid-column-gap: var(--gap, map-get($row-settings, gap));
+  grid-row-gap: var(--gap, map-get($row-settings, gap));
+  --row-columns: repeat(
+    var(--row-total, #{map-get($row-settings, total)}),
+    1fr
+  );
+  grid-template-columns: var(--row-columns);
+  grid-template-rows: auto;
+}
+@mixin column($pref: null) {
+  @each $size-name, $size-value in $breakpoint-sizes {
+    $className: "";
+    @if $pref {
+      $className: #{$pref}--#{$size-name};
+    } @else {
+      $className: #{$size-name};
+    }
+    .#{$className} {
+      --column-width: #{(1 / $size-value)};
+      --row-column: calc(
+        var(--row-total, #{$grid-total}) /
+          var(--column-width, #{(1 / $size-value)})
+      );
+      grid-column: span var(--row-column, #{($grid-total * $size-value)});
+    }
+  }
+}
+
 @mixin grid-row() {
   @if export($output, "grid.row") or export($output, "grid.default") {
     .#{settings($settings,"grid.row")} {
-      display: flex;
-      flex-flow: wrap;
-      width: 100%;
-      &--auto {
-        flex-flow: row;
-      }
-      &--space-between {
-        justify-content: space-between;
-      }
+      @include row();
     }
   }
 }
@@ -28,26 +62,13 @@
       }
     }
 
-    $breakpoint-names: settings($settings, "grid.breakpoint.names");
-    $breakpoint-sizes: settings($settings, "grid.breakpoint.sizes");
-
     @if export($output, "grid.column.partials") {
-      @each $breakpoint in $breakpoint-names {
-        @each $size-name, $size-value in $breakpoint-sizes {
-          .#{$size-name} {
-            width: calc(#{(100% * $size-value)} - var(--gap-width));
-          }
-        }
-      }
+      @include column();
     }
     @if export($output, "grid.column.responsive-partials") {
       @each $breakpoint in $breakpoint-names {
         @media #{breakpoint($breakpoint)} {
-          @each $size-name, $size-value in $breakpoint-sizes {
-            .#{$breakpoint}--#{$size-name} {
-              width: calc(#{(100% * $size-value)} - var(--gap-width));
-            }
-          }
+          @include column($breakpoint);
         }
       }
     }

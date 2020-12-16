@@ -63,8 +63,7 @@ export default {
 <style lang="scss">
 .group {
 	display: flex;
-	// justify-content: space-between;
-	background-color: var(--text);
+	background-color: var(--text) !important ;
 
 	* + * {
 		margin-top: 0;
