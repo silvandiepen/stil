@@ -5,6 +5,7 @@ import FontsTable from "../components/FontsTable.vue";
 import Section from "../components/Section.vue";
 import Row from "../components/Row.vue";
 import Column from "../components/Column.vue";
+import SettingsOverview from "../components/SettingsOverview.vue";
 import "./app.scss";
 
 export default {
@@ -14,6 +15,7 @@ export default {
     app.component("ColorTable", ColorTable);
     app.component("AllColors", AllColors);
     app.component("FontsTable", FontsTable);
+    app.component("SettingsOverview", SettingsOverview);
     app.component("Section", Section);
     app.component("Row", Row);
     app.component("Column", Column);

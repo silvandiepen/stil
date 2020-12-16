@@ -1,6 +1,7 @@
 @mixin tooltip() {
   @if export($output, "elements.tooltip") {
-    .tooltip {
+    $tooltip: settings($settings, "define.tooltip.class");
+    #{$tooltip} {
       top: calc(100% + 0.5em);
       transform: translate(-50%, 50%);
       padding: 0.5em;
@@ -14,9 +15,9 @@
         white-space: nowrap;
       }
     }
-
+    div:hover,
     span:hover {
-      .tooltip {
+      #{$tooltip} {
         opacity: 1;
         transform: translate(-50%, 0%);
       }

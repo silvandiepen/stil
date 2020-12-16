@@ -27,9 +27,9 @@ $grid-total: settings($settings, "grid.total");
     @if $pref {
       $className: #{$pref}--#{$size-name};
     } @else {
-      $className: #{$size-name};
+      $className: unquote(".#{$size-name}");
     }
-    .#{$className} {
+    #{$className} {
       --column-width: #{(1 / $size-value)};
       --row-column: calc(
         var(--row-total, #{$grid-total}) /

@@ -1,5 +1,5 @@
 @mixin styled-content() {
-  $parent: settings($settings, "content.block");
+  $parent: settings($settings, "define.content.class");
   @if export($output, "content.default") or
     export($output, "content.paragraphs")
   {
@@ -118,6 +118,7 @@
       table {
         width: calc(100% + (#{value(space)} * 1));
         margin-left: calc((#{value(space)} / 2) * -1);
+        color: currentColor;
 
         &.middle {
           th,
@@ -127,6 +128,7 @@
         }
         th,
         td {
+          vertical-align: top;
           text-align: left;
           padding: calc(#{value(space)} / 2);
         }

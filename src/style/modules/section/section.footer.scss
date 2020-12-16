@@ -2,7 +2,7 @@
   @if export($output, "section.footer") {
     $footer: settings($settings, "define.footer.class");
 
-    .#{$footer} {
+    #{$footer} {
       position: relative;
     }
   }

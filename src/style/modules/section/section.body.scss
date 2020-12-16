@@ -1,6 +1,7 @@
 @mixin section-body() {
   @if export($output, "section.body") {
-    body {
+    $body: settings($settings, "define.body.class");
+    #{$body} {
       margin: 0;
       padding: 0;
       min-height: 100vh;

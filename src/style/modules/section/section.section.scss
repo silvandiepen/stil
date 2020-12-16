@@ -3,17 +3,17 @@
     $section: settings($settings, "define.section.class");
     $container: settings($settings, "define.container.class");
 
-    .#{$section} {
+    #{$section} {
       position: relative;
       padding: calc(#{value(space)});
       @media #{breakpoint(medium)} {
         padding: calc(#{value(space)} * 2);
       }
-      > .#{$container} {
+      > #{$container} {
         max-width: value("content.max-width");
         margin-left: auto;
         margin-right: auto;
-        & + .#{$container} {
+        & + #{$container} {
           margin-top: 1em;
         }
       }

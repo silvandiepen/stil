@@ -1,7 +1,7 @@
 @mixin button() {
   @if export($output, "elements.button") {
     $button: settings($settings, "define.button.class");
-    .#{$button} {
+    #{$button} {
       display: inline-block;
       padding: space(0.25) space(0.5);
       background-color: var(--negative);

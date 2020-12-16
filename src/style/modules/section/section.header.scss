@@ -3,7 +3,7 @@
     $header: settings($settings, "define.header.class");
     $logo: settings($settings, "define.logo.class");
 
-    .#{$header} {
+    #{$header} {
       position: relative;
       display: flex;
       justify-content: space-between;
@@ -14,9 +14,11 @@
       }
     }
 
-    .#{$header} .#{$logo} {
+    #{$header} #{$logo} {
       padding: value(space);
       font-weight: bold;
+      color: currentColor;
+      text-decoration: none;
     }
   }
 }

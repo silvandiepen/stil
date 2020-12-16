@@ -3,7 +3,7 @@
     $navigation: settings($settings, "define.navigation.class");
     $header: settings($settings, "define.header.class");
 
-    .#{$navigation} {
+    #{$navigation} {
       position: relative;
       display: flex;
 
@@ -223,10 +223,10 @@
           }
         }
         &:checked {
-          & ~ .#{navigation}-background {
+          & ~ #{navigation}-background {
             pointer-events: all;
           }
-          & + .#{$navigation}-toggle {
+          & + #{$navigation}-toggle {
             span {
               transform: rotate(45deg);
               &::before {
@@ -237,8 +237,8 @@
               }
             }
           }
-          & ~ .#{navigation},
-          & ~ #{$header} .#{navigation} {
+          & ~ #{navigation},
+          & ~ #{$header} #{navigation} {
             @media #{breakpoint(small,only)} {
               --delay: 0s;
               transform: translate(-50%, -50%) scale(1);

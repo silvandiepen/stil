@@ -1,7 +1,7 @@
 @mixin card() {
   @if export($output, "elements.card") {
     $card: settings($settings, "define.card.class");
-    .#{$card} {
+    #{$card} {
       figure {
         display: block;
         width: calc(100% + (#{space(2)}));
@@ -23,7 +23,7 @@
 @mixin card-group() {
   @if export($output, "elements.card.group") {
     $card: settings($settings, "define.card.class");
-    .#{$card}-group {
+    #{$card}-group {
       @include row();
       @include column(#{$card});
     }

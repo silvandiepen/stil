@@ -2,7 +2,7 @@
   @if export($output, "section.main") {
     $main: settings($settings, "define.main.class");
 
-    .#{$main} {
+    #{$main} {
       position: relative;
     }
   }

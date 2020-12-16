@@ -4,7 +4,7 @@
 	<label class="navigation-background" for="toggle-menu"></label>
 
 	<header class="header header--sticky background--white">
-		<a class="logo">Stil</a>
+		<a class="logo" href="/">Stil</a>
 		<nav class="navigation nav-bar align-center">
 			<ul>
 				<li>
