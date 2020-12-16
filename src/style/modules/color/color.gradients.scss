@@ -2,7 +2,7 @@
   @if export($output, "color.gradients") {
     .background--gradient {
       position: relative;
-      background-image: url(http://api.thumbr.it/whitenoise-1000x1000.png?background=7f7f7fff&noise=a6a6a6&density=100&opacity=60),
+      background-image: url(https://stil.style/assets/noise.jpg),
         linear-gradient(
           var(--gradient-direction, to right bottom),
           var(--gradient-from, var(--primary)),
