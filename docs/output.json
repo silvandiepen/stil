@@ -1,4 +1,5 @@
-$stil-output: (
+{
+  "output": [
     "custom-properties",
     "typography.fonts.sans-serif",
     "typography.fonts.serif",
@@ -62,9 +63,5 @@ $stil-output: (
     "elements.card",
     "elements.card.group",
     "default.custom-properties"
-    );
-
-$stil-settings: (
-  "prefix": "stil",
-);
-@import "../src";
+  ]
+}

@@ -16,8 +16,6 @@
   "h6.text-transform": "uppercase",
   "h6.letter-spacing": "0.1em",
   "h6.color": "var(--current-color, var(--contra, var(--primary)))",
-  "grid.row": "row",
-  "grid.column": "column",
   "grid.total": 24,
   "grid.breakpoint.names": ["small", "medium", "large"],
   "grid.breakpoint.sizes": {
@@ -35,6 +33,8 @@
   "grid.breakpoint.small": 0,
   "grid.breakpoint.medium": 720,
   "grid.breakpoint.large": 1280,
+  "define.row.class": ".row",
+  "define.column.class": ".column",
   "define.body.class": "body",
   "define.content.class": ".content",
   "define.section.class": ".section",

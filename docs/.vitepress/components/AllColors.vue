@@ -1,5 +1,5 @@
 <template>
-	<div class="color-group wrap gap--1">
+	<div class="color-dots-group wrap gap--1">
 		<div class="item" v-for="color in colors" :key="color">
 			<div
 				class="no-resize"
@@ -33,7 +33,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.color-group {
+.color-dots-group {
 	display: flex;
 	position: relative;
 

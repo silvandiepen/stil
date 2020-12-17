@@ -5,10 +5,11 @@
   "main": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build:config && npm run build:style && npm run build:copy",
+    "build": "npm run build:config && npm run build:output && npm run build:style && npm run build:copy",
     "build:style": "sass build/ dist/ --style=compressed",
     "build:config": "node node_modules/@sil/jsonto/dist/index.js src/data/default.json src/default-settings.scss src/data/default-settings.scss.template",
-    "build:copy": "cpy src/data/default.json docs",
+    "build:output": "node node_modules/@sil/jsonto/dist/index.js src/data/output.json build/default.scss src/data/default-output.scss.template",
+    "build:copy": "cpy src/data/default.json docs && cpy src/data/output.json docs",
     "dev:style": "npm run build:style -- --watch",
     "stylelint": "stylelint 'src/scss/**/*.scss'",
     "stylelint:fix": "stylelint 'src/scss/**/*.scss' --fix",
@@ -40,7 +41,6 @@
     "stylelint-order": "^4.1.0",
     "vite-plugin-components": "^0.5.0",
     "vitepress": "^0.9.1",
-    "@sil/jsonto": "0.0.3"
-  },
-  "dependencies": {}
+    "@sil/jsonto": "^0.1.0"
+  }
 }

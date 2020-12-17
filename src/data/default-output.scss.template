@@ -1,0 +1,10 @@
+$stil-output: (
+    <% data.output.forEach((key, index)=>{ -%>
+"<%- key %>"<% if(index + 1 !== data.output.length){ %>,<%}%>
+    <% }) -%>
+);
+
+$stil-settings: (
+  "prefix": "stil",
+);
+@import "../src";

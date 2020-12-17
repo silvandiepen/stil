@@ -1,40 +1,36 @@
 <template>
 	<div
-		class="group space--2 border-radius--2"
+		class="color-group space--2 border-radius--2"
 		:class="`background--${lowerCase(color)}`"
 		v-for="color in colors"
 		:key="color"
 	>
-		<div
-			class="no-resize"
-			:class="`background--${lowerCase(
-				color
-			)} color--accent border-radius--1 width--10
-					height--10 border--1 `"
-		></div>
-		<div class="title grow space--2">
-			<h4 class="grow space--1" :class="`color--${lowerCase(color)}`">
+		<div class="color-dot-name">
+			<div
+				class="color-dot"
+				:class="`background--${lowerCase(color)} color--accent`"
+			></div>
+
+			<h4 class="color-name" :class="`color--${lowerCase(color)}`">
 				{{ color }}
 			</h4>
-
-			<div v-if="shades" class="space--2">
-				<div class="row gap--1">
-					<span
-						v-for="idx in 9"
-						:key="idx"
-						:class="`background--${lowerCase(color)}-${
-							idx * 10
-						} space--1 font-size--2 border-radius--1`"
-						style="position: relative"
-						>{{ idx * 10 }}
-						<span class="tooltip">
-							<code>--{{ lowerCase(color) }}-{{ idx * 10 }}</code>
-						</span>
-					</span>
-				</div>
-			</div>
 		</div>
-		<div style="width: 33.33%">
+
+		<div v-if="shades" class="color-shades">
+			<span
+				v-for="idx in 9"
+				:key="idx"
+				:class="`background--${lowerCase(color)}-${
+					idx * 10
+				} space--1 font-size--2 border-radius--1`"
+				style="position: relative"
+				>{{ idx * 10 }}
+				<span class="tooltip">
+					<code>--{{ lowerCase(color) }}-{{ idx * 10 }}</code>
+				</span>
+			</span>
+		</div>
+		<div class="color-code">
 			<code>--{{ lowerCase(color) }}</code
 			><br />
 			<code> .background--{{ lowerCase(color) }} </code><br />
@@ -61,16 +57,44 @@ export default {
 };
 </script>
 <style lang="scss">
-.group {
-	display: flex;
+.color-group {
+	box-shadow: 0 0 2em 0em rgba(0, 0, 0, 0.25);
+	display: grid;
+	grid-template:
+		"dot-name dot-name dot-name code"
+		"shades shades shades code";
+
 	background-color: var(--text) !important ;
 
 	* + * {
 		margin-top: 0;
 	}
-	& + .group {
+	& + .color-group {
 		margin-top: 1em;
 	}
+}
+.color-dot-name {
+	grid-area: dot-name;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.color-dot {
+	width: 5em;
+	height: 5em;
+	border-radius: var(--border-radius);
+}
+.color-name {
+	padding: var(--space);
+}
+.color-code {
+	code ~ code {
+		margin-top: 0.5em;
+	}
+	grid-area: code;
+}
+.color-shades {
+	grid-area: shades;
 }
 .on-end {
 	justify-self: flex-end;

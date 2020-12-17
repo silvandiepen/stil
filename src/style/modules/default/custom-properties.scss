@@ -1,0 +1,13 @@
+@mixin default-custom-properties() {
+  @if export($output, "default.custom-properties") {
+    :root {
+      --space: #{settings($settings, "space")};
+      --border-radius: #{settings($settings, "border-radius")};
+      --font-size: #{settings($settings, "font-size")};
+      --font-size-first: #{settings($settings, "font-size-first")};
+      --line-height: #{settings($settings, "line-height")};
+      --font-family: #{settings($settings, "font-family")};
+      --code-font: #{settings($settings, "code-font")};
+    }
+  }
+}

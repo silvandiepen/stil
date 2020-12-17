@@ -1,6 +1,10 @@
-<Section color="purple-90">
+<Section color="purple-80">
 
-###### Utility classes
+### Utility classes
+
+</Section>
+
+<Section color="purple-90">
 
 ### Border
 

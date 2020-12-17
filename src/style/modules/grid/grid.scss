@@ -1,5 +1,7 @@
 $breakpoint-names: settings($settings, "grid.breakpoint.names");
 $breakpoint-sizes: settings($settings, "grid.breakpoint.sizes");
+$row: #{settings($settings, "define.row.class")};
+$column: #{settings($settings, "define.column.class")};
 $grid-total: settings($settings, "grid.total");
 
 @mixin row($settings: ()) {
@@ -21,13 +23,13 @@ $grid-total: settings($settings, "grid.total");
   grid-template-columns: var(--row-columns);
   grid-template-rows: auto;
 }
-@mixin column($pref: null) {
+@mixin column($pref: null, $add: null) {
   @each $size-name, $size-value in $breakpoint-sizes {
     $className: "";
     @if $pref {
-      $className: #{$pref}--#{$size-name};
+      $className: unquote("#{$add}#{$pref}--#{$size-name}");
     } @else {
-      $className: unquote(".#{$size-name}");
+      $className: unquote("#{$add}.#{$size-name}");
     }
     #{$className} {
       --column-width: #{(1 / $size-value)};
@@ -42,7 +44,7 @@ $grid-total: settings($settings, "grid.total");
 
 @mixin grid-row() {
   @if export($output, "grid.row") or export($output, "grid.default") {
-    .#{settings($settings,"grid.row")} {
+    #{$row} {
       @include row();
     }
   }
@@ -50,7 +52,7 @@ $grid-total: settings($settings, "grid.total");
 
 @mixin grid-column() {
   @if export($output, "grid.column") or export($output, "grid.default") {
-    .#{settings($settings,"grid.column")} {
+    #{$column} {
       width: 100%;
       &--middle {
         display: flex;
@@ -61,14 +63,13 @@ $grid-total: settings($settings, "grid.total");
         justify-content: center;
       }
     }
-
     @if export($output, "grid.column.partials") {
-      @include column();
+      @include column(null, unquote("#{$column}"));
     }
     @if export($output, "grid.column.responsive-partials") {
       @each $breakpoint in $breakpoint-names {
         @media #{breakpoint($breakpoint)} {
-          @include column($breakpoint);
+          @include column(unquote(".#{$breakpoint}"), $column);
         }
       }
     }
