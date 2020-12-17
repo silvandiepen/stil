@@ -5,7 +5,6 @@
 </Section>
 
 <Section color="gray-80">
-
 <Row>
 <Column class="medium--third">
 
@@ -36,4 +35,4 @@ The list of utility classes, where and how can you use them.
 </Column>
 </Row>
 
-<Section>
+</Section>
