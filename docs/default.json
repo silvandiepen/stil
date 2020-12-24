@@ -16,6 +16,7 @@
   "h6.text-transform": "uppercase",
   "h6.letter-spacing": "0.1em",
   "h6.color": "var(--current-color, var(--contra, var(--primary)))",
+  "logo.max-height": "3rem",
   "grid.total": 12,
   "grid.breakpoint.names": ["small", "medium", "large"],
   "grid.breakpoint.sizes": {
