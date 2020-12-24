@@ -204,6 +204,10 @@ body {
   position: relative;
   display: flex;
 }
+.navigation.center {
+  justify-content: center;
+  align-items: center;
+}
 .navigation.align-right ul ul {
   right: 0;
 }
@@ -386,8 +390,8 @@ body {
   opacity: 0;
 }
 @media screen and (min-width: 0px) and (max-width: 720px) {
-  .navigation-input ~ navigation,
-  .navigation-input ~ .header navigation {
+  .navigation-input ~ .navigation,
+  .navigation-input ~ .header .navigation {
     --delay: 0.5s;
     position: fixed;
     flex-direction: column;
@@ -405,8 +409,8 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-  .navigation-input ~ navigation a,
-  .navigation-input ~ .header navigation a {
+  .navigation-input ~ .navigation a,
+  .navigation-input ~ .header .navigation a {
     --delay: 0s;
     transition: transform var(--timing, 0.3s) var(--delay, 0s) ease-in-out,
       opacity var(--timing, 0.3s) var(--delay, 0s) ease-in-out;
@@ -1390,6 +1394,8 @@ h6:hover .header-anchor {
   --dark: #2e050c;
   --light: #fad1d8;
   --accent: #d0fbf9;
+  --dark-accent: #d0fbf9;
+  --light-accent: #042f2d;
 }
 .background--red {
   --current: #ea2027;
@@ -1397,6 +1403,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #c41319;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 47.8431372549%;
   --negative: #15dfd8;
   --contra: #df151c;
@@ -1411,6 +1419,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: black;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 90%;
   --negative: #d0fbf9;
   --contra: #fbd0d2;
@@ -1425,6 +1435,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #2f0406;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 80%;
   --negative: #a2f6f3;
   --contra: #f6a2a5;
@@ -1439,6 +1451,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #5d090c;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 70%;
   --negative: #73f2ed;
   --contra: #f27378;
@@ -1453,6 +1467,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #8c0d12;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 60%;
   --negative: #45ede8;
   --contra: #ed454a;
@@ -1467,6 +1483,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #ba1217;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 50%;
   --negative: #16e9e2;
   --contra: #e9161d;
@@ -1481,6 +1499,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #e9161d;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 40%;
   --negative: #12bab5;
   --contra: #ba1217;
@@ -1495,6 +1515,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #ed454a;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 30%;
   --negative: #0d8c87;
   --contra: #8c0d12;
@@ -1509,6 +1531,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #f27378;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 20%;
   --negative: #095d5a;
   --contra: #5d090c;
@@ -1523,6 +1547,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #f6a2a5;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 10%;
   --negative: #042f2d;
   --contra: #2f0406;
@@ -1537,6 +1563,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #db8508;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 45.4901960784%;
   --negative: #0860e0;
   --contra: #e08808;
@@ -1551,6 +1579,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: black;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 90%;
   --negative: #cee1fd;
   --contra: #fdeace;
@@ -1565,6 +1595,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #311e02;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 80%;
   --negative: #9dc3fb;
   --contra: #fbd59d;
@@ -1579,6 +1611,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #623c04;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 70%;
   --negative: #6ba5fa;
   --contra: #fac06b;
@@ -1593,6 +1627,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #945a05;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 60%;
   --negative: #3a87f8;
   --contra: #f8ab3a;
@@ -1607,6 +1643,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #c57807;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 50%;
   --negative: #096af6;
   --contra: #f69509;
@@ -1621,6 +1659,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #f69509;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 40%;
   --negative: #0754c5;
   --contra: #c57807;
@@ -1635,6 +1675,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #f8ab3a;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 30%;
   --negative: #053f94;
   --contra: #945a05;
@@ -1649,6 +1691,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #fac06b;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 20%;
   --negative: #042a62;
   --contra: #623c04;
@@ -1663,6 +1707,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #fbd59d;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 10%;
   --negative: #021531;
   --contra: #311e02;
@@ -1677,6 +1723,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #dea600;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 46.4705882353%;
   --negative: #003ced;
   --contra: #edb100;
@@ -1691,6 +1739,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: black;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 90%;
   --negative: #ccd9ff;
   --contra: #fff2cc;
@@ -1705,6 +1755,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #332600;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 80%;
   --negative: #99b3ff;
   --contra: #ffe599;
@@ -1719,6 +1771,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #664c00;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 70%;
   --negative: #668dff;
   --contra: #ffd866;
@@ -1733,6 +1787,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #997200;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 60%;
   --negative: #3367ff;
   --contra: #ffcb33;
@@ -1747,6 +1803,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #cc9800;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 50%;
   --negative: #0041ff;
   --contra: #ffbe00;
@@ -1761,6 +1819,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #ffbe00;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 40%;
   --negative: #0034cc;
   --contra: #cc9800;
@@ -1775,6 +1835,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #ffcb33;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 30%;
   --negative: #002799;
   --contra: #997200;
@@ -1789,6 +1851,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #ffd866;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 20%;
   --negative: #001a66;
   --contra: #664c00;
@@ -1803,6 +1867,8 @@ h6:hover .header-anchor {
   --current-10: #332600;
   --current-90: #fff2cc;
   --accent: #ffe599;
+  --light-accent: #ffe599;
+  --dark-accent: #664c00;
   --negative-lightness: 10%;
   --negative: #000d33;
   --contra: #332600;
@@ -1817,6 +1883,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #adcf1b;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 44.1176470588%;
   --negative: #3b1ac7;
   --contra: #a6c71a;
@@ -1831,6 +1899,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: black;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 90%;
   --negative: #d9d2f9;
   --contra: #f2f9d2;
@@ -1845,6 +1915,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #262d06;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 80%;
   --negative: #b4a5f3;
   --contra: #e4f3a5;
@@ -1859,6 +1931,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #4b5a0c;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 70%;
   --negative: #8e78ed;
   --contra: #d7ed78;
@@ -1873,6 +1947,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #718712;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 60%;
   --negative: #684be7;
   --contra: #cae74b;
@@ -1887,6 +1963,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #97b418;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 50%;
   --negative: #431de2;
   --contra: #bce21d;
@@ -1901,6 +1979,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #bce21d;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 40%;
   --negative: #3518b4;
   --contra: #97b418;
@@ -1915,6 +1995,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #cae74b;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 30%;
   --negative: #281287;
   --contra: #718712;
@@ -1929,6 +2011,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #d7ed78;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 20%;
   --negative: #1b0c5a;
   --contra: #4b5a0c;
@@ -1943,6 +2027,8 @@ h6:hover .header-anchor {
   --current-10: #262d06;
   --current-90: #f2f9d2;
   --accent: #e4f3a5;
+  --light-accent: #e4f3a5;
+  --dark-accent: #4b5a0c;
   --negative-lightness: 10%;
   --negative: #0d062d;
   --contra: #262d06;
@@ -1957,6 +2043,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #84a52b;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 49.2156862745%;
   --negative: #5c34c7;
   --contra: #9fc734;
@@ -1971,6 +2059,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: black;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 90%;
   --negative: #dfd7f4;
   --contra: #ecf4d7;
@@ -1985,6 +2075,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #20280b;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 80%;
   --negative: #beaeea;
   --contra: #daeaae;
@@ -1999,6 +2091,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #415115;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 70%;
   --negative: #9e86df;
   --contra: #c7df86;
@@ -2013,6 +2107,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #617920;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 60%;
   --negative: #7e5dd5;
   --contra: #b4d55d;
@@ -2027,6 +2123,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #81a22a;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 50%;
   --negative: #5d35ca;
   --contra: #a2ca35;
@@ -2041,6 +2139,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #a2ca35;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 40%;
   --negative: #4b2aa2;
   --contra: #81a22a;
@@ -2055,6 +2155,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #b4d55d;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 30%;
   --negative: #382079;
   --contra: #617920;
@@ -2069,6 +2171,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #c7df86;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 20%;
   --negative: #251551;
   --contra: #415115;
@@ -2083,6 +2187,8 @@ h6:hover .header-anchor {
   --current-10: #20280b;
   --current-90: #ecf4d7;
   --accent: #daeaae;
+  --light-accent: #daeaae;
+  --dark-accent: #415115;
   --negative-lightness: 10%;
   --negative: #130b28;
   --contra: #20280b;
@@ -2097,6 +2203,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #216c0f;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 65.8823529412%;
   --negative: #d066ea;
   --contra: #80ea66;
@@ -2111,6 +2219,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: black;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 90%;
   --negative: #f1d2f9;
   --contra: #daf9d2;
@@ -2125,6 +2235,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #0e2d06;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 80%;
   --negative: #e3a5f3;
   --contra: #b5f3a5;
@@ -2139,6 +2251,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #1c5a0c;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 70%;
   --negative: #d678ed;
   --contra: #8fed78;
@@ -2153,6 +2267,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #298712;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 60%;
   --negative: #c84ce6;
   --contra: #6ae64c;
@@ -2167,6 +2283,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #37b319;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 50%;
   --negative: #ba1fe0;
   --contra: #45e01f;
@@ -2181,6 +2299,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #45e01f;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 40%;
   --negative: #9519b3;
   --contra: #37b319;
@@ -2195,6 +2315,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #6ae64c;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 30%;
   --negative: #701287;
   --contra: #298712;
@@ -2209,6 +2331,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #8fed78;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 20%;
   --negative: #4a0c5a;
   --contra: #1c5a0c;
@@ -2223,6 +2347,8 @@ h6:hover .header-anchor {
   --current-10: #0e2d06;
   --current-90: #daf9d2;
   --accent: #b5f3a5;
+  --light-accent: #b5f3a5;
+  --dark-accent: #1c5a0c;
   --negative-lightness: 10%;
   --negative: #25062d;
   --contra: #0e2d06;
@@ -2237,6 +2363,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #19b2d9;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 42.5490196078%;
   --negative: #c33916;
   --contra: #16a0c3;
@@ -2251,6 +2379,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: black;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 90%;
   --negative: #fad9d1;
   --contra: #d1f2fa;
@@ -2265,6 +2395,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #05262e;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 80%;
   --negative: #f5b4a3;
   --contra: #a3e4f5;
@@ -2279,6 +2411,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #0a4b5c;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 70%;
   --negative: #ef8e76;
   --contra: #76d7ef;
@@ -2293,6 +2427,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #107189;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 60%;
   --negative: #ea6948;
   --contra: #48c9ea;
@@ -2307,6 +2443,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #1596b7;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 50%;
   --negative: #e5431a;
   --contra: #1abce5;
@@ -2321,6 +2459,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #1abce5;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 40%;
   --negative: #b73615;
   --contra: #1596b7;
@@ -2335,6 +2475,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #48c9ea;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 30%;
   --negative: #892810;
   --contra: #107189;
@@ -2349,6 +2491,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #76d7ef;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 20%;
   --negative: #5c1b0a;
   --contra: #0a4b5c;
@@ -2363,6 +2507,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #a3e4f5;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 10%;
   --negative: #2e0d05;
   --contra: #05262e;
@@ -2377,6 +2523,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #0d6379;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 63.7254901961%;
   --negative: #ed7658;
   --contra: #58cfed;
@@ -2391,6 +2539,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: black;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 90%;
   --negative: #fad9d1;
   --contra: #d1f2fa;
@@ -2405,6 +2555,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #05262e;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 80%;
   --negative: #f5b3a3;
   --contra: #a3e5f5;
@@ -2419,6 +2571,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #0a4c5c;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 70%;
   --negative: #f08e75;
   --contra: #75d7f0;
@@ -2433,6 +2587,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #0f718a;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 60%;
   --negative: #eb6847;
   --contra: #47caeb;
@@ -2447,6 +2603,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #1497b8;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 50%;
   --negative: #e64219;
   --contra: #19bde6;
@@ -2461,6 +2619,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #19bde6;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 40%;
   --negative: #b83514;
   --contra: #1497b8;
@@ -2475,6 +2635,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #47caeb;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 30%;
   --negative: #8a280f;
   --contra: #0f718a;
@@ -2489,6 +2651,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #75d7f0;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 20%;
   --negative: #5c1a0a;
   --contra: #0a4c5c;
@@ -2503,6 +2667,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #a3e5f5;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 10%;
   --negative: #2e0d05;
   --contra: #05262e;
@@ -2517,6 +2683,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #0540ab;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 55.4901960784%;
   --negative: #f9ad22;
   --contra: #226ef9;
@@ -2531,6 +2699,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: black;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 90%;
   --negative: #feedcd;
   --contra: #cddefe;
@@ -2545,6 +2715,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #011232;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 80%;
   --negative: #fcda9c;
   --contra: #9cbefc;
@@ -2559,6 +2731,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #032563;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 70%;
   --negative: #fbc86a;
   --contra: #6a9dfb;
@@ -2573,6 +2747,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #043795;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 60%;
   --negative: #fab538;
   --contra: #387dfa;
@@ -2587,6 +2763,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #054ac7;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 50%;
   --negative: #f8a307;
   --contra: #075cf8;
@@ -2601,6 +2779,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #075cf8;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 40%;
   --negative: #c78205;
   --contra: #054ac7;
@@ -2615,6 +2795,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #387dfa;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 30%;
   --negative: #956204;
   --contra: #043795;
@@ -2629,6 +2811,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #6a9dfb;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 20%;
   --negative: #634103;
   --contra: #032563;
@@ -2643,6 +2827,8 @@ h6:hover .header-anchor {
   --current-10: #011232;
   --current-90: #cddefe;
   --accent: #9cbefc;
+  --light-accent: #9cbefc;
+  --dark-accent: #032563;
   --negative-lightness: 10%;
   --negative: #322101;
   --contra: #011232;
@@ -2657,6 +2843,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #100c3a;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 76.4705882353%;
   --negative: #e4eb9b;
   --contra: #a29beb;
@@ -2671,6 +2859,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: black;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 90%;
   --negative: #f4f7d5;
   --contra: #d7d5f7;
@@ -2685,6 +2875,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #0b092b;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 80%;
   --negative: #e8eeaa;
   --contra: #b0aaee;
@@ -2699,6 +2891,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #171155;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 70%;
   --negative: #dde680;
   --contra: #8880e6;
@@ -2713,6 +2907,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #221a80;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 60%;
   --negative: #d1dd55;
   --contra: #6155dd;
@@ -2727,6 +2923,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #2e22aa;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 50%;
   --negative: #c6d52b;
   --contra: #392bd5;
@@ -2741,6 +2939,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #392bd5;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 40%;
   --negative: #9eaa22;
   --contra: #2e22aa;
@@ -2755,6 +2955,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #6155dd;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 30%;
   --negative: #77801a;
   --contra: #221a80;
@@ -2769,6 +2971,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #8880e6;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 20%;
   --negative: #4f5511;
   --contra: #171155;
@@ -2783,6 +2987,8 @@ h6:hover .header-anchor {
   --current-10: #0b092b;
   --current-90: #d7d5f7;
   --accent: #b0aaee;
+  --light-accent: #b0aaee;
+  --dark-accent: #171155;
   --negative-lightness: 10%;
   --negative: #282b09;
   --contra: #0b092b;
@@ -2797,6 +3003,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #69410d;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 66.862745098%;
   --negative: #68a2ed;
   --contra: #edb368;
@@ -2811,6 +3019,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: black;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 90%;
   --negative: #d1e3fa;
   --contra: #fae8d1;
@@ -2825,6 +3035,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #2e1c05;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 80%;
   --negative: #a4c7f4;
   --contra: #f4d1a4;
@@ -2839,6 +3051,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #5b380b;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 70%;
   --negative: #76abef;
   --contra: #efba76;
@@ -2853,6 +3067,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #895410;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 60%;
   --negative: #498fe9;
   --contra: #e9a349;
@@ -2867,6 +3083,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #b67016;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 50%;
   --negative: #1b73e4;
   --contra: #e48c1b;
@@ -2881,6 +3099,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #e48c1b;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 40%;
   --negative: #165cb6;
   --contra: #b67016;
@@ -2895,6 +3115,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #e9a349;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 30%;
   --negative: #104589;
   --contra: #895410;
@@ -2909,6 +3131,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #efba76;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 20%;
   --negative: #0b2e5b;
   --contra: #5b380b;
@@ -2923,6 +3147,8 @@ h6:hover .header-anchor {
   --current-10: #2e1c05;
   --current-90: #fae8d1;
   --accent: #f4d1a4;
+  --light-accent: #f4d1a4;
+  --dark-accent: #5b380b;
   --negative-lightness: 10%;
   --negative: #05172e;
   --contra: #2e1c05;
@@ -2937,6 +3163,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #5e2652;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 64.1176470588%;
   --negative: #7ccb8e;
   --contra: #cb7cb9;
@@ -2951,6 +3179,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: black;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 90%;
   --negative: #daf1e0;
   --contra: #f1daeb;
@@ -2965,6 +3195,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #250e1f;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 80%;
   --negative: #b6e2c0;
   --contra: #e2b6d8;
@@ -2979,6 +3211,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #491d3f;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 70%;
   --negative: #91d4a1;
   --contra: #d491c4;
@@ -2993,6 +3227,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #6e2b5e;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 60%;
   --negative: #6dc581;
   --contra: #c56db1;
@@ -3007,6 +3243,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #923a7e;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 50%;
   --negative: #48b762;
   --contra: #b7489d;
@@ -3021,6 +3259,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #b7489d;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 40%;
   --negative: #3a924e;
   --contra: #923a7e;
@@ -3035,6 +3275,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #c56db1;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 30%;
   --negative: #2b6e3b;
   --contra: #6e2b5e;
@@ -3049,6 +3291,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #d491c4;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 20%;
   --negative: #1d4927;
   --contra: #491d3f;
@@ -3063,6 +3307,8 @@ h6:hover .header-anchor {
   --current-10: #250e1f;
   --current-90: #f1daeb;
   --accent: #e2b6d8;
+  --light-accent: #e2b6d8;
+  --dark-accent: #491d3f;
   --negative-lightness: 10%;
   --negative: #0e2514;
   --contra: #250e1f;
@@ -3077,6 +3323,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #471334;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 72.3529411765%;
   --negative: #90e1ae;
   --contra: #e190c3;
@@ -3091,6 +3339,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: black;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 90%;
   --negative: #d7f4e2;
   --contra: #f4d7e9;
@@ -3105,6 +3355,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #280b1d;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 80%;
   --negative: #afe9c4;
   --contra: #e9afd4;
@@ -3119,6 +3371,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #50163b;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 70%;
   --negative: #87dea7;
   --contra: #de87be;
@@ -3133,6 +3387,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #782158;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 60%;
   --negative: #5ed48a;
   --contra: #d45ea8;
@@ -3147,6 +3403,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #a12b75;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 50%;
   --negative: #36c96d;
   --contra: #c93692;
@@ -3161,6 +3419,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #c93692;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 40%;
   --negative: #2ba157;
   --contra: #a12b75;
@@ -3175,6 +3435,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #d45ea8;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 30%;
   --negative: #217841;
   --contra: #782158;
@@ -3189,6 +3451,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #de87be;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 20%;
   --negative: #16502b;
   --contra: #50163b;
@@ -3203,6 +3467,8 @@ h6:hover .header-anchor {
   --current-10: #280b1d;
   --current-90: #f4d7e9;
   --accent: #e9afd4;
+  --light-accent: #e9afd4;
+  --dark-accent: #50163b;
   --negative-lightness: 10%;
   --negative: #0b2816;
   --contra: #280b1d;
@@ -3217,6 +3483,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #fc75cd;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 17.6470588235%;
   --negative: #025820;
   --contra: #58023a;
@@ -3231,6 +3499,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: black;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 90%;
   --negative: #cdfede;
   --contra: #fecded;
@@ -3245,6 +3515,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #320121;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 80%;
   --negative: #9bfdbd;
   --contra: #fd9bdb;
@@ -3259,6 +3531,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #640242;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 70%;
   --negative: #69fc9c;
   --contra: #fc69c9;
@@ -3273,6 +3547,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #960363;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 60%;
   --negative: #38fa7c;
   --contra: #fa38b6;
@@ -3287,6 +3563,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #c70583;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 50%;
   --negative: #06f95b;
   --contra: #f906a4;
@@ -3301,6 +3579,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #f906a4;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 40%;
   --negative: #05c749;
   --contra: #c70583;
@@ -3315,6 +3595,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #fa38b6;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 30%;
   --negative: #039636;
   --contra: #960363;
@@ -3329,6 +3611,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #fc69c9;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 20%;
   --negative: #026424;
   --contra: #640242;
@@ -3343,6 +3627,8 @@ h6:hover .header-anchor {
   --current-10: #320121;
   --current-90: #fecded;
   --accent: #fd9bdb;
+  --light-accent: #fd9bdb;
+  --dark-accent: #640242;
   --negative-lightness: 10%;
   --negative: #013212;
   --contra: #320121;
@@ -3357,6 +3643,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #ca4ff8;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 25.8823529412%;
   --negative: #267f05;
   --contra: #5e057f;
@@ -3371,6 +3659,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: black;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 90%;
   --negative: #dbfdce;
   --contra: #f0cefd;
@@ -3385,6 +3675,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #240231;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 80%;
   --negative: #b6fb9d;
   --contra: #e29dfb;
@@ -3399,6 +3691,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #490462;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 70%;
   --negative: #92f96c;
   --contra: #d36cf9;
@@ -3413,6 +3707,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #6d0693;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 60%;
   --negative: #6ef73b;
   --contra: #c43bf7;
@@ -3427,6 +3723,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #9108c4;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 50%;
   --negative: #49f50a;
   --contra: #b60af5;
@@ -3441,6 +3739,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #b60af5;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 40%;
   --negative: #3bc408;
   --contra: #9108c4;
@@ -3455,6 +3755,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #c43bf7;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 30%;
   --negative: #2c9306;
   --contra: #6d0693;
@@ -3469,6 +3771,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #d36cf9;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 20%;
   --negative: #1d6204;
   --contra: #490462;
@@ -3483,6 +3787,8 @@ h6:hover .header-anchor {
   --current-10: #240231;
   --current-90: #f0cefd;
   --accent: #e29dfb;
+  --light-accent: #e29dfb;
+  --dark-accent: #490462;
   --negative-lightness: 10%;
   --negative: #0f3102;
   --contra: #240231;
@@ -3497,6 +3803,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #ff498e;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 25.6862745098%;
   --negative: #008351;
   --contra: #830032;
@@ -3511,6 +3819,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: black;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 90%;
   --negative: #ccffec;
   --contra: #ffccdf;
@@ -3525,6 +3835,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #330013;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 80%;
   --negative: #99ffd8;
   --contra: #ff99c0;
@@ -3539,6 +3851,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #660027;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 70%;
   --negative: #66ffc5;
   --contra: #ff66a0;
@@ -3553,6 +3867,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #99003a;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 60%;
   --negative: #33ffb1;
   --contra: #ff3381;
@@ -3567,6 +3883,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #cc004e;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 50%;
   --negative: #00ff9e;
   --contra: #ff0061;
@@ -3581,6 +3899,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #ff0061;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 40%;
   --negative: #00cc7e;
   --contra: #cc004e;
@@ -3595,6 +3915,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #ff3381;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 30%;
   --negative: #00995f;
   --contra: #99003a;
@@ -3609,6 +3931,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #ff66a0;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 20%;
   --negative: #00663f;
   --contra: #660027;
@@ -3623,6 +3947,8 @@ h6:hover .header-anchor {
   --current-10: #330013;
   --current-90: #ffccdf;
   --accent: #ff99c0;
+  --light-accent: #ff99c0;
+  --dark-accent: #660027;
   --negative-lightness: 10%;
   --negative: #003320;
   --contra: #330013;
@@ -3637,6 +3963,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #8d2958;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 54.3137254902%;
   --negative: #4acb8e;
   --contra: #cb4a87;
@@ -3651,6 +3979,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: black;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 90%;
   --negative: #d7f4e6;
   --contra: #f4d7e5;
@@ -3665,6 +3995,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #280b19;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 80%;
   --negative: #b0e8ce;
   --contra: #e8b0ca;
@@ -3679,6 +4011,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #4f1731;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 70%;
   --negative: #88ddb5;
   --contra: #dd88b0;
@@ -3693,6 +4027,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #77224a;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 60%;
   --negative: #61d19c;
   --contra: #d16196;
@@ -3707,6 +4043,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #9e2e63;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 50%;
   --negative: #39c683;
   --contra: #c6397c;
@@ -3721,6 +4059,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #c6397c;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 40%;
   --negative: #2e9e69;
   --contra: #9e2e63;
@@ -3735,6 +4075,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #d16196;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 30%;
   --negative: #22774f;
   --contra: #77224a;
@@ -3749,6 +4091,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #dd88b0;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 20%;
   --negative: #174f35;
   --contra: #4f1731;
@@ -3763,6 +4107,8 @@ h6:hover .header-anchor {
   --current-10: #280b19;
   --current-90: #f4d7e5;
   --accent: #e8b0ca;
+  --light-accent: #e8b0ca;
+  --dark-accent: #4f1731;
   --negative-lightness: 10%;
   --negative: #0b281a;
   --contra: #280b19;
@@ -3777,6 +4123,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #e81e40;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 38.6274509804%;
   --negative: #12b398;
   --contra: #b3122d;
@@ -3791,6 +4139,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: black;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 90%;
   --negative: #d1faf3;
   --contra: #fad1d8;
@@ -3805,6 +4155,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #2e050c;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 80%;
   --negative: #a2f6e8;
   --contra: #f6a2b0;
@@ -3819,6 +4171,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #5d0917;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 70%;
   --negative: #74f1dc;
   --contra: #f17489;
@@ -3833,6 +4187,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #8b0e23;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 60%;
   --negative: #46ecd0;
   --contra: #ec4662;
@@ -3847,6 +4203,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #b9132f;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 50%;
   --negative: #17e8c5;
   --contra: #e8173a;
@@ -3861,6 +4219,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #e8173a;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 40%;
   --negative: #13b99d;
   --contra: #b9132f;
@@ -3875,6 +4235,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #ec4662;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 30%;
   --negative: #0e8b76;
   --contra: #8b0e23;
@@ -3889,6 +4251,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #f17489;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 20%;
   --negative: #095d4f;
   --contra: #5d0917;
@@ -3903,6 +4267,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #f6a2b0;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 10%;
   --negative: #052e27;
   --contra: #2e050c;
@@ -3917,6 +4283,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #0e9c97;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 56.6666666667%;
   --negative: #ed343b;
   --contra: #34ede6;
@@ -3931,6 +4299,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: black;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 90%;
   --negative: #fbd0d2;
   --contra: #d0fbf9;
@@ -3945,6 +4315,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #042f2d;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 80%;
   --negative: #f7a1a5;
   --contra: #a1f7f3;
@@ -3959,6 +4331,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #085e5a;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 70%;
   --negative: #f37277;
   --contra: #72f3ee;
@@ -3973,6 +4347,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #0c8d88;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 60%;
   --negative: #ee444a;
   --contra: #44eee8;
@@ -3987,6 +4363,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #11bbb5;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 50%;
   --negative: #ea151d;
   --contra: #15eae2;
@@ -4001,6 +4379,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #15eae2;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 40%;
   --negative: #bb1117;
   --contra: #11bbb5;
@@ -4015,6 +4395,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #44eee8;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 30%;
   --negative: #8d0c11;
   --contra: #0c8d88;
@@ -4029,6 +4411,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #72f3ee;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 20%;
   --negative: #5e080c;
   --contra: #085e5a;
@@ -4043,6 +4427,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #a1f7f3;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 10%;
   --negative: #2f0406;
   --contra: #042f2d;
@@ -4057,6 +4443,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #666c6e;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 48.431372549%;
   --negative: #807977;
   --contra: #777e80;
@@ -4071,6 +4459,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: black;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 90%;
   --negative: #e6e5e5;
   --contra: #e5e6e6;
@@ -4085,6 +4475,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #191a1a;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 80%;
   --negative: #cecbca;
   --contra: #cacdce;
@@ -4099,6 +4491,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #313435;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 70%;
   --negative: #b5b1b0;
   --contra: #b0b4b5;
@@ -4113,6 +4507,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #4a4e4f;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 60%;
   --negative: #9d9795;
   --contra: #959b9d;
@@ -4127,6 +4523,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #62686a;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 50%;
   --negative: #847d7b;
   --contra: #7b8284;
@@ -4141,6 +4539,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #7b8284;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 40%;
   --negative: #6a6462;
   --contra: #62686a;
@@ -4155,6 +4555,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #959b9d;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 30%;
   --negative: #4f4b4a;
   --contra: #4a4e4f;
@@ -4169,6 +4571,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #b0b4b5;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 20%;
   --negative: #353231;
   --contra: #313435;
@@ -4183,6 +4587,8 @@ h6:hover .header-anchor {
   --current-10: #191a1a;
   --current-90: #e5e6e6;
   --accent: #cacdce;
+  --light-accent: #cacdce;
+  --dark-accent: #313435;
   --negative-lightness: 10%;
   --negative: #1a1919;
   --contra: #191a1a;
@@ -4197,6 +4603,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: black;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 93.3333333333%;
   --negative: #eeeeee;
   --contra: #eeeeee;
@@ -4211,6 +4619,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: black;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 90%;
   --negative: #e6e6e6;
   --contra: #e6e6e6;
@@ -4225,6 +4635,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #1a1a1a;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 80%;
   --negative: #cccccc;
   --contra: #cccccc;
@@ -4239,6 +4651,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #333333;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 70%;
   --negative: #b3b3b3;
   --contra: #b3b3b3;
@@ -4253,6 +4667,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #4d4d4d;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 60%;
   --negative: #999999;
   --contra: #999999;
@@ -4267,6 +4683,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #666666;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 50%;
   --negative: gray;
   --contra: gray;
@@ -4281,6 +4699,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: gray;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 40%;
   --negative: #666666;
   --contra: #666666;
@@ -4295,6 +4715,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #999999;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 30%;
   --negative: #4d4d4d;
   --contra: #4d4d4d;
@@ -4309,6 +4731,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #b3b3b3;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 20%;
   --negative: #333333;
   --contra: #333333;
@@ -4323,6 +4747,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #cccccc;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 10%;
   --negative: #1a1a1a;
   --contra: #1a1a1a;
@@ -4337,6 +4763,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #e6e6e6;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 0%;
   --negative: black;
   --contra: black;
@@ -4351,6 +4779,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: black;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 90%;
   --negative: #e6e6e6;
   --contra: #e6e6e6;
@@ -4365,6 +4795,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #1a1a1a;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 80%;
   --negative: #cccccc;
   --contra: #cccccc;
@@ -4379,6 +4811,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #333333;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 70%;
   --negative: #b3b3b3;
   --contra: #b3b3b3;
@@ -4393,6 +4827,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #4d4d4d;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 60%;
   --negative: #999999;
   --contra: #999999;
@@ -4407,6 +4843,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #666666;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 50%;
   --negative: gray;
   --contra: gray;
@@ -4421,6 +4859,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: gray;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 40%;
   --negative: #666666;
   --contra: #666666;
@@ -4435,6 +4875,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #999999;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 30%;
   --negative: #4d4d4d;
   --contra: #4d4d4d;
@@ -4449,6 +4891,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #b3b3b3;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 20%;
   --negative: #333333;
   --contra: #333333;
@@ -4463,6 +4907,8 @@ h6:hover .header-anchor {
   --current-10: #1a1a1a;
   --current-90: #e6e6e6;
   --accent: #cccccc;
+  --light-accent: #cccccc;
+  --dark-accent: #333333;
   --negative-lightness: 10%;
   --negative: #1a1a1a;
   --contra: #1a1a1a;
@@ -4477,6 +4923,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #e81e40;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 38.6274509804%;
   --negative: #12b398;
   --contra: #b3122d;
@@ -4491,6 +4939,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #0e9c97;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 56.6666666667%;
   --negative: #ed343b;
   --contra: #34ede6;
@@ -4505,6 +4955,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #0d6379;
+  --light-accent: #a3e5f5;
+  --dark-accent: #0a4c5c;
   --negative-lightness: 63.7254901961%;
   --negative: #ed7658;
   --contra: #58cfed;
@@ -4519,6 +4971,8 @@ h6:hover .header-anchor {
   --current-10: #2f0406;
   --current-90: #fbd0d2;
   --accent: #c41319;
+  --light-accent: #f6a2a5;
+  --dark-accent: #5d090c;
   --negative-lightness: 47.8431372549%;
   --negative: #15dfd8;
   --contra: #df151c;
@@ -4533,6 +4987,8 @@ h6:hover .header-anchor {
   --current-10: #311e02;
   --current-90: #fdeace;
   --accent: #db8508;
+  --light-accent: #fbd59d;
+  --dark-accent: #623c04;
   --negative-lightness: 45.4901960784%;
   --negative: #0860e0;
   --contra: #e08808;
@@ -4547,6 +5003,8 @@ h6:hover .header-anchor {
   --current-10: #05262e;
   --current-90: #d1f2fa;
   --accent: #19b2d9;
+  --light-accent: #a3e4f5;
+  --dark-accent: #0a4b5c;
   --negative-lightness: 42.5490196078%;
   --negative: #c33916;
   --contra: #16a0c3;
@@ -4561,6 +5019,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: black;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 90%;
   --negative: #d1faf3;
   --contra: #fad1d8;
@@ -4575,6 +5035,8 @@ h6:hover .header-anchor {
   --current-10: #2e050c;
   --current-90: #fad1d8;
   --accent: #f6a2b0;
+  --light-accent: #f6a2b0;
+  --dark-accent: #5d0917;
   --negative-lightness: 10%;
   --negative: #052e27;
   --contra: #2e050c;
@@ -4589,6 +5051,8 @@ h6:hover .header-anchor {
   --current-10: #042f2d;
   --current-90: #d0fbf9;
   --accent: #a1f7f3;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
   --negative-lightness: 10%;
   --negative: #2f0406;
   --contra: #042f2d;
@@ -4596,6 +5060,38 @@ h6:hover .header-anchor {
   --text-negative: black;
   background-color: var(--accent, #d0fbf9);
   color: var(--accent-text, var(--current-10, #111111));
+}
+.background--dark-accent {
+  --current: #d0fbf9;
+  --current-saturation: 83.7104072398%;
+  --current-10: #042f2d;
+  --current-90: #d0fbf9;
+  --accent: #a1f7f3;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
+  --negative-lightness: 10%;
+  --negative: #2f0406;
+  --contra: #042f2d;
+  --text: black;
+  --text-negative: black;
+  background-color: var(--dark-accent, #d0fbf9);
+  color: var(--dark-accent-text, var(--current-10, #111111));
+}
+.background--light-accent {
+  --current: #042f2d;
+  --current-saturation: 83.7104072398%;
+  --current-10: #042f2d;
+  --current-90: #d0fbf9;
+  --accent: black;
+  --light-accent: #a1f7f3;
+  --dark-accent: #085e5a;
+  --negative-lightness: 90%;
+  --negative: #fbd0d2;
+  --contra: #d0fbf9;
+  --text: white;
+  --text-negative: white;
+  background-color: var(--light-accent, #042f2d);
+  color: var(--light-accent-text, #ffffff);
 }
 .color--red {
   color: var(--red, #ea2027);
@@ -5284,6 +5780,12 @@ h6:hover .header-anchor {
 .color--accent {
   color: var(--accent, #d0fbf9);
 }
+.color--dark-accent {
+  color: var(--dark-accent, #d0fbf9);
+}
+.color--light-accent {
+  color: var(--light-accent, #042f2d);
+}
 .background--gradient {
   position: relative;
   background-image: url(https://stil.style/assets/noise.jpg),
@@ -5847,11 +6349,32 @@ span:hover > .tooltip {
 .notification p:first-of-type {
   font-size: 1em;
 }
+.notification--dark-accent {
+  border: 1px solid #d0fbf9;
+  background-color: #8af5f1;
+  color: #0a7571;
+  --accent: #5bf0eb;
+}
+.notification p,
+.notification p:first-of-type {
+  font-size: 1em;
+}
+.notification--light-accent {
+  border: 1px solid #042f2d;
+  background-color: #8af5f1;
+  color: #0a7571;
+  --accent: #5bf0eb;
+}
+.notification p,
+.notification p:first-of-type {
+  font-size: 1em;
+}
 .toolbar {
   position: fixed;
   bottom: 0;
   right: 0;
   padding: 2em;
+  z-index: 10;
 }
 body {
   background-color: var(--background);
@@ -5863,6 +6386,7 @@ body {
     --off-text: var(--white-90);
     --background: var(--white-10);
     --text: var(--white);
+    --accent: var(--light-accent);
   }
 }
 @media (prefers-color-scheme: light) {
@@ -5871,6 +6395,7 @@ body {
     --off-text: var(--white-80);
     --background: var(--white);
     --text: var(--white-10);
+    --accent: var(--dark-accent);
   }
 }
 body[color-mode="dark"] {
@@ -5878,12 +6403,14 @@ body[color-mode="dark"] {
   --off-text: var(--white-90);
   --background: var(--white-10);
   --text: var(--white);
+  --accent: var(--light-accent);
 }
 body[color-mode="light"] {
   --off: var(--white-90);
   --off-text: var(--white-80);
   --background: var(--white);
   --text: var(--white-10);
+  --accent: var(--dark-accent);
 }
 .color-mode {
   width: 2em;

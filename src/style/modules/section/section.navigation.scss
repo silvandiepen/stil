@@ -229,7 +229,7 @@
           }
         }
         &:checked {
-          & ~ #{navigation}-background {
+          & ~ #{$navigation}-background {
             pointer-events: all;
           }
           & + #{$navigation}-toggle {
@@ -243,8 +243,8 @@
               }
             }
           }
-          & ~ #{navigation},
-          & ~ #{$header} #{navigation} {
+          & ~ #{$navigation},
+          & ~ #{$header} #{$navigation} {
             @media #{breakpoint(small,only)} {
               --delay: 0s;
               transform: translate(-50%, -50%) scale(1);
