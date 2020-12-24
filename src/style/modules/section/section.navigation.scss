@@ -7,6 +7,11 @@
       position: relative;
       display: flex;
 
+      &.center {
+        justify-content: center;
+        align-items: center;
+      }
+
       &.align-right {
         ul ul {
           right: 0;
