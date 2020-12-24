@@ -3,12 +3,14 @@
   --off-text: var(--white-90);
   --background: var(--white-10);
   --text: var(--white);
+  --accent: var(--light-accent);
 }
 @mixin lightMode {
   --off: var(--white-90);
   --off-text: var(--white-80);
   --background: var(--white);
   --text: var(--white-10);
+  --accent: var(--dark-accent);
 }
 
 @mixin colormode() {

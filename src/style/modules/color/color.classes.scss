@@ -16,6 +16,8 @@ $white: white;
   --current-10: #{to-lightness($color-value, 10)};
   --current-90: #{to-lightness($color-value, 90)};
   --accent: #{darken($color-value, 10%)};
+  --light-accent: #{to-lightness($color-value, 80)};
+  --dark-accent: #{to-lightness($color-value, 20)};
   --negative-lightness: #{$negative-lightness};
   --negative: #{hsl(
       hue($negative-color),
