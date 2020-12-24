@@ -188,8 +188,10 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: 2;
         pointer-events: none;
+        background-color: var(--accent);
+        opacity: 0;
+        z-index: 5;
       }
       &-input {
         position: absolute;
@@ -231,6 +233,7 @@
         &:checked {
           & ~ #{$navigation}-background {
             pointer-events: all;
+            opacity: 0.75;
           }
           & + #{$navigation}-toggle {
             span {
