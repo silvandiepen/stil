@@ -1,0 +1,11 @@
+@mixin notification() {
+  @if export($output, "elements.toolbar") {
+    $toolbar: settings($settings, "define.toolbar.class");
+    #{$toolbar} {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      padding: 2em;
+    }
+  }
+}

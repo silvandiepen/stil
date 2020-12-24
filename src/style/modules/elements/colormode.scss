@@ -1,0 +1,57 @@
+@mixin notification() {
+  @if export($output, "elements.colormode") {
+    $colormode: settings($settings, "define.colormode.class");
+
+    @mixin darkMode {
+      --off: var(--off-dark);
+      --off-text: var(--off-light);
+      --background: var(--dark);
+      --text: var(--light);
+    }
+    @mixin lightMode {
+      --off: var(--off-light);
+      --off-text: var(--off-dark);
+      --background: var(--light);
+      --text: var(--dark);
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        @include darkMode;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        @include lightMode;
+      }
+    }
+    body[color-mode="dark"] {
+      @include darkMode;
+    }
+    body[color-mode="light"] {
+      @include lightMode;
+    }
+    #{$colormode} {
+      width: 2em;
+      height: 2em;
+      border: none;
+      border-radius: 1em;
+      background-color: var(--off-text);
+      text-indent: -999em;
+      transform: translateX(-0%) rotate(45deg);
+      transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out,
+        width 0.3s ease-in-out;
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 10px 0 var(--text);
+      }
+    }
+    [color-mode="dark"] & {
+      #{$colormode} {
+        width: 1em;
+        border-radius: 1em 0 0 1em;
+        transform: translateX(-100%) rotate(0deg);
+      }
+    }
+  }
+}
