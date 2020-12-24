@@ -1,0 +1,68 @@
+@mixin debug() {
+  @if export($output, "debug.grid") {
+    $backgrounds: ();
+    //
+
+    // Full width Content
+    $backgrounds: (
+      (
+        (
+          "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) calc(100% - 1px), rgba(0, 0, 0, 0.5) calc(100% - 1px), rgba(0, 0, 0, 0.5) calc(100% - 0px) )",
+          "repeat",
+          "100% calc(max(100%, var(--content_max-width)) / 12)",
+          "center center"
+        )
+      )
+    );
+
+    // // Full width Content
+    $backgrounds: append(
+      $backgrounds,
+      (
+        "image":
+          "linear-gradient(  to bottom,  rgba(255, 0, 0, 0.25), rgba(255, 0, 0, 0.25)  )",
+        "repeat": "repeat",
+        "size": "var(--content_max-width) 100%",
+        "position": "center center",
+      )
+    );
+
+    $background-image: ();
+    $background-repeat: ();
+    $background-size: ();
+    $background-position: ();
+
+    @each $bg in $backgrounds {
+      // @debug $bg;
+      // @debug type-of($bg);
+      // @debug nth($bg, 1);
+      // @debug length($bg);
+      @debug $bg;
+      $background-image: append($background-image, nth($bg, 1));
+      // $background-repeat: append($background-image, nth($bg, 2));
+      // $background-size: append($background-image, nth($bg, 3));
+      // $background-position: append($background-image, nth($bg, 4));
+    }
+
+    body {
+      &::before {
+        content: "";
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+
+        @debug $background-image;
+
+        // background-image: join($background-image, ",");
+        // background-size: join($background-size, ",");
+        // background-repeat: join($background-repeat, ",");
+        // background-position: join($background-position, ",");
+      }
+    }
+  }
+}
+
+@include debug();
