@@ -55,9 +55,11 @@ $color-palette-defined: map-merge(
   (
     "Dark": to-lightness(map-get($color-palette-defined, "Primary"), 10),
     "Light": to-lightness(map-get($color-palette-defined, "Primary"), 90),
-    "Accent": to-lightness(map-get($color-palette-defined, "Primary"), 90),
-    "Dark-Accent": to-lightness(map-get($color-palette-defined, "Primary"), 10),
-    "Light-Accent": to-lightness(map-get($color-palette-defined, "Primary"), 90),
+    "Accent": to-lightness(map-get($color-palette-defined, "Secondary"), 90),
+    "Dark-Accent":
+      to-lightness(map-get($color-palette-defined, "Secondary"), 90),
+    "Light-Accent":
+      to-lightness(map-get($color-palette-defined, "Secondary"), 10),
   )
 );
 
