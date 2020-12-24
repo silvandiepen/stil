@@ -1,19 +1,23 @@
 @mixin darkMode {
-  --off: var(--off-dark);
-  --off-text: var(--off-light);
-  --background: var(--dark);
-  --text: var(--light);
+  --off: var(--white-20);
+  --off-text: var(--white-90);
+  --background: var(--white-10);
+  --text: var(--white);
 }
 @mixin lightMode {
-  --off: var(--off-light);
-  --off-text: var(--off-dark);
-  --background: var(--light);
-  --text: var(--dark);
+  --off: var(--white-90);
+  --off-text: var(--white-80);
+  --background: var(--white);
+  --text: var(--white-10);
 }
+
 @mixin colormode() {
   @if export($output, "elements.colormode") {
     $colormode: settings($settings, "define.colormode.class");
-
+    body {
+      background-color: var(--background);
+      color: var(--text);
+    }
     @media (prefers-color-scheme: dark) {
       body {
         @include darkMode;
