@@ -1,4 +1,4 @@
-@mixin notification() {
+@mixin toolbar() {
   @if export($output, "elements.toolbar") {
     $toolbar: settings($settings, "define.toolbar.class");
     #{$toolbar} {

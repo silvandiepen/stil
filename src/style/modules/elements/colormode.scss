@@ -1,19 +1,19 @@
-@mixin notification() {
+@mixin darkMode {
+  --off: var(--off-dark);
+  --off-text: var(--off-light);
+  --background: var(--dark);
+  --text: var(--light);
+}
+@mixin lightMode {
+  --off: var(--off-light);
+  --off-text: var(--off-dark);
+  --background: var(--light);
+  --text: var(--dark);
+}
+@mixin colormode() {
   @if export($output, "elements.colormode") {
     $colormode: settings($settings, "define.colormode.class");
 
-    @mixin darkMode {
-      --off: var(--off-dark);
-      --off-text: var(--off-light);
-      --background: var(--dark);
-      --text: var(--light);
-    }
-    @mixin lightMode {
-      --off: var(--off-light);
-      --off-text: var(--off-dark);
-      --background: var(--light);
-      --text: var(--dark);
-    }
     @media (prefers-color-scheme: dark) {
       body {
         @include darkMode;
@@ -46,7 +46,7 @@
         box-shadow: 0 0 10px 0 var(--text);
       }
     }
-    [color-mode="dark"] & {
+    [color-mode="dark"] {
       #{$colormode} {
         width: 1em;
         border-radius: 1em 0 0 1em;
