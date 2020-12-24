@@ -2,9 +2,13 @@
 @import "button";
 @import "card";
 @import "notification";
+@import "toolbar";
+@import "colormode";
 
 @include tooltip();
 @include button();
 @include card();
 @include card-group();
 @include notification();
+@include toolbar();
+@include colormode();
