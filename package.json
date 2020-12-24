@@ -1,6 +1,6 @@
 {
   "name": "stil-style",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Base CSS Design System",
   "main": "index.scss",
   "scripts": {
