@@ -198,8 +198,8 @@
         clip-path: inset(100% 100% 100% 100%);
         opacity: 0;
 
-        & ~ #{navigation},
-        & ~ #{$header} #{navigation} {
+        & ~ #{$navigation},
+        & ~ #{$header} #{$navigation} {
           @media #{breakpoint(small,only)} {
             --delay: 0.5s;
             position: fixed;

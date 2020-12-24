@@ -5,6 +5,11 @@
 
 	<header class="header header--sticky background--white">
 		<a class="logo" href="/">Stil</a>
+		<input class="navigation-input" type="checkbox" />
+		<label class="navigation-toggle">
+			<span></span>
+		</label>
+		<div class="navigation-background"></div>
 		<nav class="navigation nav-bar align-center">
 			<!-- Primary Level -->
 			<ul class="navigation__list">
