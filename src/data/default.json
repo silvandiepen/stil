@@ -16,7 +16,7 @@
   "h6.text-transform": "uppercase",
   "h6.letter-spacing": "0.1em",
   "h6.color": "var(--current-color, var(--contra, var(--primary)))",
-  "grid.total": 24,
+  "grid.total": 12,
   "grid.breakpoint.names": ["small", "medium", "large"],
   "grid.breakpoint.sizes": {
     "full": "1/1",
@@ -46,5 +46,6 @@
   "define.navigation.class": ".navigation",
   "define.tooltip.class": ".tooltip",
   "define.button.class": ".button",
-  "define.card.class": ".card"
+  "define.card.class": ".card",
+  "define.notification.class": ".notification"
 }

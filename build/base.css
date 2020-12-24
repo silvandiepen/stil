@@ -1,1 +1,1 @@
-/*# sourceMappingURL=base.css.map */
+.row.row--fifths{display:grid;grid-auto-flow:row;grid-column-gap:var(--gap, 0);grid-row-gap:var(--gap, 0);--row-columns: repeat( var(--row-total, 25), 1fr );grid-template-columns:var(--row-columns);grid-template-rows:auto}/*# sourceMappingURL=base.css.map */

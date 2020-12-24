@@ -1,3 +1,6 @@
+@debug "Building DEFAULT";
+
+
 $stil-output: (
     <% data.output.forEach((key, index)=>{ -%>
 "<%- key %>"<% if(index + 1 !== data.output.length){ %>,<%}%>

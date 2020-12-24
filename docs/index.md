@@ -179,6 +179,7 @@ Stil works just with named partials. Just add the partial name to your column (i
 </Column>
 
 </Row>
+
 <Row class="gap--1 space--2 background--green border-radius--2 space-top--3">
 
 <Column class="quarter space--2 border-radius--1 background--white">
@@ -202,6 +203,36 @@ Stil works just with named partials. Just add the partial name to your column (i
 </Column>
 
 </Row>
+
+<Row class="row--fifths gap--1 space--2 background--green border-radius--2 space-top--3">
+
+<Column class="fifth space--2 border-radius--1 background--white">
+    column
+    fifth
+</Column>
+
+<Column class="two-fifth space--2 border-radius--1 background--white">
+    column
+    two-fifth
+</Column>
+
+<Column class="fifth space--2 border-radius--1 background--white">
+    column
+    fifth
+</Column>
+
+<Column class="fifth space--2 border-radius--1 background--white">
+    column
+    fifth
+</Column>
+
+</Row>
+
+<div class="notification notification--warning">
+
+When using fifths, you will need to add the `.row--fifths` class to the row. You can't use fifths in combination with others.
+
+</div>
 
 </Section>
 

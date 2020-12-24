@@ -1,12 +1,13 @@
+@debug "Building BASE";
 $output: (
-  "custom-properties",
-  "typography.margin",
-  "typography.spacing",
-  "typography.headers",
-  "reset.default",
-  "section.body",
-  "content.default",
-  "color.custom-properties",
-  "color.classes.background+text"
+  // "custom-properties",
+  // "typography.margin",
+  // "typography.spacing",
+  // "typography.headers",
+  // "reset.default",
+  // "section.body",
+  // "content.default",
+  // "color.custom-properties",
+  // "color.classes.background+text"
 );
 @import "../src";

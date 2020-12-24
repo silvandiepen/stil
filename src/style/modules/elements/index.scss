@@ -1,8 +1,10 @@
 @import "tooltip";
 @import "button";
 @import "card";
+@import "notification";
 
 @include tooltip();
 @include button();
 @include card();
 @include card-group();
+@include notification();

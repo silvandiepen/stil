@@ -3,14 +3,18 @@
     $tooltip: settings($settings, "define.tooltip.class");
     #{$tooltip} {
       top: calc(100% + 0.5em);
-      transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%) scale(0.5);
       padding: 0.5em;
       position: absolute;
       border-radius: 0.5em;
       opacity: 0;
       pointer-events: none;
-      background-color: var(--current);
+      background-color: var(--current-90);
+      color: var(--current-10);
+      border: 1px solid var(--current);
       transition: transform 0.3s ease-in-out;
+      z-index: 10;
+      left: 50%;
       code {
         white-space: nowrap;
       }
@@ -19,7 +23,7 @@
     span:hover {
       & > #{$tooltip} {
         opacity: 1;
-        transform: translate(-50%, 0%);
+        transform: translate(-50%, 0%) scale(1);
       }
     }
   }

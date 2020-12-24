@@ -34,6 +34,8 @@
           border: 2px solid var(--accent);
           background-color: var(--current);
           border-radius: value(border-radius);
+          display: none;
+          top: 100%;
           @media #{breakpoint('small',only)} {
             flex-direction: column;
           }
@@ -52,17 +54,17 @@
             border: 2px solid var(--accent);
             background-color: var(--current);
           }
-          display: none;
-          top: 100%;
-          li a {
-            padding: calc(#{value(space)} / 2);
-          }
-          li + li {
-            @media #{breakpoint('medium')} {
-              margin-left: calc((#{value(space)} / 2) * -1);
+          li {
+            a {
+              padding: calc(#{value(space)} / 4) calc(#{value(space)} / 2);
             }
-            @media #{breakpoint('small',only)} {
-              margin-top: calc((#{value(space)}) * -1);
+            & + li {
+              @media #{breakpoint('medium')} {
+                margin-left: calc((#{value(space)} / 2) * -1);
+              }
+              @media #{breakpoint('small',only)} {
+                margin-top: calc((#{value(space)}) * -1);
+              }
             }
           }
         }
@@ -82,6 +84,9 @@
       li a::before {
         width: 100%;
         height: 100%;
+      }
+      a:hover {
+        text-decoration: none;
       }
       a {
         padding: value(space);
@@ -197,10 +202,6 @@
             background-color: inherit;
             top: 50%;
             left: 50%;
-            // width: calc(100vw - (#{value(space)} * 4));
-            // height: calc(100vh - (#{value(space)} * 4));
-            // top: calc(#{value(space)} * 2);
-            // left: calc(#{value(space)} * 2);
             padding: value(space);
             border: 2px solid var(--accent);
             border-radius: value(border-radius);

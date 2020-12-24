@@ -1,61 +1,61 @@
+$black: black;
+@if color-exists("black") {
+  $black: color("black");
+}
+$white: white;
+@if color-exists("white") {
+  $white: color("white");
+}
+
+@mixin color-background($color-name, $color-value) {
+  $negative-color: adjust-hue($color-value, 180deg);
+  $negative-lightness: 100 - lightness($negative-color);
+
+  --current: #{$color-value};
+  --current-saturation: #{saturation($color-value)};
+  --current-10: #{to-lightness($color-value, 10)};
+  --current-90: #{to-lightness($color-value, 90)};
+  --accent: #{darken($color-value, 10%)};
+  --negative-lightness: #{$negative-lightness};
+  --negative: #{hsl(
+      hue($negative-color),
+      saturation($negative-color),
+      $negative-lightness
+    )};
+  --contra: #{hsl(
+      hue($color-value),
+      saturation($color-value),
+      $negative-lightness
+    )};
+
+  --text: #{contra($color-value)};
+  --text-negative: #{contra($color-value)};
+
+  background-color: var(--#{$color-name}, #{$color-value});
+
+  @if settings($settings, "content.color.current10") {
+    $threshold: settings($settings, "color.contra.threshold");
+    @if lightness($color-value) > $threshold {
+      color: var(
+        --#{$color-name}-text,
+        var(--current-10, contra($color-value, $black, $white))
+      );
+    } @else {
+      color: var(--#{$color-name}-text, contra($color-value, $black, $white));
+    }
+  } @else {
+    color: var(--#{$color-name}-text, contra($color-value, $black, $white));
+  }
+}
+
 @mixin color-classes() {
   @if export($output, "color.classes.background+text") {
     // Define black and white. If they exist in the color palette, return those
-    $black: black;
-    @if color-exists("black") {
-      $black: color("black");
-    }
-    $white: white;
-    @if color-exists("white") {
-      $white: color("white");
-    }
+
     // Build all background classes
     @each $color-name, $color-value in $color-palette {
       .background--#{$color-name} {
-        $negative-color: adjust-hue($color-value, 180deg);
-        $negative-lightness: 100 - lightness($negative-color);
-
-        --current: #{$color-value};
-        --current-saturation: #{saturation($color-value)};
-        --current-10: #{to-lightness($color-value, 10)};
-        --current-90: #{to-lightness($color-value, 90)};
-        --accent: #{darken($color-value, 10%)};
-        --negative-lightness: #{$negative-lightness};
-        --negative: #{hsl(
-            hue($negative-color),
-            saturation($negative-color),
-            $negative-lightness
-          )};
-        --contra: #{hsl(
-            hue($color-value),
-            saturation($color-value),
-            $negative-lightness
-          )};
-
-        --text: #{contra($color-value)};
-        --text-negative: #{contra($color-value)};
-
-        background-color: var(--#{$color-name}, #{$color-value});
-
-        @if settings($settings, "content.color.current10") {
-          $threshold: settings($settings, "color.contra.threshold");
-          @if lightness($color-value) > $threshold {
-            color: var(
-              --#{$color-name}-text,
-              var(--current-10, contra($color-value, $black, $white))
-            );
-          } @else {
-            color: var(
-              --#{$color-name}-text,
-              contra($color-value, $black, $white)
-            );
-          }
-        } @else {
-          color: var(
-            --#{$color-name}-text,
-            contra($color-value, $black, $white)
-          );
-        }
+        @include color-background($color-name, $color-value);
       }
     }
   } @else if export($output, "color.classes.background") {

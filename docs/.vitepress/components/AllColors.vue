@@ -7,10 +7,11 @@
 					color
 				)} color--accent border-radius--1 width--10
 					height--10 border--1 `"
-			></div>
-			<span class="tooltip">
-				{{ color }}
-			</span>
+			>
+				<span class="tooltip">
+					{{ color }}
+				</span>
+			</div>
 		</div>
 	</div>
 </template>

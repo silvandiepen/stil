@@ -132,7 +132,7 @@
         $_g_display: "swap";
 
         $_g_url: "https://fonts.googleapis.com/css2?family=#{$_g_name}:wght@#{$_g_weights}&display=#{$_g_display}.css";
-        @debug $_g_url;
+        // @debug $_g_url;
         // @import $_g_url;
       }
     }

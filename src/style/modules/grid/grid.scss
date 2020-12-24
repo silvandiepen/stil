@@ -23,6 +23,13 @@ $grid-total: settings($settings, "grid.total");
   grid-template-columns: var(--row-columns);
   grid-template-rows: auto;
 }
+.row.row--fifths {
+  @include row(
+    (
+      total: 25,
+    )
+  );
+}
 @mixin column($pref: null, $add: null) {
   @each $size-name, $size-value in $breakpoint-sizes {
     $className: "";
@@ -32,12 +39,13 @@ $grid-total: settings($settings, "grid.total");
       $className: unquote("#{$add}.#{$size-name}");
     }
     #{$className} {
-      --column-width: #{(1 / $size-value)};
-      --row-column: calc(
-        var(--row-total, #{$grid-total}) /
-          var(--column-width, #{(1 / $size-value)})
-      );
-      grid-column: span var(--row-column, #{($grid-total * $size-value)});
+      $grid-total-fifth: $grid-total * $size-value;
+
+      @if $grid-total-fifth != ceil($grid-total-fifth) {
+        grid-column: span (25 * $size-value);
+      } @else {
+        grid-column: span ($grid-total * $size-value);
+      }
     }
   }
 }

@@ -1,3 +1,6 @@
+@debug "Building DEFAULT";
+
+
 $stil-output: (
     "custom-properties",
     "typography.fonts.sans-serif",
@@ -61,6 +64,7 @@ $stil-output: (
     "elements.button.group",
     "elements.card",
     "elements.card.group",
+    "elements.notification",
     "default.custom-properties"
     );
 
