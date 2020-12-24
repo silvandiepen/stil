@@ -19,6 +19,7 @@
       font-weight: bold;
       color: currentColor;
       text-decoration: none;
+      max-height: value("logo.max-height");
     }
   }
 }
