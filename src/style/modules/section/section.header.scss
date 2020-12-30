@@ -20,6 +20,10 @@
       color: currentColor;
       text-decoration: none;
       max-height: value("logo.max-height");
+      img {
+        max-width: 6rem;
+        max-height: 3rem;
+      }
     }
   }
 }
