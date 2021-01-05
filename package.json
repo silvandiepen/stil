@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:config && npm run build:output && npm run build:style && npm run copy:data && npm run docs:build && npm run copy:styles",
-    "build:style": "sass build/ dist/ --style=compressed",
+    "build:style": "sass build/:dist/ --style=compressed",
     "build:config": "node node_modules/@sil/jsonto/dist/index.js src/data/default.json src/default-settings.scss src/data/default-settings.scss.template",
     "build:output": "node node_modules/@sil/jsonto/dist/index.js src/data/output.json build/default.scss src/data/default-output.scss.template",
     "copy:data": "cpy src/data/default.json docs && cpy src/data/output.json docs",
-    "copy:styles": "cpy build/ docs/.vitepress/dist/",
+    "copy:styles": "cpy dist/ docs/.vitepress/dist/",
     "dev:style": "npm run build:style -- --watch",
     "stylelint": "stylelint 'src/scss/**/*.scss'",
     "stylelint:fix": "stylelint 'src/scss/**/*.scss' --fix",
