@@ -1,9 +1,22 @@
 @mixin section-footer() {
   @if export($output, "section.footer") {
     $footer: settings($settings, "define.footer.class");
+    $navigation: settings($settings, "define.navigation.class");
 
     #{$footer} {
       position: relative;
+      @media #{breakpoint(small,only)} {
+        #{$navigation} {
+          &__list {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          &__item {
+            padding: 0;
+          }
+        }
+      }
     }
   }
 }

@@ -24,6 +24,13 @@
         max-width: 6rem;
         max-height: 3rem;
       }
+      svg {
+        rect,
+        polygon,
+        path {
+          fill: currentColor;
+        }
+      }
     }
   }
 }
