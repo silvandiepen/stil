@@ -25,10 +25,16 @@
         max-height: 3rem;
       }
       svg {
+        display: block;
+        height: 100%;
+        min-height: 2em;
+        max-height: 5em;
         rect,
         polygon,
         path {
-          fill: currentColor;
+          &:not([fill]) {
+            fill: currentColor;
+          }
         }
       }
     }
