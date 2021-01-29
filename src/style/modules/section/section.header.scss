@@ -20,9 +20,12 @@
       color: currentColor;
       text-decoration: none;
       max-height: value("logo.max-height");
+      @media #{breakpoint(small,only)} {
+        padding: calc(#{value(space)} / 2) value(space);
+      }
       img {
-        max-width: 6rem;
-        max-height: 3rem;
+        max-width: 5em;
+        max-height: 5em;
       }
       svg {
         display: block;
@@ -30,6 +33,10 @@
         min-height: 5em;
         max-height: 5em;
         width: auto;
+        @media #{breakpoint(small,only)} {
+          min-height: 3em;
+          max-height: 3em;
+        }
         rect,
         polygon,
         path {
