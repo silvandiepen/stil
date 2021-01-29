@@ -1,7 +1,5 @@
 @mixin typography-headers() {
   $header-elements: (h1, h2, h3, h4, h5, h6);
-
-  @debug export($output, "typography.headers");
   @if export($output, "typography.headers") {
     $base: 5;
     @for $i from 1 through 6 {

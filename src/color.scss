@@ -1,5 +1,5 @@
 @function to-lightness($color, $lightness) {
-  @return hsl(hue($color), saturation($color), $lightness);
+  @return hsl(hue($color), saturation($color), $lightness * 1%);
 }
 @function contra($color, $black: black, $white: white) {
   $_val: black;
