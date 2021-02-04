@@ -1,0 +1,113 @@
+@mixin section-archive() {
+  @if export($output, "section.archive") {
+    $archive: settings($settings, "define.archive.class");
+
+    #{$archive} {
+      border-top: 1px solid var(--accent);
+      &__item {
+        background: var(--background);
+      }
+      &__link {
+        grid-area: link;
+        display: block;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        color: currentColor;
+      }
+      &__text {
+        grid-area: text;
+      }
+      &__date {
+        grid-area: date;
+        font-variant-numeric: tabular-nums;
+        opacity: 0.5;
+        span + span {
+          margin-left: 0.5ch;
+        }
+      }
+      /*
+      * Articles
+      */
+      &--articles {
+        #{$archive} {
+          &__list {
+            display: grid;
+            grid-gap: var(--space);
+            grid-template-columns: repeat(3, calc(100% / 3));
+            @media #{$small} {
+              grid-template-columns: repeat(1, calc(100% / 1));
+            }
+          }
+          &__text {
+            font-size: 1.5em;
+            display: block;
+            font-weight: bold;
+          }
+          &__date {
+            & + #{$archive}__text {
+              margin-top: 0.5em;
+            }
+          }
+          &__item {
+            display: flex;
+            flex-direction: column;
+          }
+          &__date {
+            display: block;
+          }
+          &__tags {
+            margin-top: auto;
+            align-self: flex-end;
+          }
+          &__image {
+            width: 100%;
+            height: 10em;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            img {
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+            }
+            & + #{$archive}__link {
+              margin-top: 1em;
+            }
+          }
+          &__link {
+            & + #{$archive}__tags {
+              margin-top: 1em;
+            }
+          }
+        }
+      }
+
+      /*
+      * Blog
+      */
+      &--blog {
+        #{$archive} {
+          &__list {
+            display: flex;
+            flex-direction: column;
+          }
+          &__item {
+            & + & {
+              margin-top: calc(var(--space) / 4);
+            }
+          }
+          &__link {
+            padding: calc(var(--space) / 2);
+            background-color: var(--accent);
+            border: 2px solid var(--accent);
+            &:hover {
+              background-color: transparent;
+            }
+          }
+          &__tags {
+            padding: calc(var(--space) / 2);
+          }
+        }
+      }
+    }
+  }
+}

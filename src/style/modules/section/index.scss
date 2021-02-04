@@ -4,6 +4,7 @@
 @import "section.footer";
 @import "section.navigation";
 @import "section.body";
+@import "section.archive";
 
 @include section-body();
 @include section-section();
@@ -11,3 +12,4 @@
 @include section-header();
 @include section-footer();
 @include section-navigation();
+@include section-archive();

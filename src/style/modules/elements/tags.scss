@@ -1,0 +1,27 @@
+@mixin tags() {
+  @if export($output, "elements.tags") {
+    $tags: settings($settings, "define.tags.class");
+
+    #{$tag} {
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(var(--space) / 4);
+      }
+      &__item {
+        display: block;
+        padding: calc(var(--space) / 4);
+        font-size: 0.8em;
+        border-radius: var(--border-radius);
+        background-color: var(--secondary);
+        border: 2px solid var(--secondary);
+        &:hover {
+          background-color: transparent;
+        }
+        &::before {
+          content: "#";
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 @import "content";
 @import "code";
-
+@import "header-image";
 @include styled-content();
 @include styled-code();
+@include styled-header-image();

@@ -4,6 +4,7 @@
 @import "notification";
 @import "toolbar";
 @import "colormode";
+@import "tags";
 
 @include tooltip();
 @include button();
@@ -12,3 +13,4 @@
 @include notification();
 @include toolbar();
 @include colormode();
+@include tags();
