@@ -9,6 +9,7 @@
       --font-family: #{settings($settings, "font-family")};
       --code-font: #{settings($settings, "code-font")};
       --content_max-width: #{settings($settings, "content.max-width")};
+      --transition: #{settings($settings, "transition")};
     }
   }
 }
