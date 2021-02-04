@@ -112,7 +112,7 @@
           left: 50%;
           width: calc(100% - #{value(space)});
           height: calc(100% - #{value(space)});
-          background-color: var(--sky-80);
+          background-color: var(--secondary);
           top: 50%;
           transform: translate(-50%, -50%) scale(0.75);
           border-radius: value(border-radius);
@@ -128,8 +128,8 @@
         }
         &:not(:hover):focus::before {
           transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
-          background-color: var(--yellow-80);
+          opacity: 0.5;
+          background-color: var(--primary);
         }
       }
       &-toggle {
