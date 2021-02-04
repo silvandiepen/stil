@@ -33,6 +33,7 @@
           position: relative;
           &__list {
             display: flex;
+            flex-wrap: wrap;
             width: 100%;
             @media #{breakpoint("medium")} {
               width: calc(100% + var(--space));
@@ -54,18 +55,16 @@
             margin: 0.5em;
             font-size: 0.8em;
             font-weight: bold;
-            background-color: rgba(0, 0, 0, 0.25);
-            color: white;
+            background-color: var(--background);
+            color: currentColor;
             padding: 0.5em;
             border-radius: var(--border-radius);
-            & + #{$archive}__text {
-              margin-top: 0.5em;
-            }
           }
           &__item {
             position: relative;
             display: flex;
             margin-top: var(--space);
+
             @media #{breakpoint(medium)} {
               width: calc(33.33% - var(--space));
               margin-left: var(--space);
@@ -73,10 +72,32 @@
             & + #{$archive}__item {
               flex-direction: column;
             }
+
+            &::before {
+              content: "";
+              display: block;
+              width: calc(100% + var(--space));
+              height: calc(100% + var(--space));
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%) scale(0.8);
+              background-color: var(--background);
+              z-index: -1;
+              box-shadow: 0 0 1em 0 var(--accent);
+              opacity: 0;
+              border-radius: calc(var(--border-radius) * 2);
+              transition: opacity var(--transition), transform var(--transition);
+            }
             &:hover {
               #{$archive}__date {
                 opacity: 1;
               }
+            }
+            &:focus,
+            &::before {
+              opacity: 1;
+              transform: translate(-50%, -50%) scale(1);
             }
           }
           &__tags {
