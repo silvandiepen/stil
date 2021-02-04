@@ -50,5 +50,7 @@
   "define.card.class": ".card",
   "define.notification.class": ".notification",
   "define.toolbar.class": ".toolbar",
-  "define.colormode.class": ".color-mode"
+  "define.colormode.class": ".color-mode",
+  "define.archive.class": ".archive",
+  "define.tags.class": ".tag"
 }

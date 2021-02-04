@@ -2,7 +2,7 @@
   @if export($output, "elements.tags") {
     $tags: settings($settings, "define.tags.class");
 
-    #{$tag} {
+    #{$tags} {
       &__list {
         display: flex;
         flex-wrap: wrap;

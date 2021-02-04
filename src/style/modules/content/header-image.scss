@@ -2,13 +2,12 @@
   @if export($output, "content.header-image") {
     h1 + figure {
       margin-top: var(--space);
-      width: calc(100% + (var(--space) * 2));
-      margin-left: calc(var(--space) * -1);
+      width: 100%;
     }
-    @media #{$small} {
+    @media #{breakpoint(medium)} {
       h1 + figure {
-        width: 100%;
-        margin-left: 0;
+        width: calc(100% + (var(--space) * 2));
+        margin-left: calc(var(--space) * -1);
       }
     }
     h1 + figure img {

@@ -33,9 +33,9 @@
           &__list {
             display: grid;
             grid-gap: var(--space);
-            grid-template-columns: repeat(3, calc(100% / 3));
-            @media #{$small} {
-              grid-template-columns: repeat(1, calc(100% / 1));
+            grid-template-columns: repeat(1, calc(100% / 1));
+            @media #{breakpoint("medium")} {
+              grid-template-columns: repeat(3, calc(100% / 3));
             }
           }
           &__text {
