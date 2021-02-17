@@ -93,6 +93,8 @@
       a:hover {
         text-decoration: none;
       }
+      span,
+      button,
       a {
         padding: value(space);
         text-decoration: none;
@@ -104,6 +106,9 @@
           position: relative;
           z-index: 2;
         }
+      }
+      a,
+      button {
         &::before {
           content: "";
           display: block;
