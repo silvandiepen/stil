@@ -1,6 +1,6 @@
 @mixin tags() {
   @if export($output, "elements.tags") {
-    $tags: settings($settings, "define.tags.class");
+    $tags: settings($settings, "define.tag.class");
 
     #{$tags} {
       &__list {

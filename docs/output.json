@@ -23,6 +23,7 @@
     "section.footer",
     "section.navigation",
     "section.archive",
+    "section.tags",
     "content.default",
     "content.paragraphs",
     "content.paragraphs.first",
@@ -68,6 +69,7 @@
     "elements.toolbar",
     "elements.colormode",
     "elements.tags",
+    "elements.task-list",
     "default.custom-properties"
   ]
 }

@@ -1,0 +1,62 @@
+@mixin task-list() {
+  @if export($output, "elements.task-list") {
+    $task-list: settings($settings, "define.task-list.class");
+
+    #{$task-list} {
+      display: flex;
+      flex-direction: column;
+
+      &__item {
+        display: block;
+        & + & {
+          margin-top: 1em;
+        }
+      }
+
+      &__label {
+        padding: 1em;
+        border-radius: var(--border-radius);
+        background-color: var(--accent);
+        padding-left: 2.5em;
+        position: relative;
+        display: block;
+      }
+      &__input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + #{$task-list}__label {
+          background-color: var(--secondary);
+        }
+      }
+      &__label {
+        &::before,
+        &::after {
+          content: "";
+          width: 1.5em;
+          height: 1.5em;
+          position: absolute;
+          left: 0.5em;
+          top: 50%;
+          background-color: var(--background);
+          display: block;
+          transform: translateY(-50%);
+          border-radius: 50%;
+          transition: transform var(--transition);
+        }
+        .task-list__label::after {
+          background-color: var(--primary);
+          transform: translateY(-50%) scale(0);
+        }
+        .task-list__input:checked + .task-list__label::after {
+          transform: translateY(-50%) scale(0.5);
+        }
+      }
+      &__link {
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+}

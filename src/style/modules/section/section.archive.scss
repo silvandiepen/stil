@@ -66,6 +66,7 @@
             margin-top: var(--space);
             transform: scale(1);
             transition: transform var(--transition);
+            width: 100%;
 
             @media #{breakpoint(medium)} {
               width: calc(33.33% - var(--space));
@@ -126,6 +127,28 @@
             & + #{$archive}__date + #{$archive}__text {
               margin-top: 1em;
             }
+            &--empty {
+              display: none;
+              position: relative;
+              background-color: var(--accent);
+              &::before {
+                content: "?";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: block;
+                font-size: 2em;
+                font-weight: bold;
+                width: 2em;
+                height: 2em;
+                line-height: 2em;
+                text-align: center;
+                background-color: var(--background);
+                border-radius: var(--border-radius);
+                color: var(--accent);
+              }
+            }
           }
           &__link {
             & + #{$archive}__tags {
@@ -155,7 +178,12 @@
           &__link {
             line-height: 1.75;
             padding: calc(var(--space) / 2);
+            display: flex;
+            align-items: center;
+            transition: transform var(--transition);
             &:hover {
+              transform: scale(1.05);
+
               background-color: transparent;
             }
           }
@@ -164,6 +192,18 @@
           }
           &__date {
             & + #{$archive}__text {
+              margin-left: 1em;
+            }
+          }
+          &__image {
+            &,
+            img {
+              width: 4em;
+              height: 4em;
+              border-radius: var(--border-radius);
+              object-fit: cover;
+            }
+            &:not(#{$archive}__image--empty) + #{$archive}__date {
               margin-left: 1em;
             }
           }
