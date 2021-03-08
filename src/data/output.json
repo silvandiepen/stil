@@ -33,6 +33,7 @@
     "content.links",
     "content.code.prism",
     "content.header-image",
+    "content.adaptive-svg",
     "color.custom-properties",
     "color.shades",
     "color.classes.background",

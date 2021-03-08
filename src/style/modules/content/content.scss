@@ -47,6 +47,21 @@
     }
   }
 
+  @if export($output, "content.adaptive-svg") {
+    #{$parent} svg {
+      path,
+      rect,
+      polygon,
+      line,
+      polyline,
+      ellipse,
+      circle {
+        &:not([class]):not([style]):not([fill]) {
+          fill: currentColor;
+        }
+      }
+    }
+  }
   @if export($output, "content.default") or export($output, "content.lists") {
     #{$parent} {
       ul:not([class]),
