@@ -10,8 +10,14 @@
       }
       &__item {
         display: block;
-        padding: calc(var(--space) / 4);
         font-size: 0.8em;
+        position: relative;
+      }
+      &__link {
+        text-decoration: none;
+        color: currentColor;
+        display: block;
+        padding: calc(var(--space) / 4);
         position: relative;
         &:hover {
           background-color: transparent;
@@ -38,10 +44,6 @@
           transform: translate(-50%, -50%) scale(1);
           opacity: 0.5;
         }
-      }
-      &__link {
-        text-decoration: none;
-        color: currentColor;
       }
     }
   }
