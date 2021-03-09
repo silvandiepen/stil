@@ -1,0 +1,28 @@
+@mixin alert() {
+  @if export($output, "elements.alert") {
+    $alert: settings($settings, "define.alert.class");
+    #{$alert} {
+      padding: var(--space);
+      border-radius: var(--border-radius);
+      background-color: var(--alert-background-color, var(--accent));
+      color: var(--alert-text-color, currentColor);
+
+      &--success {
+        --alert-background-color: var(--green-80);
+        --alert-text-color: var(--green-20);
+      }
+      &--warning {
+        --alert-background-color: var(--orange-80);
+        --alert-text-color: var(--orange-20);
+      }
+      &--error {
+        --alert-background-color: var(--red-80);
+        --alert-text-color: var(--red-20);
+      }
+      &--tip {
+        --alert-background-color: var(--blue-80);
+        --alert-text-color: var(--blue-20);
+      }
+    }
+  }
+}

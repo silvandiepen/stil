@@ -71,6 +71,7 @@
     "elements.colormode",
     "elements.tags",
     "elements.task-list",
+    "elements.alert",
     "default.custom-properties"
   ]
 }
