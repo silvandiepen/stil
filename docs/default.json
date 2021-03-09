@@ -55,5 +55,6 @@
   "define.archive.class": ".archive",
   "define.tag.class": ".tag",
   "define.tags.class": ".tags",
-  "define.task-list.class": ".task-list"
+  "define.task-list.class": ".task-list",
+  "define.alert.class": "alert"
 }
