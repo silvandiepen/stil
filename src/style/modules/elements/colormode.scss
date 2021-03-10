@@ -91,6 +91,27 @@
         background-size: calc(var(--space) * 2) 100%;
         background-position: -0% 50%;
       }
+      // The after is a label shown to display the current mode. By default this doesn't show because the after does not have a content.
+      // The after can be shown by adding a content in custom css.
+      &::after {
+        background-color: var(--text);
+        color: var(--background);
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, calc(var(--switch-stroke) * 2)) scale(0);
+        font-size: 0.8em;
+        padding: 0.5em 1em;
+        border-radius: var(--border-radius);
+        display: block;
+        text-indent: 0;
+        opacity: 0;
+        transition: transform var(--transition);
+      }
+      &:hover::after {
+        transform: translate(-50%, calc(var(--switch-stroke) * 2)) scale(1);
+        opacity: 1;
+      }
     }
     [color-mode="dark"] {
       #{$colormode}::before {
