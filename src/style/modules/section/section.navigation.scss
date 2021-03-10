@@ -1,8 +1,8 @@
 @mixin section-navigation() {
-  @if export($output, "section.navigation") {
-    $navigation: settings($settings, "define.navigation.class");
-    $header: settings($settings, "define.header.class");
+  $navigation: settings($settings, "define.navigation.class");
+  $header: settings($settings, "define.header.class");
 
+  @if export($output, "section.navigation") {
     #{$navigation} {
       position: relative;
       display: flex;
@@ -28,87 +28,27 @@
           transform: translateX(-50%);
         }
       }
-      ul {
+
+      &__list {
         display: flex;
         background-color: inherit;
         @media #{breakpoint('small',only)} {
           flex-direction: column;
         }
-        ul {
-          position: absolute;
-          border: 2px solid var(--accent);
-          background-color: var(--current);
-          border-radius: value(border-radius);
-          display: none;
-          top: 100%;
-          @media #{breakpoint('small',only)} {
-            flex-direction: column;
-          }
-          &::before {
-            content: "";
-            width: 1em;
-            height: 1em;
-            background-color: var(--accent);
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            border-top-left-radius: value(border-radius);
-            transform: translateX(-50%) translateY(-50%) rotate(45deg);
-            clip-path: polygon(0 0, 0 100%, 100% 0%);
-            border: 2px solid var(--accent);
-            background-color: var(--current);
-          }
-          li {
-            a {
-              padding: calc(#{value(space)} / 4) calc(#{value(space)} / 2);
-            }
-            & + li {
-              @media #{breakpoint('medium')} {
-                margin-left: calc((#{value(space)} / 2) * -1);
-              }
-              @media #{breakpoint('small',only)} {
-                margin-top: calc((#{value(space)}) * -1);
-              }
-            }
-          }
-        }
-        li:hover ul,
-        li:focus ul,
-        li:focus-within ul {
-          display: flex;
-        }
       }
-      li {
-        position: relative;
-      }
-      li,
-      li a {
-        padding: calc(#{value(space)} / 2);
-      }
-      li a::before {
-        width: 100%;
-        height: 100%;
-      }
-      a:hover {
-        text-decoration: none;
-      }
-      > span,
-      button,
-      a {
-        padding: value(space);
-        text-decoration: none;
-        position: relative;
-        color: currentColor;
-        display: block;
 
-        span {
-          position: relative;
-          z-index: 2;
+      &__item {
+        position: relative;
+        &--parent #{$navigation}__text::before {
+          background-color: var(--primary);
+        }
+        &--current #{$navigation}__text::before {
+          background-color: var(--secondary);
         }
       }
-      a,
-      button {
+
+      &__link {
+        padding: calc(#{value(space)} / 2);
         &::before {
           content: "";
           display: block;
@@ -136,8 +76,16 @@
           opacity: 0.5;
           background-color: var(--primary);
         }
+        &:hover {
+          text-decoration: none;
+        }
       }
-      &-toggle {
+    }
+  }
+
+  @if export($output, "section.navigation-toggle") {
+    #{$navigation} {
+      &__toggle {
         position: fixed;
         top: calc(#{value(space)} / 2);
         right: calc(#{value(space)} / 2);
@@ -196,7 +144,7 @@
           }
         }
       }
-      &-background {
+      &__background {
         position: fixed;
         top: 0;
         left: 0;
@@ -207,7 +155,7 @@
         opacity: 0;
         z-index: 5;
       }
-      &-input {
+      &__input {
         position: absolute;
         width: 0;
         height: 0;
@@ -217,24 +165,24 @@
         & ~ #{$navigation},
         & ~ #{$header} #{$navigation} {
           @media #{breakpoint(small,only)} {
-            background-color: var(--background);
+            background-color: var(--accent);
             color: var(--text);
             --delay: 0.5s;
             position: fixed;
+            height: 100%;
+            min-width: 50vw;
+            max-width: 100vw;
             flex-direction: column;
-            top: 50%;
-            left: 50%;
+            top: 0%;
+            left: 0%;
             padding: value(space);
-            border: 2px solid var(--accent);
-            border-radius: value(border-radius);
             align-items: center;
-            justify-content: center;
-            transform: translate(-50%, -100%) scale(0.5);
             transition: transform var(--timing, 0.3s) var(--delay, 0s)
                 ease-in-out,
               opacity var(--timing, 0.3s) var(--delay, 0s) ease-in-out;
             opacity: 0;
             pointer-events: none;
+
             a {
               --delay: 0s;
               transition: transform var(--timing, 0.3s) var(--delay, 0s)
@@ -245,6 +193,7 @@
             }
           }
         }
+
         &:checked {
           & ~ #{$navigation}-background {
             pointer-events: all;
@@ -265,7 +214,7 @@
           & ~ #{$header} #{$navigation} {
             @media #{breakpoint(small,only)} {
               --delay: 0s;
-              transform: translate(-50%, -50%) scale(1);
+              transform: translateX(0) scale(1);
               opacity: 1;
               pointer-events: all;
               a {
@@ -275,29 +224,6 @@
               }
             }
           }
-        }
-      }
-
-      &__text {
-        position: relative;
-        &::before {
-          content: "";
-          display: block;
-          width: 0.25em;
-          height: 0.25em;
-          border-radius: 50%;
-          position: absolute;
-          left: 50%;
-          top: 100%;
-          transform: translate(-50%, 50%);
-        }
-      }
-      &__item {
-        &--parent #{$navigation}__text::before {
-          background-color: var(--primary);
-        }
-        &--current #{$navigation}__text::before {
-          background-color: var(--secondary);
         }
       }
     }
