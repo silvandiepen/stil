@@ -195,6 +195,7 @@
             transform: translate(0%, 0%) scale(0.8);
             align-items: flex-start;
             transform-origin: 100% 0;
+            position: absolute;
 
             #{$navigation}__link {
               width: auto;
