@@ -46,20 +46,22 @@
     }
 
     #{$colormode} {
-      --stroke: calc(var(--space) * 0.1);
-      border: var(--stroke) solid currentColor;
+      --switch-stroke: calc(var(--space) * 0.1);
+      --switch-color: var(--text, currentColor);
+      border: var(--switch-stroke) solid var(--switch-color);
       width: calc(var(--space) * 1.5);
       height: var(--space);
       display: block;
       background-color: transparent;
       border-radius: var(--space);
       position: relative;
+      text-indent: -999em;
       &:focus {
         outline: none;
-        box-shadow: 0 0 10px 0 var(--text);
+        box-shadow: 0 0 10px 0 var(--primary);
       }
       &::before {
-        --margin: calc((var(--stroke) * 4));
+        --margin: calc((var(--switch-stroke) * 4));
         --dot-size: calc(var(--space) - var(--margin));
         content: "";
         display: block;
@@ -77,18 +79,18 @@
           circle at 50%,
           transparent,
           transparent 33.33%,
-          currentColor 33.33%
+          var(--switch-color) 33.33%
         );
 
         background-repeat: no-repeat;
         background-size: calc(var(--space) * 2) 100%;
         background-position: -0% 50%;
       }
-      [color-mode="dark"] {
-        #{$colormode}::before {
-          transform: translate(calc(100%), -50%) rotate(180deg);
-          background-position: 25% 50%;
-        }
+    }
+    [color-mode="dark"] {
+      #{$colormode}::before {
+        transform: translate(calc(100%), -50%) rotate(180deg);
+        background-position: 25% 50%;
       }
     }
   }
