@@ -5,6 +5,7 @@
 @import "toolbar";
 @import "colormode";
 @import "tags";
+@import "task-list";
 @import "alert";
 
 @include tooltip();
@@ -15,4 +16,5 @@
 @include toolbar();
 @include colormode();
 @include tags();
+@include task-list();
 @include alert();

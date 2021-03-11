@@ -3,6 +3,7 @@
     $archive: settings($settings, "define.archive.class");
 
     #{$archive} {
+      position: relative;
       border-top: 1px solid var(--accent);
       &__item {
         background: var(--background);
@@ -30,7 +31,6 @@
       */
       &--articles {
         #{$archive} {
-          position: relative;
           &__list {
             display: flex;
             flex-wrap: wrap;
