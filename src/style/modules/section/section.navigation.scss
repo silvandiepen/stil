@@ -115,11 +115,8 @@
         display: flex;
         transition: background var(--transition),
           border-radius var(--transition);
-        color: var(--background);
+        color: var(--foreground);
 
-        &:hover::before {
-          opacity: 0.9;
-        }
         &::before {
           content: "";
           width: 100%;
@@ -128,9 +125,18 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-50%, -50%);
-          background-color: var(--foreground);
+          transform: translate(-50%, -50%) scale(0.5);
+          background-color: var(--background);
+          opacity: 0;
+          transition: transform var(--transition);
+        }
+        &:focus::before,
+        &:hover::before {
+          transform: translate(-50%, -50%) scale(5);
           opacity: 1;
+        }
+        &:hover {
+          color: var(--background);
         }
         @media #{breakpoint(medium)} {
           display: none;
@@ -246,6 +252,9 @@
           * Active Mobile Header Navigation Toggle
           */
             & + #{$navigation}__toggle {
+              &::before {
+                background-color: var(--foreground);
+              }
               border-bottom-left-radius: 0;
 
               span {
