@@ -23,6 +23,10 @@
       @media #{breakpoint(small,only)} {
         padding: calc(#{value(space)} / 2) value(space);
       }
+      display: flex;
+      &--image-only {
+        text-indent: -999em;
+      }
       img {
         max-width: 5em;
         max-height: 5em;
