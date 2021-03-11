@@ -52,6 +52,24 @@
       &__text {
         position: relative;
         z-index: 2;
+        &::before {
+          content: "";
+          display: block;
+          width: 0.25em;
+          height: 0.25em;
+          border-radius: 50%;
+          position: absolute;
+          @media #{breakpoint(medium)} {
+            left: 50%;
+            top: 100%;
+            transform: translate(-50%, 50%);
+          }
+          @media #{breakpoint(small,only)} {
+            left: 0;
+            top: 50%;
+            transform: translate(-100%, -50%);
+          }
+        }
       }
 
       &__link {
