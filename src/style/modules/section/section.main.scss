@@ -4,6 +4,7 @@
 
     #{$main} {
       position: relative;
+      transition: transform var(--transition), filter var(--transition);
     }
   }
 }
