@@ -3,19 +3,19 @@
   --off-text: var(--white-90);
   --foreground: var(--white);
   --foreground-accent: var(--white-90);
-  --background: var(--white-10);
-  --background-accent: var(--white-20);
+  --background: var(--black-10);
+  --background-accent: var(--black);
   --text: var(--white);
   --accent: var(--light-accent);
 }
 @mixin lightMode {
   --off: var(--white-90);
   --off-text: var(--white-80);
-  --foreground: var(--white-10);
-  --foreground-accent: var(--white-20);
+  --foreground: var(--black-10);
+  --foreground-accent: var(--black-20);
   --background: var(--white);
   --background-accent: var(--white-90);
-  --text: var(--white-10);
+  --text: var(--black-10);
   --accent: var(--dark-accent);
 }
 
