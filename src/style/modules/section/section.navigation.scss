@@ -126,7 +126,7 @@
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%) scale(0.5);
-          background-color: var(--background);
+          background-color: var(--foreground);
           opacity: 0;
           transition: transform var(--transition);
         }
@@ -231,6 +231,10 @@
 
         @media #{breakpoint(small,only)} {
           &:checked {
+            & ~ main.content {
+              transform: translateX(-10%);
+              filter: blur(2px);
+            }
             /*
           * Active Mobile Header Navigation
           */
