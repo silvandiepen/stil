@@ -199,8 +199,8 @@
         & ~ #{$navigation},
         & ~ #{$header} #{$navigation} {
           @media #{breakpoint(small,only)} {
-            background-color: var(--foreground);
-            color: var(--background);
+            background-color: var(--background-accent);
+            color: var(--foreground);
             height: auto;
             width: auto;
             height: 100vh;
@@ -230,6 +230,7 @@
 
         @media #{breakpoint(small,only)} {
           &:checked {
+            & ~ footer.footer,
             & ~ main.content {
               transform: translateX(-10%);
               filter: blur(2px);
