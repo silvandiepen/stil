@@ -5,6 +5,9 @@
 
     #{$footer} {
       position: relative;
+      filter: blur(0);
+      transform: translate(0);
+      transition: transform var(--transition), filter var(--transition);
       @media #{breakpoint(small,only)} {
         #{$navigation} {
           &__list {
