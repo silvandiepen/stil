@@ -3,6 +3,8 @@
     $main: settings($settings, "define.main.class");
 
     #{$main} {
+      filter: blur(0);
+      transform: translate(0);
       position: relative;
       transition: transform var(--transition), filter var(--transition);
     }

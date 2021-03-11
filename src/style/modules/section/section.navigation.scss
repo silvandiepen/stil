@@ -207,12 +207,10 @@
             right: 0;
             top: 0;
             padding: var(--space);
-            border-radius: calc(var(--space) / 2) 0 calc(var(--space) / 2)
-              calc(var(--space) / 2);
             transition: clip-path var(--transition);
             opacity: 1;
             clip-path: inset(0 0 0 100%);
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             transform-origin: 100% 0;
             position: absolute;
@@ -255,6 +253,8 @@
           * Active Mobile Header Navigation Toggle
           */
             & + #{$navigation}__toggle {
+              color: var(--background);
+
               &::before {
                 transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
