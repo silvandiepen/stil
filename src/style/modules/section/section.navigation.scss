@@ -97,6 +97,9 @@
 
   @if export($output, "section.navigation-toggle") {
     #{$navigation} {
+      /*
+      * Inactive Mobile Header Navigation Toggle
+      */
       &__toggle {
         position: fixed;
         top: calc(#{value(space)} / 2);
@@ -159,6 +162,9 @@
           }
         }
       }
+      /*
+      * Inactive Mobile Header Navigation Background
+      */
       &__background {
         position: fixed;
         top: 0;
@@ -170,6 +176,9 @@
         opacity: 0;
         z-index: 5;
       }
+      /*
+      * Inactive Mobile Header Navigation Control
+      */
       &__input {
         position: absolute;
         width: 0;
@@ -177,6 +186,9 @@
         clip-path: inset(100% 100% 100% 100%);
         opacity: 0;
 
+        /*
+        * Inactive Mobile Header Navigation
+        */
         & ~ #{$navigation},
         & ~ #{$header} #{$navigation} {
           @media #{breakpoint(small,only)} {
@@ -196,6 +208,7 @@
             align-items: flex-start;
             transform-origin: 100% 0;
             position: absolute;
+            pointer-events: none;
 
             #{$navigation}__link {
               width: auto;
@@ -212,10 +225,27 @@
         }
 
         &:checked {
+          /*
+          * Active Mobile Header Navigation
+          */
+          & ~ #{$navigation},
+          & ~ #{$header} #{$navigation} {
+            @media #{breakpoint(small,only)} {
+              transform: translate(0%, 0%) scale(1);
+              opacity: 1;
+              pointer-events: all;
+            }
+          }
+          /*
+          * Active Mobile Header Navigation Background
+          */
           & ~ #{$navigation}__background {
             pointer-events: all;
             opacity: 0.75;
           }
+          /*
+          * Active Mobile Header Navigation Toggle
+          */
           & + #{$navigation}__toggle {
             border-bottom-left-radius: 0;
 
@@ -227,14 +257,6 @@
               &::after {
                 transform: translateY(0%) rotate(90deg);
               }
-            }
-          }
-          & ~ #{$navigation},
-          & ~ #{$header} #{$navigation} {
-            @media #{breakpoint(small,only)} {
-              transform: translate(0%, 0%) scale(1);
-              opacity: 1;
-              pointer-events: all;
             }
           }
         }
