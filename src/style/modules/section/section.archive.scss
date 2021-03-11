@@ -196,18 +196,15 @@
           }
           &__link {
             line-height: 1.75;
-            display: flex;
-            align-items: flex-start;
+            display: block;
             transition: transform var(--transition);
             &:hover {
               transform: scale(1.05);
-
               background-color: transparent;
             }
-            @media #{breakpoint(small,only)} {
-              flex-direction: column;
-            }
+
             @media #{breakpoint(medium)} {
+              display: flex;
               align-items: center;
               padding: calc(var(--space) / 2);
             }
@@ -235,13 +232,19 @@
               border-radius: var(--border-radius);
               object-fit: cover;
             }
-            &:not(#{$archive}__image--empty) + #{$archive}__date {
-              margin-left: 1em;
+            @media #{breakpoint(medium)} {
+              &:not(#{$archive}__image--empty) + #{$archive}__date {
+                margin-left: calc(var(--space) / 2);
+              }
             }
             &--empty {
               @media #{breakpoint(small,only)} {
                 display: none;
               }
+            }
+            @media #{breakpoint(small,only)} {
+              float: left;
+              margin-right: calc(var(--space) / 2);
             }
           }
         }

@@ -24,8 +24,8 @@
         padding: calc(#{value(space)} / 2) value(space);
       }
       display: flex;
-      &--image-only {
-        text-indent: -999em;
+      &--image-only ~ span {
+        display: none;
       }
       img {
         max-width: 5em;
