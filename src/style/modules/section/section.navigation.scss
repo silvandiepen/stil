@@ -255,14 +255,13 @@
           * Active Mobile Header Navigation Toggle
           */
             & + #{$navigation}__toggle {
-              color: var(--background);
+              color: var(--foreground);
 
               &::before {
                 transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
-                background-color: var(--foreground);
+                background-color: var(--background);
               }
-              border-bottom-left-radius: 0;
 
               span {
                 transform: rotate(45deg);
