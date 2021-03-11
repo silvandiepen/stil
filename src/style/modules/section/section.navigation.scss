@@ -132,7 +132,7 @@
         }
         &:focus::before,
         &:hover::before {
-          transform: translate(-50%, -50%) scale(5);
+          transform: translate(-50%, -50%) scale(1);
           opacity: 1;
         }
         &:hover {
@@ -253,6 +253,8 @@
           */
             & + #{$navigation}__toggle {
               &::before {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
                 background-color: var(--foreground);
               }
               border-bottom-left-radius: 0;
