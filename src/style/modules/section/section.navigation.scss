@@ -207,10 +207,11 @@
             right: 0;
             top: 0;
             padding: var(--space);
+            padding-top: calc(var(--space) * 2);
             transition: clip-path var(--transition);
             opacity: 1;
             clip-path: inset(0 0 0 100%);
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             transform-origin: 100% 0;
             position: absolute;
