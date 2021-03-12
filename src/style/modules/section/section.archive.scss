@@ -242,9 +242,7 @@
               }
             }
             &--empty {
-              @media #{breakpoint(small,only)} {
-                display: none;
-              }
+              display: none;
             }
             @media #{breakpoint(small,only)} {
               float: left;
