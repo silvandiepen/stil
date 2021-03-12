@@ -22,10 +22,12 @@
         grid-area: date;
         font-variant-numeric: tabular-nums;
         opacity: 0.5;
+        display: block;
         span + span {
           margin-left: 0.5ch;
         }
       }
+
       /*
       * Articles
       */
