@@ -9,17 +9,15 @@
         background: var(--background);
       }
       &__link {
-        grid-area: link;
         display: block;
         border-radius: var(--border-radius);
         text-decoration: none;
         color: currentColor;
       }
       &__text {
-        grid-area: text;
+        transition: transform var(--transition);
       }
       &__date {
-        grid-area: date;
         font-variant-numeric: tabular-nums;
         opacity: 0.5;
         display: block;
@@ -200,7 +198,7 @@
             }
             &:hover {
               #{$archive}__text {
-                transform: translateX(1em);
+                transform: translateX(0.5em);
               }
             }
           }
