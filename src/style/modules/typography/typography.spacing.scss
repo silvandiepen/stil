@@ -1,5 +1,23 @@
 @mixin typography-spacing() {
-  $elements: (h1, h2, h3, h4, h5, h6, p, div, ul, ol, code, pre);
+  $elements: (
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    div,
+    ul,
+    ol,
+    code,
+    pre,
+    style,
+    blockquote,
+    img,
+    figure,
+    hr
+  );
 
   @if export($output, "typography.spacing") {
     #{list-to-str($elements,', ')} {
