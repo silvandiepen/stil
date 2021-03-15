@@ -36,10 +36,10 @@
             flex-wrap: wrap;
             width: 100%;
             @media #{breakpoint("medium")} {
-              width: calc(100% + value(space));
-              margin-left: calc(value(space) * -1);
+              width: calc(100% + #{value(space)});
+              margin-left: calc(#{value(space)} * -1);
               position: relative;
-              top: calc(value(space) * -1);
+              top: calc(#{value(space)} * -1);
             }
           }
           &__text {
@@ -64,15 +64,15 @@
           &__item {
             position: relative;
             display: block;
-            margin-top: value(space);
+            margin-top: #{value(space)};
             transform: scale(1);
             transition: transform value(transition);
             width: 100%;
             border-radius: value(border-radius);
 
             @media #{breakpoint(medium)} {
-              width: calc(33.33% - value(space));
-              margin-left: value(space);
+              width: calc(33.33% - #{value(space)});
+              margin-left: #{value(space)};
             }
             & + #{$archive}__item {
               flex-direction: column;
@@ -81,8 +81,8 @@
             &::before {
               content: "";
               display: block;
-              width: calc(100% + value(space));
-              height: calc(100% + value(space));
+              width: calc(100% + #{value(space)});
+              height: calc(100% + #{value(space)});
               position: absolute;
               left: 50%;
               top: 50%;
@@ -91,7 +91,7 @@
               z-index: -1;
               box-shadow: 0 0 1em 0 value(accent);
               opacity: 0;
-              border-radius: calc(value(border-radius) * 2);
+              border-radius: calc(#{value(border-radius)} * 2);
               transition: opacity value(transition), transform value(transition);
             }
             &:hover {
@@ -119,7 +119,7 @@
             padding: 0;
             opacity: 0.25;
             transition: opacity value(transition);
-            margin-top: calc(value(space) * -1);
+            margin-top: calc(#{value(space)} * -1);
             &:hover {
               opacity: 1;
             }
@@ -189,12 +189,12 @@
             justify-content: space-between;
             & + #{$archive}__item {
               border-top: 1px solid value(accent);
-              margin-top: calc(value(space) / 4);
+              margin-top: calc(#{value(space)} / 4);
             }
             @media #{breakpoint(small,only)} {
-              padding: calc(value(space) / 2);
-              width: calc(100% + value(space));
-              margin-left: calc((value(space) / 2) * -1);
+              padding: calc(#{value(space)} / 2);
+              width: calc(100% + #{value(space)});
+              margin-left: calc((#{value(space)} / 2) * -1);
             }
             &:hover {
               #{$archive}__text {
@@ -210,13 +210,13 @@
             @media #{breakpoint(medium)} {
               display: flex;
               align-items: center;
-              padding: calc(value(space) / 2);
+              padding: calc(#{value(space)} / 2);
             }
           }
           &__tags {
             opacity: 0.25;
             @media #{breakpoint(medium)} {
-              margin-top: calc(value(space) * -1);
+              margin-top: calc(#{value(space)} * -1);
               justify-content: flex-end;
             }
             &:hover {
@@ -238,7 +238,7 @@
             }
             @media #{breakpoint(medium)} {
               &:not(#{$archive}__image--empty) + #{$archive}__date {
-                margin-left: calc(value(space) / 2);
+                margin-left: calc(#{value(space)} / 2);
               }
             }
             &--empty {
@@ -246,7 +246,7 @@
             }
             @media #{breakpoint(small,only)} {
               float: left;
-              margin-right: calc(value(space) / 2);
+              margin-right: calc(#{value(space)} / 2);
             }
           }
         }

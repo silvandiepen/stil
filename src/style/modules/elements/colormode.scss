@@ -54,10 +54,10 @@ $prefix: null;
     }
 
     #{$colormode} {
-      --#{$prefix}switch-stroke: calc(value(space) * 0.1);
-      --#{$prefix}switch-color: value(text, currentColor);
+      --#{$prefix}switch-stroke: calc(#{value(space)} * 0.1);
+      --#{$prefix}switch-color: #{value(text, currentColor)};
       border: value(switch-stroke) solid value(switch-color);
-      width: calc(value(space) * 1.5);
+      width: calc(#{value(space)} * 1.5);
       height: value(space);
       display: block;
       background-color: transparent;
@@ -74,8 +74,8 @@ $prefix: null;
         box-shadow: 0 0 10px 0 value(primary);
       }
       &::before {
-        --#{$prefix}-switch-margin: calc((value(switch-stroke) * 4));
-        --#{$prefix}-switch-dot-size: calc(value(space) - value(switch-margin));
+        --#{$prefix}-switch-margin: calc((#{value(switch-stroke)} * 4));
+        --#{$prefix}-switch-dot-size: calc(#{value(space)} - #{value(switch-margin)});
         content: "";
         display: block;
         position: absolute;
@@ -83,7 +83,7 @@ $prefix: null;
         top: 50%;
         transition: transform 0.3s ease-in-out,
           background-position 0.3s ease-in-out, background-size 0.3s ease-in-out;
-        transform: translate(calc(0% + value(switch-stroke)), -50%);
+        transform: translate(calc(0% + #{value(switch-stroke)}), -50%);
         background-color: currentColor;
         border-radius: 50%;
         width: value(dot-size);
@@ -92,11 +92,11 @@ $prefix: null;
           circle at 50%,
           transparent,
           transparent 33.33%,
-          value(switch-color) 33.33%
+          #{value(switch-color)} 33.33%
         );
 
         background-repeat: no-repeat;
-        background-size: calc(value(space) * 2) 100%;
+        background-size: calc(#{value(space)} * 2) 100%;
         background-position: -0% 50%;
       }
       // The after is a label shown to display the current mode. By default this doesn't show because the after does not have a content.
@@ -107,7 +107,7 @@ $prefix: null;
         position: absolute;
         left: 50%;
         top: 100%;
-        transform: translate(-50%, calc(value(switch-stroke) * 2)) scale(0);
+        transform: translate(-50%, calc(#{value(switch-stroke)} * 2)) scale(0);
         font-size: 0.8em;
         padding: 0.5em 1em;
         border-radius: value(border-radius);
@@ -117,7 +117,7 @@ $prefix: null;
         transition: transform value(transition);
       }
       &:hover::after {
-        transform: translate(-50%, calc(value(switch-stroke) * 2)) scale(1);
+        transform: translate(-50%, calc(#{value(switch-stroke)} * 2)) scale(1);
         opacity: 1;
       }
     }

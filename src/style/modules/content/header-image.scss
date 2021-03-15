@@ -6,8 +6,8 @@
     }
     @media #{breakpoint(medium)} {
       h1 + figure {
-        width: calc(100% + (value(space) * 2));
-        margin-left: calc(value(space) * -1);
+        width: calc(100% + (#{value(space)} * 2));
+        margin-left: calc(#{value(space)} * -1);
       }
     }
     h1 + figure img {

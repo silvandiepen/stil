@@ -17,7 +17,7 @@ $grid-total: settings($settings, "grid.total");
   grid-column-gap: value(gap, map-get($row-settings, gap));
   grid-row-gap: value(gap, map-get($row-settings, gap));
   --row-columns: repeat(
-    value(row-total, #{map-get($row-settings, total)}),
+    #{value(row-total, #{map-get($row-settings, total)})},
     1fr
   );
   grid-template-columns: value(row-columns);

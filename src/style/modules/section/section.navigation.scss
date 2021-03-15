@@ -225,7 +225,7 @@
             right: 0;
             top: 0;
             padding: value(space);
-            padding-top: calc(value(space) * 2);
+            padding-top: calc(#{value(space)} * 2);
             transition: clip-path value(transition);
             opacity: 1;
             clip-path: inset(0 0 0 100%);

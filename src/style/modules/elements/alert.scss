@@ -8,20 +8,20 @@
       color: value(alert-text-color, currentColor);
 
       &--success {
-        --alert-background-color: value(green-80);
-        --alert-text-color: value(green-20);
+        --alert-background-color: #{ value(green-80)};
+        --alert-text-color:  #{value(green-20)};
       }
       &--warning {
-        --alert-background-color: value(orange-80);
-        --alert-text-color: value(orange-20);
+        --alert-background-color:  #{value(orange-80)};
+        --alert-text-color:  #{value(orange-20)};
       }
       &--error {
-        --alert-background-color: value(red-80);
-        --alert-text-color: value(red-20);
+        --alert-background-color: #{value(red-80)};
+        --alert-text-color: #{value(red-20)};
       }
       &--tip {
-        --alert-background-color: value(blue-80);
-        --alert-text-color: value(blue-20);
+        --alert-background-color: #{ value(blue-80)};
+        --alert-text-color:  #{value(blue-20)};
       }
     }
   }
