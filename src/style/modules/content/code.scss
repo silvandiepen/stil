@@ -1,5 +1,5 @@
 @function code-hsl($hue) {
-  @return hsl(#{$hue}, var(--current-saturation), var(--negative-lightness));
+  @return hsl(#{$hue}, value(current-saturation), value(negative-lightness));
 }
 
 @mixin styled-code() {
@@ -11,61 +11,74 @@
  * Ported for PrismJS by Albert Vallverdu [@byverdu]
  */
 
-    :not([class*="language-"]) code:not([class*="language-"]) {
-      font-family: value(code-font);
-      line-height: value(line-height);
-      font-size: 0.875em;
-      z-index: 1;
-      background-color: var(--accent);
-      border-radius: value(border-radius);
-      padding: 0.5em;
-      display: inline-block;
-    }
+  
 
-    [class*="language-"],
-    code[class*="language-"],
-    pre[class*="language-"] {
-      color: inherit;
-      background: none;
-      font-family: value(code-font);
-      text-align: left;
-      white-space: pre;
-      word-spacing: normal;
-      word-break: normal;
-      word-wrap: normal;
-      line-height: value(line-height);
-      tab-size: 4;
-      hyphens: none;
-    }
 
-    /* Code blocks */
-    [class*="language-"] pre {
-      padding: value(space);
-      overflow: auto;
-      border-radius: value(border-radius);
-    }
+    // :not([class*="language-"]) code:not([class*="language-"]) {
+    //   font-family: value(code-font);
+    //   line-height: value(line-height);
+    //   font-size: 0.875em;
+    //   z-index: 1;
+    //   background-color: value(accent);
+    //   border-radius: value(border-radius);
+    //   padding: 0.5em;
+    //   display: inline-block;
+    // }
 
-    [class*="language-"] :not(pre) > code,
-    [class*="language-"] pre {
-      background: var(--accent, #{color(Dark)});
-    }
+    // [class*="language-"],
+    // code[class*="language-"],
+    // pre[class*="language-"] {
+    //   color: inherit;
+    //   font-family: value(code-font);
+    //   text-align: left;
+    //   white-space: pre;
+    //   word-spacing: normal;
+    //   word-break: normal;
+    //   word-wrap: normal;
+    //   line-height: value(line-height);
+    //   tab-size: 4;
+    //   hyphens: none;
+    // }
+    // pre[class*="language-"]{
+    //   background: value(background-accent);
+    //   border-radius: value(border-radius);
+    //   padding: value(space);
+    // }
 
-    /* Inline code */
-    [class*="language-"] :not(pre) > code {
-      padding: 0.1em;
-      border-radius: value(border-radius);
-      white-space: normal;
+    // /* Code blocks */
+    // [class*="language-"] pre {
+    //   padding: value(space);
+    //   overflow: auto;
+    //   border-radius: value(border-radius);
+    // }
+
+    // [class*="language-"] :not(pre) > code,
+    // [class*="language-"] pre {
+    //   background: value(background-accent);
+    // }
+
+    // /* Inline code */
+    // [class*="language-"] :not(pre) > code {
+    //   padding: 0.1em;
+    //   border-radius: value(border-radius);
+    //   white-space: normal;
+    // }
+
+    $code-tokens: ('comment', 'prolog', doctype, cdata, punctuation, property, tag,constant,symbol,deleted,boolean,number,selector,attr-name, string,char,builtin,inserted,operator,entity,url,variable,atrule,attr-value,function,class-name,keyword,regex,important);
+
+    @each $el in $code-tokens {
+      .token.#{$el}{ color: value(code-#{$el}); }
     }
 
     .token.comment,
     .token.prolog,
     .token.doctype,
     .token.cdata {
-      color: code-hsl(100);
+      color: value(code-comment,code-hsl(100));
     }
 
     .token.punctuation {
-      color: code-hsl(100);
+      color:value(code-punctuation,code-hsl(100));
     }
 
     .namespace {
@@ -77,12 +90,12 @@
     .token.constant,
     .token.symbol,
     .token.deleted {
-      color: code-hsl(10);
+      color: value(code-property,code-hsl(10));
     }
 
     .token.boolean,
     .token.number {
-      color: code-hsl(180);
+      color: value(code-boolean,code-hsl(180));
     }
 
     .token.selector,
@@ -91,7 +104,7 @@
     .token.char,
     .token.builtin,
     .token.inserted {
-      color: code-hsl(220);
+      color: value(code-selector, code-hsl(220));
     }
 
     .token.operator,
@@ -100,23 +113,23 @@
     .language-css .token.string,
     .style .token.string,
     .token.variable {
-      color: code-hsl(200);
+      color: value(code-variable,code-hsl(200));
     }
 
     .token.atrule,
     .token.attr-value,
     .token.function,
     .token.class-name {
-      color: code-hsl(140);
+      color: value(code-function,code-hsl(140));
     }
 
     .token.keyword {
-      color: code-hsl(40);
+      color: value(code-keyword,code-hsl(40));
     }
 
     .token.regex,
     .token.important {
-      color: code-hsl(40);
+      color: value(code-regex,code-hsl(40));
     }
 
     .token.important,

@@ -82,7 +82,7 @@
     @for $i from 1 through 10 {
       .gap--#{$i} {
         --gap: #{(space(0.5) * $i)};
-        gap: var(--gap);
+        gap: value(gap);
       }
     }
   }
@@ -124,23 +124,23 @@
   @if export($output, "utility.fixed") {
     .fixed {
       position: fixed;
-      top: var(--fixed-top, 0);
-      left: var(--fixed-left, 0);
+      top: value(fixed-top, 0);
+      left: value(fixed-left, 0);
     }
   }
   @if export($output, "utility.clipped") {
     .clipped {
-      clip-path: inset(var(--clip-path, 0 0 0 0));
+      clip-path: inset(value(clip-path, 0 0 0 0));
     }
   }
   @if export($output, "utility.centered") {
     .centered {
-      position: var(--centered-position, absolute);
-      left: var(--centered-left, 50%);
-      top: var(--centered-top, 50%);
+      position: value(centered-position, absolute);
+      left: value(centered-left, 50%);
+      top: value(centered-top, 50%);
       transform: translate(
-        var(--centered-translate-x, -50%),
-        var(--centered-translate-y, -50%)
+        value(centered-translate-x, -50%),
+        value(centered-translate-y, -50%)
       );
     }
   }

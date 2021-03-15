@@ -9,9 +9,9 @@
       border-radius: 0.5em;
       opacity: 0;
       pointer-events: none;
-      background-color: var(--current-90);
-      color: var(--current-10);
-      border: 1px solid var(--current);
+      background-color: value(current-90);
+      color: value(current-10);
+      border: 1px solid value(current);
       transition: transform 0.3s ease-in-out;
       z-index: 10;
       left: 50%;

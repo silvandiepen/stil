@@ -37,9 +37,9 @@
         $link-color: "";
         @for $i from 1 through length($link-colors) {
           @if $i == 1 {
-            $link-color: var(--#{nth($link-colors, $i)}, currentColor);
+            $link-color: value(#{nth($link-colors, $i)}, currentColor);
           } @else {
-            $link-color: var(--#{nth($link-colors, $i)}, $link-color);
+            $link-color: value(#{nth($link-colors, $i)}, $link-color);
           }
         }
         color: $link-color;

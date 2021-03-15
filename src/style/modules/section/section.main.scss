@@ -6,7 +6,7 @@
       filter: blur(0);
       transform: translate(0);
       position: relative;
-      transition: transform var(--transition), filter var(--transition);
+      transition: transform value(transition), filter value(transition);
     }
   }
 }

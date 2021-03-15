@@ -15,8 +15,8 @@
 
       &__label {
         padding: 1em;
-        border-radius: var(--border-radius);
-        background-color: var(--accent);
+        border-radius: value(border-radius);
+        background-color: value(accent);
         padding-left: 2.5em;
         position: relative;
         display: block;
@@ -27,7 +27,7 @@
         width: 0;
         height: 0;
         &:checked + #{$task-list}__label {
-          background-color: var(--secondary);
+          background-color: value(secondary);
         }
       }
       &__label {
@@ -39,14 +39,14 @@
           position: absolute;
           left: 0.5em;
           top: 50%;
-          background-color: var(--background);
+          background-color: value(background);
           display: block;
           transform: translateY(-50%);
           border-radius: 50%;
-          transition: transform var(--transition);
+          transition: transform value(transition);
         }
         .task-list__label::after {
-          background-color: var(--primary);
+          background-color: value(primary);
           transform: translateY(-50%) scale(0);
         }
         .task-list__input:checked + .task-list__label::after {

@@ -6,7 +6,7 @@
       &__list {
         display: flex;
         flex-wrap: wrap;
-        gap: calc(var(--space) / 4);
+        gap: calc(value(space) / 4);
       }
       &__item {
         display: block;
@@ -17,7 +17,7 @@
         text-decoration: none;
         color: currentColor;
         display: block;
-        padding: calc(var(--space) / 4);
+        padding: calc(value(space) / 4);
         position: relative;
         &:hover {
           background-color: transparent;
@@ -33,7 +33,7 @@
           left: 50%;
           width: calc(100% + (#{value(space)} / 2));
           height: calc(100% + (#{value(space)} / 2));
-          background-color: var(--secondary);
+          background-color: value(secondary);
           top: 50%;
           transform: translate(-50%, -50%) scale(0.75);
           border-radius: value(border-radius);

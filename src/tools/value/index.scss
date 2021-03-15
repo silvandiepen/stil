@@ -1,7 +1,13 @@
 @function value($key, $fallback: null) {
   $value: null;
-
   $prefix: null;
+
+
+  @if type-of($key) == "color"{
+      $key: to-lower-case(#{$key});
+  }
+
+
   @if setting-exists($settings, "prefix") {
     $prefix: "#{settings($settings,"prefix")}-";
   }

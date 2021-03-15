@@ -2,10 +2,14 @@
   @if export($output, "color.custom-properties") and
     export($output, "custom-properties")
   {
+    $prefix: null;
+    @if setting-exists($settings, "prefix") {
+      $prefix: "#{settings($settings,"prefix")}-";
+    }
     @at-root {
       :root {
         @each $color-name, $color-value in $color-palette {
-          --#{$color-name}: #{$color-value};
+          --#{$prefix}#{$color-name}: #{$color-value};
         }
       }
     }

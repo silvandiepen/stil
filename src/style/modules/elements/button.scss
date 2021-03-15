@@ -4,10 +4,10 @@
     #{$button} {
       display: inline-block;
       padding: space(0.25) space(0.5);
-      background-color: var(--negative);
+      background-color: value(negative);
       text-decoration: none;
       border-radius: value(border-radius);
-      color: var(--current);
+      color: value(current);
     }
   }
 }

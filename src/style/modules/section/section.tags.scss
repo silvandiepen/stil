@@ -2,13 +2,13 @@
   @if export($output, "section.tags") {
     $tags: settings($settings, "define.tags.class");
     #{$tags} {
-      border-top: 1px solid var(--accent);
-      border-bottom: 1px solid var(--accent);
+      border-top: 1px solid value(accent);
+      border-bottom: 1px solid value(accent);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0.25;
-      transition: opacity var(--transition);
+      transition: opacity value(transition);
       &:hover {
         opacity: 1;
       }

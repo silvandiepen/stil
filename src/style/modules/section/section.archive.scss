@@ -4,18 +4,18 @@
 
     #{$archive} {
       position: relative;
-      border-top: 1px solid var(--accent);
+      border-top: 1px solid value(accent);
       &__item {
-        background: var(--background);
+        background: value(background);
       }
       &__link {
         display: block;
-        border-radius: var(--border-radius);
+        border-radius: value(border-radius);
         text-decoration: none;
         color: currentColor;
       }
       &__text {
-        transition: transform var(--transition);
+        transition: transform value(transition);
       }
       &__date {
         font-variant-numeric: tabular-nums;
@@ -36,17 +36,17 @@
             flex-wrap: wrap;
             width: 100%;
             @media #{breakpoint("medium")} {
-              width: calc(100% + var(--space));
-              margin-left: calc(var(--space) * -1);
+              width: calc(100% + value(space));
+              margin-left: calc(value(space) * -1);
               position: relative;
-              top: calc(var(--space) * -1);
+              top: calc(value(space) * -1);
             }
           }
           &__text {
             font-size: 1.5em;
             display: block;
             font-weight: bold;
-            transition: var(--transition);
+            transition: value(transition);
           }
           &__date {
             display: block;
@@ -56,23 +56,23 @@
             margin: 0.5em;
             font-size: 0.8em;
             font-weight: bold;
-            background-color: var(--background);
+            background-color: value(background);
             color: currentColor;
             padding: 0.5em;
-            border-radius: var(--border-radius);
+            border-radius: value(border-radius);
           }
           &__item {
             position: relative;
             display: block;
-            margin-top: var(--space);
+            margin-top: value(space);
             transform: scale(1);
-            transition: transform var(--transition);
+            transition: transform value(transition);
             width: 100%;
-            border-radius: var(--border-radius);
+            border-radius: value(border-radius);
 
             @media #{breakpoint(medium)} {
-              width: calc(33.33% - var(--space));
-              margin-left: var(--space);
+              width: calc(33.33% - value(space));
+              margin-left: value(space);
             }
             & + #{$archive}__item {
               flex-direction: column;
@@ -81,18 +81,18 @@
             &::before {
               content: "";
               display: block;
-              width: calc(100% + var(--space));
-              height: calc(100% + var(--space));
+              width: calc(100% + value(space));
+              height: calc(100% + value(space));
               position: absolute;
               left: 50%;
               top: 50%;
               transform: translate(-50%, -50%) scale(0.8);
-              background-color: var(--background);
+              background-color: value(background);
               z-index: -1;
-              box-shadow: 0 0 1em 0 var(--accent);
+              box-shadow: 0 0 1em 0 value(accent);
               opacity: 0;
-              border-radius: calc(var(--border-radius) * 2);
-              transition: opacity var(--transition), transform var(--transition);
+              border-radius: calc(value(border-radius) * 2);
+              transition: opacity value(transition), transform value(transition);
             }
             &:hover {
               #{$archive}__date {
@@ -118,8 +118,8 @@
             text-align: center;
             padding: 0;
             opacity: 0.25;
-            transition: opacity var(--transition);
-            margin-top: calc(var(--space) * -1);
+            transition: opacity value(transition);
+            margin-top: calc(value(space) * -1);
             &:hover {
               opacity: 1;
             }
@@ -129,7 +129,7 @@
             height: 10em;
             overflow: hidden;
             flex-shrink: 0;
-            border-radius: var(--border-radius);
+            border-radius: value(border-radius);
             img {
               object-fit: cover;
               width: 100%;
@@ -143,7 +143,7 @@
             &--empty {
               display: none;
               position: relative;
-              background-color: var(--accent);
+              background-color: value(accent);
               &::before {
                 content: "?";
                 position: absolute;
@@ -157,9 +157,9 @@
                 height: 2em;
                 line-height: 2em;
                 text-align: center;
-                background-color: var(--background);
-                border-radius: var(--border-radius);
-                color: var(--accent);
+                background-color: value(background);
+                border-radius: value(border-radius);
+                color: value(accent);
               }
             }
           }
@@ -188,13 +188,13 @@
             flex-direction: column;
             justify-content: space-between;
             & + #{$archive}__item {
-              border-top: 1px solid var(--accent);
-              margin-top: calc(var(--space) / 4);
+              border-top: 1px solid value(accent);
+              margin-top: calc(value(space) / 4);
             }
             @media #{breakpoint(small,only)} {
-              padding: calc(var(--space) / 2);
-              width: calc(100% + var(--space));
-              margin-left: calc((var(--space) / 2) * -1);
+              padding: calc(value(space) / 2);
+              width: calc(100% + value(space));
+              margin-left: calc((value(space) / 2) * -1);
             }
             &:hover {
               #{$archive}__text {
@@ -205,18 +205,18 @@
           &__link {
             line-height: 1.75;
             display: block;
-            transition: transform var(--transition);
+            transition: transform value(transition);
 
             @media #{breakpoint(medium)} {
               display: flex;
               align-items: center;
-              padding: calc(var(--space) / 2);
+              padding: calc(value(space) / 2);
             }
           }
           &__tags {
             opacity: 0.25;
             @media #{breakpoint(medium)} {
-              margin-top: calc(var(--space) * -1);
+              margin-top: calc(value(space) * -1);
               justify-content: flex-end;
             }
             &:hover {
@@ -233,12 +233,12 @@
             img {
               width: 4em;
               height: 4em;
-              border-radius: var(--border-radius);
+              border-radius: value(border-radius);
               object-fit: cover;
             }
             @media #{breakpoint(medium)} {
               &:not(#{$archive}__image--empty) + #{$archive}__date {
-                margin-left: calc(var(--space) / 2);
+                margin-left: calc(value(space) / 2);
               }
             }
             &--empty {
@@ -246,7 +246,7 @@
             }
             @media #{breakpoint(small,only)} {
               float: left;
-              margin-right: calc(var(--space) / 2);
+              margin-right: calc(value(space) / 2);
             }
           }
         }

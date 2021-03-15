@@ -1,15 +1,21 @@
+$prefix: null;
+
+@if setting-exists($settings, "prefix") {
+  $prefix: "#{settings($settings,"prefix")}-";
+}
+
 @mixin default-custom-properties() {
   @if export($output, "default.custom-properties") {
     :root {
-      --space: #{settings($settings, "space")};
-      --border-radius: #{settings($settings, "border-radius")};
-      --font-size: #{settings($settings, "font-size")};
-      --font-size-first: #{settings($settings, "font-size-first")};
-      --line-height: #{settings($settings, "line-height")};
-      --font-family: #{settings($settings, "font-family")};
-      --code-font: #{settings($settings, "code-font")};
-      --content_max-width: #{settings($settings, "content.max-width")};
-      --transition: #{settings($settings, "transition")};
+      --#{$prefix}space: #{settings($settings, "space")};
+      --#{$prefix}border-radius: #{settings($settings, "border-radius")};
+      --#{$prefix}font-size: #{settings($settings, "font-size")};
+      --#{$prefix}font-size-first: #{settings($settings, "font-size-first")};
+      --#{$prefix}line-height: #{settings($settings, "line-height")};
+      --#{$prefix}font-family: #{settings($settings, "font-family")};
+      --#{$prefix}code-font: #{settings($settings, "code-font")};
+      --#{$prefix}content_max-width: #{settings($settings, "content.max-width")};
+      --#{$prefix}transition: #{settings($settings, "transition")};
     }
   }
 }

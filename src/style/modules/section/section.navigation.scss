@@ -33,7 +33,7 @@
         display: flex;
         background-color: inherit;
         @media #{breakpoint('medium',up)} {
-          padding: var(--space);
+          padding: value(space);
         }
         @media #{breakpoint('small',only)} {
           flex-direction: column;
@@ -43,10 +43,10 @@
       &__item {
         position: relative;
         &--parent #{$navigation}__text::before {
-          background-color: var(--navigation-dot-parent, var(--primary));
+          background-color: value(navigation-dot-parent, value(primary));
         }
         &--current #{$navigation}__text::before {
-          background-color: var(--navigation-dot-current, var(--secondary));
+          background-color: value(navigation-dot-current, value(secondary));
         }
       }
       &__text {
@@ -88,14 +88,14 @@
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%) scale(0.5);
-          border-radius: var(--border-radius);
-          background-color: var(--navigation-link-background, var(--primary));
+          border-radius: value(border-radius);
+          background-color: value(navigation-link-background, value(primary));
           z-index: 1;
           opacity: 0;
-          transition: transform var(--transition);
+          transition: transform value(transition);
         }
         &:hover::before {
-          opacity: var(--navigation-link-hover-opacity, 0.25);
+          opacity: value(navigation-link-hover-opacity, 0.25);
           transform: translate(-50%, -50%) scale(1);
         }
         &:focus {
@@ -104,7 +104,7 @@
         &:not(:hover):focus::before {
           transform: translate(-50%, -50%) scale(1);
           opacity: 0.5;
-          background-color: var(--primary);
+          background-color: value(primary);
         }
         &:hover {
           text-decoration: none;
@@ -131,9 +131,9 @@
         justify-content: center;
 
         display: flex;
-        transition: background var(--transition),
-          border-radius var(--transition);
-        color: var(--foreground);
+        transition: background value(transition),
+          border-radius value(transition);
+        color: value(foreground);
 
         &::before {
           content: "";
@@ -144,9 +144,9 @@
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%) scale(0.5);
-          background-color: var(--foreground);
+          background-color: value(foreground);
           opacity: 0;
-          transition: transform var(--transition);
+          transition: transform value(transition);
         }
         &:focus::before,
         &:hover::before {
@@ -154,7 +154,7 @@
           opacity: 1;
         }
         &:hover {
-          color: var(--background);
+          color: value(background);
         }
         @media #{breakpoint(medium)} {
           display: none;
@@ -197,7 +197,7 @@
         width: 100vw;
         height: 100vh;
         pointer-events: none;
-        background-color: var(--background);
+        background-color: value(background);
         opacity: 0;
         z-index: 5;
       }
@@ -217,16 +217,16 @@
         & ~ #{$navigation},
         & ~ #{$header} #{$navigation} {
           @media #{breakpoint(small,only)} {
-            background-color: var(--background-accent);
-            color: var(--foreground);
+            background-color: value(background-accent);
+            color: value(foreground);
             height: auto;
             width: auto;
             height: 100vh;
             right: 0;
             top: 0;
-            padding: var(--space);
-            padding-top: calc(var(--space) * 2);
-            transition: clip-path var(--transition);
+            padding: value(space);
+            padding-top: calc(value(space) * 2);
+            transition: clip-path value(transition);
             opacity: 1;
             clip-path: inset(0 0 0 100%);
             align-items: flex-start;
@@ -240,7 +240,7 @@
               &::before {
                 opacity: 1;
                 transform: translate(-50%, -50%) scale(1);
-                background-color: var(--background-accent);
+                background-color: value(background-accent);
               }
             }
           }
@@ -273,12 +273,12 @@
           * Active Mobile Header Navigation Toggle
           */
             & + #{$navigation}__toggle {
-              color: var(--foreground);
+              color: value(foreground);
 
               &::before {
                 transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
-                background-color: var(--background);
+                background-color: value(background);
               }
 
               span {

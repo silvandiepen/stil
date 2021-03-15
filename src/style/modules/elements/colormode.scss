@@ -1,22 +1,30 @@
+
+$prefix: null;
+
+@if setting-exists($settings, "prefix") {
+  $prefix: "#{settings($settings,"prefix")}-";
+}
+
+
 @mixin darkMode {
-  --off: var(--white-20);
-  --off-text: var(--white-90);
-  --foreground: var(--white);
-  --foreground-accent: var(--white-90);
-  --background: var(--black-10);
-  --background-accent: var(--black);
-  --text: var(--white);
-  --accent: var(--light-accent);
+  --#{$prefix}off: #{value(white-20)};
+  --#{$prefix}off-text: #{value(white-90)};
+  --#{$prefix}foreground: #{value(white)};
+  --#{$prefix}foreground-accent: #{value(white-90)};
+  --#{$prefix}background: #{value(black-10)};
+  --#{$prefix}background-accent: #{value(black)};
+  --#{$prefix}text: #{value(white)};
+  --#{$prefix}accent: #{value(light-accent)};
 }
 @mixin lightMode {
-  --off: var(--white-90);
-  --off-text: var(--white-80);
-  --foreground: var(--black-10);
-  --foreground-accent: var(--black-20);
-  --background: var(--white);
-  --background-accent: var(--white-90);
-  --text: var(--black-10);
-  --accent: var(--dark-accent);
+  --#{$prefix}off: #{value(white-90)};
+  --#{$prefix}off-text: #{value(white-80)};
+  --#{$prefix}foreground: #{value(black-10)};
+  --#{$prefix}foreground-accent: #{value(black-20)};
+  --#{$prefix}background: #{value(white)};
+  --#{$prefix}background-accent: #{value(white-90)};
+  --#{$prefix}text: #{value(black-10)};
+  --#{$prefix}accent: #{value(dark-accent)};
 }
 
 @mixin colormode() {
@@ -24,8 +32,8 @@
     $colormode: settings($settings, "define.colormode.class");
 
     body {
-      background-color: var(--background);
-      color: var(--text);
+      background-color: value(background);
+      color: value(text);
     }
     @media (prefers-color-scheme: dark) {
       body {
@@ -46,28 +54,28 @@
     }
 
     #{$colormode} {
-      --switch-stroke: calc(var(--space) * 0.1);
-      --switch-color: var(--text, currentColor);
-      border: var(--switch-stroke) solid var(--switch-color);
-      width: calc(var(--space) * 1.5);
-      height: var(--space);
+      --#{$prefix}switch-stroke: calc(value(space) * 0.1);
+      --#{$prefix}switch-color: value(text, currentColor);
+      border: value(switch-stroke) solid value(switch-color);
+      width: calc(value(space) * 1.5);
+      height: value(space);
       display: block;
       background-color: transparent;
-      border-radius: var(--space);
+      border-radius: value(space);
       position: relative;
       text-indent: -999em;
-      transition: opacity var(--transition);
+      transition: opacity value(transition);
       opacity: 0.5;
       &:hover {
         opacity: 1;
       }
       &:focus {
         outline: none;
-        box-shadow: 0 0 10px 0 var(--primary);
+        box-shadow: 0 0 10px 0 value(primary);
       }
       &::before {
-        --margin: calc((var(--switch-stroke) * 4));
-        --dot-size: calc(var(--space) - var(--margin));
+        --#{$prefix}-switch-margin: calc((value(switch-stroke) * 4));
+        --#{$prefix}-switch-dot-size: calc(value(space) - value(switch-margin));
         content: "";
         display: block;
         position: absolute;
@@ -75,41 +83,41 @@
         top: 50%;
         transition: transform 0.3s ease-in-out,
           background-position 0.3s ease-in-out, background-size 0.3s ease-in-out;
-        transform: translate(calc(0% + var(--switch-stroke)), -50%);
+        transform: translate(calc(0% + value(switch-stroke)), -50%);
         background-color: currentColor;
         border-radius: 50%;
-        width: var(--dot-size);
-        height: var(--dot-size);
+        width: value(dot-size);
+        height: value(dot-size);
         background: radial-gradient(
           circle at 50%,
           transparent,
           transparent 33.33%,
-          var(--switch-color) 33.33%
+          value(switch-color) 33.33%
         );
 
         background-repeat: no-repeat;
-        background-size: calc(var(--space) * 2) 100%;
+        background-size: calc(value(space) * 2) 100%;
         background-position: -0% 50%;
       }
       // The after is a label shown to display the current mode. By default this doesn't show because the after does not have a content.
       // The after can be shown by adding a content in custom css.
       &::after {
-        background-color: var(--text);
-        color: var(--background);
+        background-color: value(text);
+        color: value(background);
         position: absolute;
         left: 50%;
         top: 100%;
-        transform: translate(-50%, calc(var(--switch-stroke) * 2)) scale(0);
+        transform: translate(-50%, calc(value(switch-stroke) * 2)) scale(0);
         font-size: 0.8em;
         padding: 0.5em 1em;
-        border-radius: var(--border-radius);
+        border-radius: value(border-radius);
         display: block;
         text-indent: 0;
         opacity: 0;
-        transition: transform var(--transition);
+        transition: transform value(transition);
       }
       &:hover::after {
-        transform: translate(-50%, calc(var(--switch-stroke) * 2)) scale(1);
+        transform: translate(-50%, calc(value(switch-stroke) * 2)) scale(1);
         opacity: 1;
       }
     }
