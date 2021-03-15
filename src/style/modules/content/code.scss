@@ -1,5 +1,5 @@
 @function code-hsl($hue) {
-  @return hsl(#{$hue}, value(current-saturation), value(negative-lightness));
+  @return hsl(#{$hue}, calc(#{value(current-saturation)} * 1%), calc(#{value(negative-lightness)} * 1%));
 }
 
 @mixin styled-code() {
@@ -64,7 +64,20 @@
     //   white-space: normal;
     // }
 
+    // :root{
+    //   --code-group-comment: red;
+    //   --code-group-punctuation: red;
+    //   --code-group-property: red;
+    //   --code-group-boolean: red;
+    //   --code-group-selector: red;
+    //   --code-group-operator: red;
+    //   --code-group-atrule: red;
+    //   --code-group-keyword: red;
+    //   --code-group-regex: red;
+    // }
+
     $code-tokens: ('comment', 'prolog', doctype, cdata, punctuation, property, tag,constant,symbol,deleted,boolean,number,selector,attr-name, string,char,builtin,inserted,operator,entity,url,variable,atrule,attr-value,function,class-name,keyword,regex,important);
+
 
     @each $el in $code-tokens {
       .token.#{$el}{ color: value(code-#{$el}); }
@@ -74,11 +87,11 @@
     .token.prolog,
     .token.doctype,
     .token.cdata {
-      color: value(code-comment,code-hsl(100));
+      color: value(code-comment, var(--code-group-comment, code-hsl(100)));
     }
 
     .token.punctuation {
-      color:value(code-punctuation,code-hsl(100));
+      color:value(code-punctuation,var(--code-group-punctuation,code-hsl(100)));
     }
 
     .namespace {
@@ -90,12 +103,12 @@
     .token.constant,
     .token.symbol,
     .token.deleted {
-      color: value(code-property,code-hsl(10));
+      color: value(code-property,var(--code-group-property,code-hsl(10)));
     }
 
     .token.boolean,
     .token.number {
-      color: value(code-boolean,code-hsl(180));
+      color: value(code-boolean,var(--code-group-boolean,code-hsl(180)));
     }
 
     .token.selector,
@@ -104,7 +117,7 @@
     .token.char,
     .token.builtin,
     .token.inserted {
-      color: value(code-selector, code-hsl(220));
+      color: value(code-selector, var(--code-group-selector,code-hsl(220)));
     }
 
     .token.operator,
@@ -113,23 +126,23 @@
     .language-css .token.string,
     .style .token.string,
     .token.variable {
-      color: value(code-variable,code-hsl(200));
+      color: value(code-variable,var(--code-group-operator,code-hsl(200)));
     }
 
     .token.atrule,
     .token.attr-value,
     .token.function,
     .token.class-name {
-      color: value(code-function,code-hsl(140));
+      color: value(code-function,var(--code-group-atrule,code-hsl(140)));
     }
 
     .token.keyword {
-      color: value(code-keyword,code-hsl(40));
+      color: value(code-keyword,var(--code-group-keyword,code-hsl(40)));
     }
 
     .token.regex,
     .token.important {
-      color: value(code-regex,code-hsl(40));
+      color: value(code-regex,var(--code-group-regex,code-hsl(40)));
     }
 
     .token.important,

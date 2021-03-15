@@ -29,7 +29,7 @@ $prefix: null;
 
 @mixin colormode() {
   @if export($output, "elements.colormode") {
-    $colormode: settings($settings, "define.colormode.class");
+    $colorMode: settings($settings, "define.colormode.class");
 
     body {
       background-color: value(background);
@@ -53,7 +53,7 @@ $prefix: null;
       @include lightMode;
     }
 
-    #{$colormode} {
+    #{$colorMode} {
       --#{$prefix}switch-stroke: calc(#{value(space)} * 0.1);
       --#{$prefix}switch-color: #{value(text, currentColor)};
       border: value(switch-stroke) solid value(switch-color);
@@ -122,7 +122,7 @@ $prefix: null;
       }
     }
     [color-mode="dark"] {
-      #{$colormode}::before {
+      #{$colorMode}::before {
         transform: translate(calc(100%), -50%) rotate(180deg);
         background-position: 25% 50%;
       }
