@@ -58,6 +58,10 @@ $prefix: null;
     #{$colorMode} {
       --#{$prefix}switch-stroke: calc(#{value(space)} * 0.1);
       --#{$prefix}switch-color: #{value(text, currentColor)};
+      --#{$prefix}switch-margin: calc((#{value(switch-stroke)} * 4));
+      --#{$prefix}switch-dot-size: calc(
+        #{value(space)} - #{value(switch-margin)}
+      );
       border: value(switch-stroke) solid value(switch-color);
       width: calc(#{value(space)} * 1.5);
       height: value(space);
@@ -76,10 +80,6 @@ $prefix: null;
         box-shadow: 0 0 10px 0 value(primary);
       }
       &::before {
-        --#{$prefix}-switch-margin: calc((#{value(switch-stroke)} * 4));
-        --#{$prefix}-switch-dot-size: calc(
-          #{value(space)} - #{value(switch-margin)}
-        );
         content: "";
         display: block;
         position: absolute;
