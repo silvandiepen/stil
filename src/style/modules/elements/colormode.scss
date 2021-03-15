@@ -1,10 +1,8 @@
-
 $prefix: null;
 
 @if setting-exists($settings, "prefix") {
   $prefix: "#{settings($settings,"prefix")}-";
 }
-
 
 @mixin darkMode {
   --#{$prefix}off: #{value(white-20)};
@@ -15,6 +13,8 @@ $prefix: null;
   --#{$prefix}background-accent: #{value(black)};
   --#{$prefix}text: #{value(white)};
   --#{$prefix}accent: #{value(light-accent)};
+  --#{$prefix}code-lightness: 75;
+  --#{$prefix}code-saturation: 50;
 }
 @mixin lightMode {
   --#{$prefix}off: #{value(white-90)};
@@ -25,6 +25,8 @@ $prefix: null;
   --#{$prefix}background-accent: #{value(white-90)};
   --#{$prefix}text: #{value(black-10)};
   --#{$prefix}accent: #{value(dark-accent)};
+  --#{$prefix}code-lightness: 45;
+  --#{$prefix}code-saturation: 50;
 }
 
 @mixin colormode() {
@@ -75,7 +77,9 @@ $prefix: null;
       }
       &::before {
         --#{$prefix}-switch-margin: calc((#{value(switch-stroke)} * 4));
-        --#{$prefix}-switch-dot-size: calc(#{value(space)} - #{value(switch-margin)});
+        --#{$prefix}-switch-dot-size: calc(
+          #{value(space)} - #{value(switch-margin)}
+        );
         content: "";
         display: block;
         position: absolute;
