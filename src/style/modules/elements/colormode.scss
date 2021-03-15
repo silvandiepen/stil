@@ -86,8 +86,8 @@ $prefix: null;
         transform: translate(calc(0% + #{value(switch-stroke)}), -50%);
         background-color: currentColor;
         border-radius: 50%;
-        width: value(dot-size);
-        height: value(dot-size);
+        width: value(switch-dot-size);
+        height: value(switch-dot-size);
         background: radial-gradient(
           circle at 50%,
           transparent,
