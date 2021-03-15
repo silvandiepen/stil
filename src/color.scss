@@ -71,12 +71,12 @@ $color-palette-defined: map-merge(
     )
   );
   @if export($output, "color.shades") {
-    @for $i from 1 through 9 {
+    @for $i from 1 through 19 {
       $color-palette: map-merge(
         $color-palette,
         (
-          "#{to-lower-case($color-name)}-#{$i * 10}":
-            to-lightness($color-value, $i * 10),
+          "#{to-lower-case($color-name)}-#{$i * 10 / 2}":
+            to-lightness($color-value, $i * 5),
         )
       );
     }
