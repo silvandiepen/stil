@@ -16,7 +16,8 @@
     blockquote,
     img,
     figure,
-    hr
+    hr,
+    table
   );
 
   @if export($output, "typography.spacing") {

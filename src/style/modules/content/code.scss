@@ -8,6 +8,7 @@
 
 @mixin styled-code() {
   @if export($output, "content.code.prism") {
+    pre:not([class]) code,
     pre[class^="language-"],
     p code {
       background-color: value(background-accent);
@@ -22,7 +23,7 @@
     p code {
       padding: calc(#{value(space)} / 4);
     }
-
+    pre:not([class]) code,
     pre[class^="language-"] {
       font-size: 0.875em;
       padding: value(space);
