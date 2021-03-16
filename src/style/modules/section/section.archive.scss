@@ -206,7 +206,8 @@
             line-height: 1.75;
             display: block;
             transition: transform value(transition);
-
+          }
+          &__info {
             @media #{breakpoint(medium)} {
               display: flex;
               align-items: center;
@@ -216,7 +217,6 @@
           &__tags {
             opacity: 0.25;
             @media #{breakpoint(medium)} {
-              margin-top: calc(#{value(space)} * -1);
               justify-content: flex-end;
             }
             &:hover {
@@ -225,7 +225,7 @@
           }
           @media #{breakpoint(medium)} {
             &__date + #{$archive}__text {
-              margin-left: 1em;
+              // margin-left: 1em;
             }
           }
           &__image {
