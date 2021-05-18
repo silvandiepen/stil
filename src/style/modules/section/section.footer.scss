@@ -1,23 +1,21 @@
 @mixin section-footer() {
-  @if export($output, "section.footer") {
-    $footer: settings($settings, "define.footer.class");
-    $navigation: settings($settings, "define.navigation.class");
+  $footer: settings($settings, "define.footer.class");
+  $navigation: settings($settings, "define.navigation.class");
 
-    #{$footer} {
-      position: relative;
-      filter: blur(0);
-      transform: translate(0);
-      transition: transform value(transition), filter value(transition);
-      @media #{breakpoint(small,only)} {
-        #{$navigation} {
-          &__list {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-          }
-          &__item {
-            padding: 0;
-          }
+  #{$footer} {
+    position: relative;
+    filter: blur(0);
+    transform: translate(0);
+    transition: transform value(transition), filter value(transition);
+    @media #{breakpoint(small,only)} {
+      #{$navigation} {
+        &__list {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        &__item {
+          padding: 0;
         }
       }
     }

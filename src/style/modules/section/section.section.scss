@@ -1,26 +1,24 @@
 @mixin section-section() {
-  @if export($output, "section.section") {
-    $section: settings($settings, "define.section.class");
-    $container: settings($settings, "define.container.class");
+  $section: settings($settings, "define.section.class");
+  $container: settings($settings, "define.container.class");
 
-    #{$section} {
-      position: relative;
-      padding: calc(#{value(space)});
-      @media #{breakpoint(medium)} {
-        padding: calc(#{value(space)} * 2);
+  #{$section} {
+    position: relative;
+    padding: calc(#{value(space)});
+    @media #{breakpoint(medium)} {
+      padding: calc(#{value(space)} * 2);
+    }
+    > #{$container} {
+      max-width: value("content.max-width");
+      margin-left: auto;
+      margin-right: auto;
+      & + #{$container} {
+        margin-top: 1em;
       }
-      > #{$container} {
-        max-width: value("content.max-width");
-        margin-left: auto;
-        margin-right: auto;
-        & + #{$container} {
-          margin-top: 1em;
-        }
-      }
-      @if export($output, "section.section.heights") {
-        &--h-3-4 {
-          min-height: 75vh;
-        }
+    }
+    @if export($output, "section.section.heights") {
+      &--h-3-4 {
+        min-height: 75vh;
       }
     }
   }

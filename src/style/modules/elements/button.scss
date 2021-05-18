@@ -1,13 +1,11 @@
 @mixin button() {
-  @if export($output, "elements.button") {
-    $button: settings($settings, "define.button.class");
-    #{$button} {
-      display: inline-block;
-      padding: space(0.25) space(0.5);
-      background-color: value(negative);
-      text-decoration: none;
-      border-radius: value(border-radius);
-      color: value(current);
-    }
+  $button: settings($settings, "define.button.class");
+  #{$button} {
+    display: inline-block;
+    padding: space(0.25) space(0.5);
+    background-color: value(negative);
+    text-decoration: none;
+    border-radius: value(border-radius);
+    color: value(current);
   }
 }

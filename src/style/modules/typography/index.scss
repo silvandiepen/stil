@@ -3,5 +3,13 @@
 @import "typography.headers";
 
 @include typography-fonts;
-@include typography-spacing;
-@include typography-headers;
+
+@if export($output, "typography.spacing") {
+  @include typography-spacing;
+}
+@if export($output, "typography.margin") {
+  @include typography-margin;
+}
+@if export($output, "typography.headers") {
+  @include typography-headers;
+}

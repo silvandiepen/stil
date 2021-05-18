@@ -8,13 +8,33 @@
 @import "task-list";
 @import "alert";
 
-@include tooltip();
-@include button();
-@include card();
-@include card-group();
-@include notification();
-@include toolbar();
-@include colormode();
-@include tags();
-@include task-list();
-@include alert();
+@if export($output, "elements.alert") {
+  @include alert();
+}
+@if export($output, "elements.button") {
+  @include button();
+}
+@if export($output, "elements.card") {
+  @include card();
+}
+@if export($output, "elements.card.group") {
+  @include card-group();
+}
+@if export($output, "elements.colormode") {
+  @include colormode();
+}
+@if export($output, "elements.notification") {
+  @include notification();
+}
+@if export($output, "elements.tags") {
+  @include tags();
+}
+@if export($output, "elements.task-list") {
+  @include task-list();
+}
+@if export($output, "elements.toolbar") {
+  @include toolbar();
+}
+@if export($output, "elements.tooltip") {
+  @include tooltip();
+}

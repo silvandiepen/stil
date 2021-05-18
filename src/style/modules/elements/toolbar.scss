@@ -1,12 +1,10 @@
 @mixin toolbar() {
-  @if export($output, "elements.toolbar") {
-    $toolbar: settings($settings, "define.toolbar.class");
-    #{$toolbar} {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      padding: 2em;
-      z-index: 11;
-    }
+  $toolbar: settings($settings, "define.toolbar.class");
+  #{$toolbar} {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 2em;
+    z-index: 11;
   }
 }

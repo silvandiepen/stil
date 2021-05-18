@@ -35,13 +35,13 @@
   },
   "homepage": "https://github.com/silvandiepen/stil#readme",
   "devDependencies": {
+    "@sil/jsonto": "^0.1.0",
     "cpy-cli": "^3.1.1",
     "sass": "^1.30.0",
     "stylelint": "^13.8.0",
     "stylelint-logical-order": "^0.1.0",
     "stylelint-order": "^4.1.0",
     "vite-plugin-components": "^0.5.0",
-    "vitepress": "^0.9.1",
-    "@sil/jsonto": "^0.1.0"
+    "vitepress": "^0.9.1"
   }
 }

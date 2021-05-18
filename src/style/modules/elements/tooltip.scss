@@ -1,30 +1,28 @@
 @mixin tooltip() {
-  @if export($output, "elements.tooltip") {
-    $tooltip: settings($settings, "define.tooltip.class");
-    #{$tooltip} {
-      top: calc(100% + 0.5em);
-      transform: translate(-50%, 50%) scale(0.5);
-      padding: 0.5em;
-      position: absolute;
-      border-radius: 0.5em;
-      opacity: 0;
-      pointer-events: none;
-      background-color: value(current-90);
-      color: value(current-10);
-      border: 1px solid value(current);
-      transition: transform 0.3s ease-in-out;
-      z-index: 10;
-      left: 50%;
-      code {
-        white-space: nowrap;
-      }
+  $tooltip: settings($settings, "define.tooltip.class");
+  #{$tooltip} {
+    top: calc(100% + 0.5em);
+    transform: translate(-50%, 50%) scale(0.5);
+    padding: 0.5em;
+    position: absolute;
+    border-radius: 0.5em;
+    opacity: 0;
+    pointer-events: none;
+    background-color: value(current-90);
+    color: value(current-10);
+    border: 1px solid value(current);
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+    left: 50%;
+    code {
+      white-space: nowrap;
     }
-    div:hover,
-    span:hover {
-      & > #{$tooltip} {
-        opacity: 1;
-        transform: translate(-50%, 0%) scale(1);
-      }
+  }
+  div:hover,
+  span:hover {
+    & > #{$tooltip} {
+      opacity: 1;
+      transform: translate(-50%, 0%) scale(1);
     }
   }
 }

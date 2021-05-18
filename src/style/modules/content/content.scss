@@ -1,172 +1,172 @@
-@mixin styled-content() {
+@mixin content-paragraph() {
   $parent: settings($settings, "define.content.class");
-  @if export($output, "content.default") or
-    export($output, "content.paragraphs")
-  {
-    #{$parent} {
-      p {
-        font-size: value(font-size, 1em);
-        line-height: value(line-height, 1.5);
-        max-width: value("content.paragraph.max-width");
-        @if export($output, "content.paragraphs.first") {
-          &:first-of-type {
-            font-size: value(font-size-first, 1.25em);
-          }
-        }
-      }
-    }
-  }
-  @if export($output, "content.default") or
-    export($output, "content.blockquote")
-  {
-    #{$parent} {
-      blockquote {
-        font-family: inherit;
-        font-size: value(font-size, 1em);
-        line-height: value(line-height, 1.5);
-        padding: value(space);
-        line-height: value(line-height, 1.5);
-      }
-    }
-  }
-  @if export($output, "content.default") or export($output, "content.links") {
-    #{$parent} {
-      a:not([class]) {
-        $link-colors: list-reverse(settings($settings, "content.link.colors"));
 
-        $link-color: "";
-        @for $i from 1 through length($link-colors) {
-          @if $i == 1 {
-            $link-color: value(#{nth($link-colors, $i)}, currentColor);
-          } @else {
-            $link-color: value(#{nth($link-colors, $i)}, $link-color);
-          }
+  #{$parent} {
+    p {
+      font-size: value(font-size, 1em);
+      line-height: value(line-height, 1.5);
+      max-width: value("content.paragraph.max-width");
+      @if export($output, "content.paragraphs.first") {
+        &:first-of-type {
+          font-size: value(font-size-first, 1.25em);
         }
-        color: $link-color;
       }
     }
   }
+}
 
-  @if export($output, "content.adaptive-svg") {
-    #{$parent} svg {
-      path,
-      rect,
-      polygon,
-      line,
-      polyline,
-      ellipse,
-      circle {
-        &:not([class]):not([style]):not([fill]) {
-          fill: currentColor;
+@mixin content-blockquote() {
+  $parent: settings($settings, "define.content.class");
+
+  #{$parent} {
+    blockquote {
+      font-family: inherit;
+      font-size: value(font-size, 1em);
+      line-height: value(line-height, 1.5);
+      padding: value(space);
+      line-height: value(line-height, 1.5);
+    }
+  }
+}
+@mixin content-links() {
+  $parent: settings($settings, "define.content.class");
+
+  #{$parent} {
+    a:not([class]) {
+      $link-colors: list-reverse(settings($settings, "content.link.colors"));
+
+      $link-color: "";
+      @for $i from 1 through length($link-colors) {
+        @if $i == 1 {
+          $link-color: value(#{nth($link-colors, $i)}, currentColor);
+        } @else {
+          $link-color: value(#{nth($link-colors, $i)}, $link-color);
         }
+      }
+      color: $link-color;
+    }
+  }
+}
+
+@mixin content-adaptive-svg() {
+  $parent: settings($settings, "define.content.class");
+  #{$parent} svg {
+    path,
+    rect,
+    polygon,
+    line,
+    polyline,
+    ellipse,
+    circle {
+      &:not([class]):not([style]):not([fill]) {
+        fill: currentColor;
       }
     }
   }
-  @if export($output, "content.default") or export($output, "content.lists") {
-    #{$parent} {
+}
+
+@mixin content-lists() {
+  $parent: settings($settings, "define.content.class");
+  #{$parent} {
+    ul:not([class]),
+    ol:not([class]) {
+      & + ol,
+      & + ul {
+        margin-top: 1em;
+      }
       ul:not([class]),
       ol:not([class]) {
-        & + ol,
-        & + ul {
-          margin-top: 1em;
+        padding-left: 1em;
+      }
+      li {
+        line-height: value(line-height);
+        font-size: value(font-size);
+        &::before {
+          padding-right: space() / 2;
         }
-        ul:not([class]),
-        ol:not([class]) {
-          padding-left: 1em;
-        }
-        li {
-          line-height: value(line-height);
-          font-size: value(font-size);
-          &::before {
-            padding-right: space() / 2;
-          }
-          & + li {
-            margin-top: 0.5em;
-          }
+        & + li {
+          margin-top: 0.5em;
         }
       }
-      ul:not([class]) {
+    }
+    ul:not([class]) {
+      > li {
+        &::before {
+          content: "\2014";
+        }
+      }
+    }
+    ol:not([class]) {
+      counter-reset: list;
+      ol {
+        counter-reset: sublist;
         > li {
+          counter-increment: sublist;
           &::before {
-            content: "\2014";
+            content: counter(list) "." counter(sublist) ".";
           }
-        }
-      }
-      ol:not([class]) {
-        counter-reset: list;
-        ol {
-          counter-reset: sublist;
-          > li {
-            counter-increment: sublist;
-            &::before {
-              content: counter(list) "." counter(sublist) ".";
-            }
-            > ol {
-              counter-reset: subsublist;
-              > li {
-                counter-increment: subsublist;
-                &::before {
-                  content: counter(list)
-                    "."
-                    counter(sublist)
-                    "."
-                    counter(subsublist)
-                    ".";
-                }
+          > ol {
+            counter-reset: subsublist;
+            > li {
+              counter-increment: subsublist;
+              &::before {
+                content: counter(list) "." counter(sublist) "."
+                  counter(subsublist) ".";
               }
             }
           }
         }
-        > li {
-          counter-increment: list;
-          &::before {
-            font-variant-numeric: tabular-nums;
-            content: counter(list) ".";
-          }
+      }
+      > li {
+        counter-increment: list;
+        &::before {
+          font-variant-numeric: tabular-nums;
+          content: counter(list) ".";
         }
       }
     }
   }
+}
 
-  @if export($output, "content.default") or export($output, "content.table") {
-    #{$parent} {
-      table {
-        width: calc(100% + (#{value(space)} * 1));
-        margin-left: calc((#{value(space)} / 2) * -1);
-        color: currentColor;
+@mixin content-table() {
+  $parent: settings($settings, "define.content.class");
+  #{$parent} {
+    table {
+      width: calc(100% + (#{value(space)} * 1));
+      margin-left: calc((#{value(space)} / 2) * -1);
+      color: currentColor;
 
-        &.middle {
-          th,
-          td {
-            vertical-align: middle;
-          }
-        }
+      &.middle {
         th,
         td {
-          vertical-align: top;
-          text-align: left;
-          padding: calc(#{value(space)} / 2);
+          vertical-align: middle;
         }
-        th {
-          font-weight: value(text-bold, bold);
-        }
-        thead tr,
-        tbody tr:last-child {
-          border-bottom: 1px solid currentColor;
-        }
-        tr + tr {
-          border-top: 1px solid currentColor;
-        }
-        @media #{breakpoint(small,only)} {
-          &.wrap {
-            tr {
-              display: flex;
-              flex-direction: column;
-              flex-wrap: wrap;
-              th,
-              td {
-                display: block;
-              }
+      }
+      th,
+      td {
+        vertical-align: top;
+        text-align: left;
+        padding: calc(#{value(space)} / 2);
+      }
+      th {
+        font-weight: value(text-bold, bold);
+      }
+      thead tr,
+      tbody tr:last-child {
+        border-bottom: 1px solid currentColor;
+      }
+      tr + tr {
+        border-top: 1px solid currentColor;
+      }
+      @media #{breakpoint(small,only)} {
+        &.wrap {
+          tr {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            th,
+            td {
+              display: block;
             }
           }
         }

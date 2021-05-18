@@ -7,11 +7,30 @@
 @import "section.archive";
 @import "section.tags";
 
-@include section-body();
-@include section-section();
-@include section-main();
-@include section-header();
-@include section-footer();
-@include section-navigation();
-@include section-archive();
-@include section-tags();
+@if export($output, "section.body") {
+  @include section-body();
+}
+@if export($output, "section.section") {
+  @include section-section();
+}
+@if export($output, "section.main") {
+  @include section-main();
+}
+@if export($output, "section.header") {
+  @include section-header();
+}
+@if export($output, "section.footer") {
+  @include section-footer();
+}
+@if export($output, "section.navigation") {
+  @include section-navigation();
+}
+@if export($output, "section.navigation-toggle") {
+  @include section-navigation-toggle();
+}
+@if export($output, "section.archive") {
+  @include section-archive();
+}
+@if export($output, "section.tags") {
+  @include section-tags();
+}

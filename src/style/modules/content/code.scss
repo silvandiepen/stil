@@ -7,146 +7,144 @@
 }
 
 @mixin styled-code() {
-  @if export($output, "content.code.prism") {
-    pre:not([class]) code,
-    pre[class^="language-"],
-    p code {
-      background-color: value(background-accent);
-      font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
-        "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-        "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
-        monospace;
+  pre:not([class]) code,
+  pre[class^="language-"],
+  p code {
+    background-color: value(background-accent);
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+      "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+      "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+      monospace;
 
-      font-weight: 500;
-      border-radius: value(border-radius);
-    }
-    p code {
-      padding: calc(#{value(space)} / 4);
-    }
-    pre:not([class]) code,
-    pre[class^="language-"] {
-      display: block;
-      font-size: 0.875em;
-      padding: value(space);
-      line-height: 1.5;
-      position: relative;
-      overflow: scroll;
-    }
+    font-weight: 500;
+    border-radius: value(border-radius);
+  }
+  p code {
+    padding: calc(#{value(space)} / 4);
+  }
+  pre:not([class]) code,
+  pre[class^="language-"] {
+    display: block;
+    font-size: 0.875em;
+    padding: value(space);
+    line-height: 1.5;
+    position: relative;
+    overflow: scroll;
+  }
 
-    $code-tokens: (
-      "comment",
-      "prolog",
-      doctype,
-      cdata,
-      punctuation,
-      property,
-      tag,
-      constant,
-      symbol,
-      deleted,
-      boolean,
-      number,
-      selector,
-      attr-name,
-      string,
-      char,
-      builtin,
-      inserted,
-      operator,
-      entity,
-      url,
-      variable,
-      atrule,
-      attr-value,
-      function,
-      class-name,
-      keyword,
-      regex,
-      important
+  $code-tokens: (
+    "comment",
+    "prolog",
+    doctype,
+    cdata,
+    punctuation,
+    property,
+    tag,
+    constant,
+    symbol,
+    deleted,
+    boolean,
+    number,
+    selector,
+    attr-name,
+    string,
+    char,
+    builtin,
+    inserted,
+    operator,
+    entity,
+    url,
+    variable,
+    atrule,
+    attr-value,
+    function,
+    class-name,
+    keyword,
+    regex,
+    important
+  );
+
+  @each $el in $code-tokens {
+    .token.#{$el} {
+      color: value(code-#{$el});
+    }
+  }
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: value(code-comment, var(--code-group-comment, code-hsl(100)));
+  }
+
+  .token.punctuation {
+    color: value(
+      code-punctuation,
+      var(--code-group-punctuation, code-hsl(100))
     );
+  }
 
-    @each $el in $code-tokens {
-      .token.#{$el} {
-        color: value(code-#{$el});
-      }
-    }
+  .namespace {
+    opacity: 0.7;
+  }
 
-    .token.comment,
-    .token.prolog,
-    .token.doctype,
-    .token.cdata {
-      color: value(code-comment, var(--code-group-comment, code-hsl(100)));
-    }
+  .token.property,
+  .token.tag,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    color: value(code-property, var(--code-group-property, code-hsl(10)));
+  }
 
-    .token.punctuation {
-      color: value(
-        code-punctuation,
-        var(--code-group-punctuation, code-hsl(100))
-      );
-    }
+  .token.boolean,
+  .token.number {
+    color: value(code-boolean, var(--code-group-boolean, code-hsl(180)));
+  }
 
-    .namespace {
-      opacity: 0.7;
-    }
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    color: value(code-selector, var(--code-group-selector, code-hsl(220)));
+  }
 
-    .token.property,
-    .token.tag,
-    .token.constant,
-    .token.symbol,
-    .token.deleted {
-      color: value(code-property, var(--code-group-property, code-hsl(10)));
-    }
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string,
+  .token.variable {
+    color: value(code-variable, var(--code-group-operator, code-hsl(200)));
+  }
 
-    .token.boolean,
-    .token.number {
-      color: value(code-boolean, var(--code-group-boolean, code-hsl(180)));
-    }
+  .token.atrule,
+  .token.attr-value,
+  .token.function,
+  .token.class-name {
+    color: value(code-function, var(--code-group-atrule, code-hsl(140)));
+  }
 
-    .token.selector,
-    .token.attr-name,
-    .token.string,
-    .token.char,
-    .token.builtin,
-    .token.inserted {
-      color: value(code-selector, var(--code-group-selector, code-hsl(220)));
-    }
+  .token.keyword {
+    color: value(code-keyword, var(--code-group-keyword, code-hsl(40)));
+  }
 
-    .token.operator,
-    .token.entity,
-    .token.url,
-    .language-css .token.string,
-    .style .token.string,
-    .token.variable {
-      color: value(code-variable, var(--code-group-operator, code-hsl(200)));
-    }
+  .token.regex,
+  .token.important {
+    color: value(code-regex, var(--code-group-regex, code-hsl(40)));
+  }
 
-    .token.atrule,
-    .token.attr-value,
-    .token.function,
-    .token.class-name {
-      color: value(code-function, var(--code-group-atrule, code-hsl(140)));
-    }
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
 
-    .token.keyword {
-      color: value(code-keyword, var(--code-group-keyword, code-hsl(40)));
-    }
+  .token.italic {
+    font-style: italic;
+  }
 
-    .token.regex,
-    .token.important {
-      color: value(code-regex, var(--code-group-regex, code-hsl(40)));
-    }
-
-    .token.important,
-    .token.bold {
-      font-weight: bold;
-    }
-
-    .token.italic {
-      font-style: italic;
-    }
-
-    .token.entity {
-      cursor: help;
-    }
+  .token.entity {
+    cursor: help;
   }
 }

@@ -1,49 +1,47 @@
 @mixin tags() {
-  @if export($output, "elements.tags") {
-    $tags: settings($settings, "define.tag.class");
+  $tags: settings($settings, "define.tag.class");
 
-    #{$tags} {
-      &__list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: calc(#{value(space)} / 4);
+  #{$tags} {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(#{value(space)} / 4);
+    }
+    &__item {
+      display: block;
+      font-size: 0.8em;
+      position: relative;
+    }
+    &__link {
+      text-decoration: none;
+      color: currentColor;
+      display: block;
+      padding: calc(#{value(space)} / 4);
+      position: relative;
+      &:hover {
+        background-color: transparent;
       }
-      &__item {
-        display: block;
-        font-size: 0.8em;
-        position: relative;
+      &::before {
+        content: "#";
       }
-      &__link {
-        text-decoration: none;
-        color: currentColor;
+      &::after {
+        content: "";
         display: block;
-        padding: calc(#{value(space)} / 4);
-        position: relative;
-        &:hover {
-          background-color: transparent;
-        }
-        &::before {
-          content: "#";
-        }
-        &::after {
-          content: "";
-          display: block;
-          z-index: 1;
-          position: absolute;
-          left: 50%;
-          width: calc(100% + (#{value(space)} / 2));
-          height: calc(100% + (#{value(space)} / 2));
-          background-color: value(secondary);
-          top: 50%;
-          transform: translate(-50%, -50%) scale(0.75);
-          border-radius: value(border-radius);
-          opacity: 0;
-          transition: transform 0.3s ease-in-out;
-        }
-        &:hover::after {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 0.5;
-        }
+        z-index: 1;
+        position: absolute;
+        left: 50%;
+        width: calc(100% + (#{value(space)} / 2));
+        height: calc(100% + (#{value(space)} / 2));
+        background-color: value(secondary);
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0.75);
+        border-radius: value(border-radius);
+        opacity: 0;
+        transition: transform 0.3s ease-in-out;
+      }
+      &:hover::after {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
       }
     }
   }

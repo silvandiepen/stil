@@ -1,52 +1,50 @@
 @mixin section-header() {
-  @if export($output, "section.header") {
-    $header: settings($settings, "define.header.class");
-    $logo: settings($settings, "define.logo.class");
+  $header: settings($settings, "define.header.class");
+  $logo: settings($settings, "define.logo.class");
 
-    #{$header} {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      z-index: 10;
-      &--sticky {
-        position: sticky;
-        top: 0;
-      }
+  #{$header} {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    &--sticky {
+      position: sticky;
+      top: 0;
     }
+  }
 
-    #{$header} #{$logo} {
-      padding: value(space);
-      font-weight: bold;
-      color: currentColor;
-      text-decoration: none;
-      max-height: value("logo.max-height");
+  #{$header} #{$logo} {
+    padding: value(space);
+    font-weight: bold;
+    color: currentColor;
+    text-decoration: none;
+    max-height: value("logo.max-height");
+    @media #{breakpoint(small,only)} {
+      padding: calc(#{value(space)} / 2) value(space);
+    }
+    display: flex;
+    &--image-only ~ span {
+      display: none;
+    }
+    img {
+      max-width: 5em;
+      max-height: 5em;
+    }
+    svg {
+      display: block;
+      height: 100%;
+      min-height: 5em;
+      max-height: 5em;
+      width: auto;
       @media #{breakpoint(small,only)} {
-        padding: calc(#{value(space)} / 2) value(space);
+        min-height: 3em;
+        max-height: 3em;
       }
-      display: flex;
-      &--image-only ~ span {
-        display: none;
-      }
-      img {
-        max-width: 5em;
-        max-height: 5em;
-      }
-      svg {
-        display: block;
-        height: 100%;
-        min-height: 5em;
-        max-height: 5em;
-        width: auto;
-        @media #{breakpoint(small,only)} {
-          min-height: 3em;
-          max-height: 3em;
-        }
-        rect,
-        polygon,
-        path {
-          &:not([fill]) {
-            fill: currentColor;
-          }
+      rect,
+      polygon,
+      path {
+        &:not([fill]) {
+          fill: currentColor;
         }
       }
     }

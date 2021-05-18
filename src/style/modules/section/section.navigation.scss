@@ -112,183 +112,184 @@
       }
     }
   }
+}
 
-  @if export($output, "section.navigation-toggle") {
-    #{$navigation} {
-      /*
+@mixin section-navigation-toggle() {
+  $navigation: settings($settings, "define.navigation.class");
+  $header: settings($settings, "define.header.class");
+  #{$navigation} {
+    /*
       * Inactive Mobile Header Navigation Toggle
       */
-      &__toggle {
-        position: fixed;
-        top: calc(#{value(space)} / 2);
-        right: calc(#{value(space)} / 2);
-        z-index: 11;
-        border-radius: value(border-radius);
+    &__toggle {
+      position: fixed;
+      top: calc(#{value(space)} / 2);
+      right: calc(#{value(space)} / 2);
+      z-index: 11;
+      border-radius: value(border-radius);
 
-        width: space(1.5);
-        height: space(1.5);
-        align-items: center;
-        justify-content: center;
+      width: space(1.5);
+      height: space(1.5);
+      align-items: center;
+      justify-content: center;
 
-        display: flex;
-        transition: background value(transition),
-          border-radius value(transition);
-        color: value(foreground);
+      display: flex;
+      transition: background value(transition), border-radius value(transition);
+      color: value(foreground);
 
-        &::before {
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0.5);
+        background-color: value(foreground);
+        opacity: 0;
+        transition: transform value(transition);
+      }
+      &:focus::before,
+      &:hover::before {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      &:hover {
+        color: value(background);
+      }
+      @media #{breakpoint(medium)} {
+        display: none;
+      }
+      span {
+        display: block;
+        width: space(0.75);
+        height: 2px;
+        background-color: currentColor;
+        position: relative;
+        &::before,
+        &::after {
           content: "";
+          display: block;
           width: 100%;
           height: 100%;
           border-radius: inherit;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%) scale(0.5);
-          background-color: value(foreground);
-          opacity: 0;
-          transition: transform value(transition);
+          background-color: inherit;
         }
-        &:focus::before,
-        &:hover::before {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
+        &::before {
+          transform: translateY(-400%);
         }
-        &:hover {
-          color: value(background);
+        &::after {
+          transform: translateY(300%);
         }
-        @media #{breakpoint(medium)} {
-          display: none;
-        }
-        span {
-          display: block;
-          width: space(0.75);
-          height: 2px;
-          background-color: currentColor;
-          position: relative;
-          &::before,
-          &::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 100%;
-            border-radius: inherit;
-            background-color: inherit;
-          }
-          &::before {
-            transform: translateY(-400%);
-          }
-          &::after {
-            transform: translateY(300%);
-          }
-          &,
-          &:before,
-          &:after {
-            transition: transform 0.3s;
-          }
+        &,
+        &:before,
+        &:after {
+          transition: transform 0.3s;
         }
       }
-      /*
+    }
+    /*
       * Inactive Mobile Header Navigation Background
       */
-      &__background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        pointer-events: none;
-        background-color: value(background);
-        opacity: 0;
-        z-index: 5;
-      }
-      /*
+    &__background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      background-color: value(background);
+      opacity: 0;
+      z-index: 5;
+    }
+    /*
       * Inactive Mobile Header Navigation Control
       */
-      &__input {
-        position: absolute;
-        width: 0;
-        height: 0;
-        clip-path: inset(100% 100% 100% 100%);
-        opacity: 0;
+    &__input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      clip-path: inset(100% 100% 100% 100%);
+      opacity: 0;
 
-        /*
+      /*
         * Inactive Mobile Header Navigation
         */
-        & ~ #{$navigation},
-        & ~ #{$header} #{$navigation} {
-          @media #{breakpoint(small,only)} {
-            background-color: value(background-accent);
-            color: value(foreground);
-            height: auto;
-            width: auto;
-            height: 100vh;
-            right: 0;
-            top: 0;
-            padding: value(space);
-            padding-top: calc(#{value(space)} * 2);
-            transition: clip-path value(transition);
-            opacity: 1;
-            clip-path: inset(0 0 0 100%);
-            align-items: flex-start;
-            justify-content: center;
-            transform-origin: 100% 0;
-            position: absolute;
-            pointer-events: none;
+      & ~ #{$navigation},
+      & ~ #{$header} #{$navigation} {
+        @media #{breakpoint(small,only)} {
+          background-color: value(background-accent);
+          color: value(foreground);
+          height: auto;
+          width: auto;
+          height: 100vh;
+          right: 0;
+          top: 0;
+          padding: value(space);
+          padding-top: calc(#{value(space)} * 2);
+          transition: clip-path value(transition);
+          opacity: 1;
+          clip-path: inset(0 0 0 100%);
+          align-items: flex-start;
+          justify-content: center;
+          transform-origin: 100% 0;
+          position: absolute;
+          pointer-events: none;
 
-            #{$navigation}__link {
-              width: auto;
-              &::before {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-                background-color: value(background-accent);
-              }
+          #{$navigation}__link {
+            width: auto;
+            &::before {
+              opacity: 1;
+              transform: translate(-50%, -50%) scale(1);
+              background-color: value(background-accent);
             }
           }
         }
+      }
 
-        @media #{breakpoint(small,only)} {
-          &:checked {
-            & ~ footer.footer,
-            & ~ main.content {
-              transform: translateX(-10%);
-              filter: blur(2px);
-            }
-            /*
+      @media #{breakpoint(small,only)} {
+        &:checked {
+          & ~ footer.footer,
+          & ~ main.content {
+            transform: translateX(-10%);
+            filter: blur(2px);
+          }
+          /*
           * Active Mobile Header Navigation
           */
-            & ~ #{$navigation},
-            & ~ #{$header} #{$navigation} {
-              clip-path: inset(0 0 0 0);
-              pointer-events: all;
-            }
+          & ~ #{$navigation},
+          & ~ #{$header} #{$navigation} {
+            clip-path: inset(0 0 0 0);
+            pointer-events: all;
+          }
 
-            /*
+          /*
           * Active Mobile Header Navigation Background
           */
-            & ~ #{$navigation}__background {
-              pointer-events: all;
-              opacity: 0.75;
-            }
-            /*
+          & ~ #{$navigation}__background {
+            pointer-events: all;
+            opacity: 0.75;
+          }
+          /*
           * Active Mobile Header Navigation Toggle
           */
-            & + #{$navigation}__toggle {
-              color: value(foreground);
+          & + #{$navigation}__toggle {
+            color: value(foreground);
 
+            &::before {
+              transform: translate(-50%, -50%) scale(1);
+              opacity: 1;
+              background-color: value(background);
+            }
+
+            span {
+              transform: rotate(45deg);
               &::before {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-                background-color: value(background);
+                transform: translateY(0%) rotate(-90deg);
               }
-
-              span {
-                transform: rotate(45deg);
-                &::before {
-                  transform: translateY(0%) rotate(-90deg);
-                }
-                &::after {
-                  transform: translateY(0%) rotate(90deg);
-                }
+              &::after {
+                transform: translateY(0%) rotate(90deg);
               }
             }
           }

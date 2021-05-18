@@ -1,12 +1,10 @@
 @mixin section-main() {
-  @if export($output, "section.main") {
-    $main: settings($settings, "define.main.class");
+  $main: settings($settings, "define.main.class");
 
-    #{$main} {
-      filter: blur(0);
-      transform: translate(0);
-      position: relative;
-      transition: transform value(transition), filter value(transition);
-    }
+  #{$main} {
+    filter: blur(0);
+    transform: translate(0);
+    position: relative;
+    transition: transform value(transition), filter value(transition);
   }
 }
