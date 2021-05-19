@@ -2,113 +2,111 @@
   $navigation: settings($settings, "define.navigation.class");
   $header: settings($settings, "define.header.class");
 
-  @if export($output, "section.navigation") {
-    #{$navigation} {
-      position: relative;
+  #{$navigation} {
+    position: relative;
+    display: flex;
+
+    &.center {
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.align-right {
+      ul ul {
+        right: 0;
+      }
+    }
+    &.align-right {
+      ul ul {
+        left: 0;
+      }
+    }
+    &.align-center {
+      ul ul {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &__list {
       display: flex;
+      background-color: inherit;
+      @media #{breakpoint('medium',up)} {
+        padding: value(space);
+      }
+      @media #{breakpoint('small',only)} {
+        flex-direction: column;
+      }
+    }
 
-      &.center {
-        justify-content: center;
-        align-items: center;
+    &__item {
+      position: relative;
+      &--parent #{$navigation}__text::before {
+        background-color: value(navigation-dot-parent, value(primary));
       }
-
-      &.align-right {
-        ul ul {
-          right: 0;
-        }
+      &--current #{$navigation}__text::before {
+        background-color: value(navigation-dot-current, value(secondary));
       }
-      &.align-right {
-        ul ul {
-          left: 0;
-        }
-      }
-      &.align-center {
-        ul ul {
-          left: 50%;
-          transform: translateX(-50%);
-        }
-      }
-
-      &__list {
-        display: flex;
-        background-color: inherit;
-        @media #{breakpoint('medium',up)} {
-          padding: value(space);
-        }
-        @media #{breakpoint('small',only)} {
-          flex-direction: column;
-        }
-      }
-
-      &__item {
-        position: relative;
-        &--parent #{$navigation}__text::before {
-          background-color: value(navigation-dot-parent, value(primary));
-        }
-        &--current #{$navigation}__text::before {
-          background-color: value(navigation-dot-current, value(secondary));
-        }
-      }
-      &__text {
-        position: relative;
-        z-index: 2;
-        &::before {
-          content: "";
-          display: block;
-          width: 0.25em;
-          height: 0.25em;
-          border-radius: 50%;
-          position: absolute;
-          @media #{breakpoint(medium)} {
-            left: 50%;
-            top: 100%;
-            transform: translate(-50%, 50%);
-          }
-          @media #{breakpoint(small,only)} {
-            left: 0;
-            top: 50%;
-            transform: translate(-200%, -50%);
-          }
-        }
-      }
-
-      &__link {
-        padding: calc(#{value(space)} / 2);
-        text-decoration: none;
+    }
+    &__text {
+      position: relative;
+      z-index: 2;
+      &::before {
+        content: "";
         display: block;
-        position: relative;
-        color: currentColor;
-
-        &::before {
-          content: "";
-          width: 100%;
-          height: 100%;
-          display: block;
-          position: absolute;
+        width: 0.25em;
+        height: 0.25em;
+        border-radius: 50%;
+        position: absolute;
+        @media #{breakpoint(medium)} {
           left: 50%;
+          top: 100%;
+          transform: translate(-50%, 50%);
+        }
+        @media #{breakpoint(small,only)} {
+          left: 0;
           top: 50%;
-          transform: translate(-50%, -50%) scale(0.5);
-          border-radius: value(border-radius);
-          background-color: value(navigation-link-background, value(primary));
-          z-index: 1;
-          opacity: 0;
-          transition: transform value(transition);
+          transform: translate(-200%, -50%);
         }
-        &:hover::before {
-          opacity: value(navigation-link-hover-opacity, 0.25);
-          transform: translate(-50%, -50%) scale(1);
-        }
-        &:focus {
-          outline: none;
-        }
-        &:not(:hover):focus::before {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 0.5;
-          background-color: value(primary);
-        }
-        &:hover {
-          text-decoration: none;
-        }
+      }
+    }
+
+    &__link {
+      padding: calc(#{value(space)} / 2);
+      text-decoration: none;
+      display: block;
+      position: relative;
+      color: currentColor;
+
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0.5);
+        border-radius: value(border-radius);
+        background-color: value(navigation-link-background, value(primary));
+        z-index: 1;
+        opacity: 0;
+        transition: transform value(transition);
+      }
+      &:hover::before {
+        opacity: value(navigation-link-hover-opacity, 0.25);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      &:focus {
+        outline: none;
+      }
+      &:not(:hover):focus::before {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+        background-color: value(primary);
+      }
+      &:hover {
+        text-decoration: none;
       }
     }
   }

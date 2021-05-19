@@ -1,3 +1,5 @@
 @import "reset.default";
 
-@include reset-default;
+@if export($output, "reset.default") {
+  @include reset-default;
+}
