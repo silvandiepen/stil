@@ -17,7 +17,7 @@ $elements: (
   figure,
   hr,
   table
-);
+) !default;
 
 @mixin typography-spacing($space: 1em) {
   #{list-to-str($elements,', ')} {

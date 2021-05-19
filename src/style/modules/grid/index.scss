@@ -1,4 +1,22 @@
 @import "grid";
 
-@include grid-row();
-@include grid-column();
+@if export($output, "grid.row") or export($output, "grid.default") {
+  @include grid-row();
+}
+@if export($output, "grid.column") or export($output, "grid.default") {
+  @include grid-column();
+}
+@if (export($output, "grid.column") or export($output, "grid.default")) and
+  export($output, "grid.column.partials")
+{
+  @include column(null, unquote("#{$column}"));
+}
+@if (export($output, "grid.column") or export($output, "grid.default")) and
+  export($output, "grid.column.responsive-partials")
+{
+  @each $breakpoint in $breakpoint-names {
+    @media #{breakpoint($breakpoint)} {
+      @include column(unquote(".#{$breakpoint}"), $column);
+    }
+  }
+}

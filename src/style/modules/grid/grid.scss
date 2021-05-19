@@ -23,13 +23,7 @@ $grid-total: settings($settings, "grid.total");
   grid-template-columns: value(row-columns);
   grid-template-rows: auto;
 }
-.row.row--fifths {
-  @include row(
-    (
-      total: 25,
-    )
-  );
-}
+
 @mixin column($pref: null, $add: null) {
   @each $size-name, $size-value in $breakpoint-sizes {
     $className: "";
@@ -51,35 +45,28 @@ $grid-total: settings($settings, "grid.total");
 }
 
 @mixin grid-row() {
-  @if export($output, "grid.row") or export($output, "grid.default") {
-    #{$row} {
-      @include row();
-    }
+  #{$row} {
+    @include row();
+  }
+  #{$row}#{$row}--fifths {
+    @include row(
+      (
+        total: 25,
+      )
+    );
   }
 }
 
 @mixin grid-column() {
-  @if export($output, "grid.column") or export($output, "grid.default") {
-    #{$column} {
-      width: 100%;
-      &--middle {
-        display: flex;
-        align-items: center;
-      }
-      &--center {
-        display: flex;
-        justify-content: center;
-      }
+  #{$column} {
+    width: 100%;
+    &--middle {
+      display: flex;
+      align-items: center;
     }
-    @if export($output, "grid.column.partials") {
-      @include column(null, unquote("#{$column}"));
-    }
-    @if export($output, "grid.column.responsive-partials") {
-      @each $breakpoint in $breakpoint-names {
-        @media #{breakpoint($breakpoint)} {
-          @include column(unquote(".#{$breakpoint}"), $column);
-        }
-      }
+    &--center {
+      display: flex;
+      justify-content: center;
     }
   }
 }
