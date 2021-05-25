@@ -15,6 +15,17 @@
   }
 }
 
+@mixin content-image() {
+  $parent: settings($settings, "define.content.class");
+  #{$parent} {
+    img {
+      max-width: 100%;
+      max-height: 80vh;
+      margin: auto;
+    }
+  }
+}
+
 @mixin content-blockquote() {
   $parent: settings($settings, "define.content.class");
 
