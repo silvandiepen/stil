@@ -41,11 +41,13 @@
         position: absolute;
         left: 0.5em;
         top: 50%;
-        background-color: value(secondary);
         display: block;
         transform: translateY(-50%);
         border-radius: 50%;
         transition: transform value(transition);
+      }
+      &::before {
+        box-shadow: 0 0 0 1px value(secondary);
       }
       &::after {
         background-color: value(primary);
