@@ -60,6 +60,9 @@
           padding: 0.5em;
           border-radius: value(border-radius);
         }
+        &__info {
+          display: block;
+        }
         &__item {
           position: relative;
           display: block;
@@ -138,6 +141,9 @@
             & + #{$archive}__date + #{$archive}__text {
               margin-top: 1em;
             }
+            & + #{$archive}__info {
+              margin-top: 1em;
+            }
           }
           &--empty {
             display: none;
@@ -166,7 +172,7 @@
           width: 100%;
           @media #{breakpoint(medium)} {
             & + #{$archive}__tags {
-              margin-top: 1em;
+              margin-top: 0.5em;
             }
           }
         }
