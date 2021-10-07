@@ -39,6 +39,8 @@ $color-palette-base: (
   "Gray": #7f8688,
   "Black": #111111,
   "White": #ffffff,
+  "Dark": #111111,
+  "Light": #ffffff,
 ) !default;
 
 $color-palette-defined: (
@@ -49,14 +51,6 @@ $color-palette-defined: (
   "Warning": map-get($color-palette-base, "Orange"),
   "Info": map-get($color-palette-base, "Sky"),
 ) !default;
-
-$color-palette-defined: map-merge(
-  $color-palette-defined,
-  (
-    "Dark": to-lightness(map-get($color-palette-defined, "Primary"), 5),
-    "Light": to-lightness(map-get($color-palette-defined, "Primary"), 95),
-  )
-);
 
 @each $color-name, $color-value in $color-palette-base {
   $color-palette: map-merge(
