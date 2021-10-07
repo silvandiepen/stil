@@ -48,7 +48,7 @@ $prefix: null;
 
   #{$colorMode} {
     --#{$prefix}switch-stroke: calc(#{value(space)} * 0.1);
-    --#{$prefix}switch-color: #{value(text, currentColor)};
+    --#{$prefix}switch-color: #{value(foreground, currentColor)};
     --#{$prefix}switch-margin: calc((#{value(switch-stroke)} * 4));
     --#{$prefix}switch-dot-size: calc(
       #{value(space)} - #{value(switch-margin)}
