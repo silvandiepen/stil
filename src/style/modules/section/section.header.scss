@@ -18,10 +18,6 @@
     font-weight: bold;
     color: currentColor;
     text-decoration: none;
-    max-height: value("logo.max-height");
-    @media #{breakpoint(small,only)} {
-      padding: calc(#{value(space)} / 2) value(space);
-    }
     display: flex;
     &--image-only ~ span {
       display: none;
