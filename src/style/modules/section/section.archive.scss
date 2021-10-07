@@ -13,9 +13,7 @@
       text-decoration: none;
       color: currentColor;
     }
-    &__text {
-      transition: transform value(transition);
-    }
+
     &__date {
       font-variant-numeric: tabular-nums;
       opacity: 0.5;
@@ -186,6 +184,9 @@
         &__list {
           display: flex;
           flex-direction: column;
+        }
+        &__text {
+          transition: transform value(transition);
         }
         &__item {
           display: flex;
