@@ -2,11 +2,9 @@
   $value: null;
   $prefix: null;
 
-
-  @if type-of($key) == "color"{
-      $key: to-lower-case(#{$key});
+  @if type-of($key) == "color" {
+    $key: to-lower-case(#{$key});
   }
-
 
   @if setting-exists($settings, "prefix") {
     $prefix: "#{settings($settings,"prefix")}-";
@@ -19,6 +17,7 @@
     }
   } @else if not setting-exists($settings, $key) and $fallback != null {
     $value: $fallback;
+    $key: camelCaseToKebabCase($key);
   }
 
   $key: str-replace($key, ".", "-");

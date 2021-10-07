@@ -59,6 +59,29 @@
   }
 }
 
+/// Has lowercase function
+// --------------------------
+/// Check if a string has any lowercase character
+///
+/// @access public
+/// @group case utilities
+/// @param {string} $string
+/// @return {boolean}
+///
+
+@function has-lowercase($str) {
+  $hasLowerCaseLetter: false;
+  $letterList: to-letter-list($str);
+  $lowercase: list-to-str(character-set("a-z"), "");
+
+  @for $i from 1 through length($letterList) {
+    @if str-contains($lowercase, nth($letterList, $i)) {
+      $hasLowerCaseLetter: true;
+    }
+  }
+  @return $hasLowerCaseLetter;
+}
+
 /// Kebab Case function
 // --------------------------
 /// Convert any string into a kebabcase type.
@@ -77,4 +100,44 @@
   );
 
   @return str-replace($new-str, " ", "-");
+}
+
+/// camelCaseToKebabCase function
+// --------------------------
+/// Convert a camelCase string to a kebab-case string
+///
+/// @access public
+/// @group case utilities
+/// @param {string} $string
+/// @return {string}
+///
+@function camelCaseToKebabCase($str) {
+  $str: sentenceCase($str);
+  $str: kebabCase($str);
+  @return $str;
+}
+/// Sentence case function
+// --------------------------
+/// Convert any string into a sentence case.
+///
+/// @access public
+/// @group case utilities
+/// @param {string} $string
+/// @return {string}
+///
+@function sentenceCase($str) {
+  $letterList: to-letter-list($str);
+  $new-list: ();
+
+  @for $i from 1 through length($letterList) {
+    $char: nth($letterList, $i);
+
+    @if has-lowercase($char) {
+      $new-list: append($new-list, $char);
+    } @else {
+      $new-list: append($new-list, " #{to-lower-case($char)}");
+    }
+  }
+
+  @return trim(list-to-str($new-list, ""));
 }
