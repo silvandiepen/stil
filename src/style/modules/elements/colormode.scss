@@ -6,17 +6,17 @@ $prefix: null;
 
 @mixin darkMode {
   --#{$prefix}foreground: #{value(light)};
-  --#{$prefix}foreground-accent: #{darken(value(light), 5%)};
+  --#{$prefix}foreground-accent: #{darken(map-get($color-palette, "light"), 5%)};
   --#{$prefix}background: #{value(dark)};
-  --#{$prefix}background-accent: #{lighten(value(dark), 5%)};
+  --#{$prefix}background-accent: #{lighten(map-get($color-palette, "dark"), 5%)};
   --#{$prefix}code-lightness: 75;
   --#{$prefix}code-saturation: 50;
 }
 @mixin lightMode {
   --#{$prefix}foreground: #{value(dark)};
-  --#{$prefix}foreground-accent: #{lighten(value(dark), 10%)};
+  --#{$prefix}foreground-accent: #{lighten(map-get($color-palette, "dark"), 10%)};
   --#{$prefix}background: #{value(light)};
-  --#{$prefix}background-accent: #{darken(value(light), 5%)};
+  --#{$prefix}background-accent: #{darken(map-get($color-palette, "light"), 5%)};
   --#{$prefix}code-lightness: 45;
   --#{$prefix}code-saturation: 50;
 }
