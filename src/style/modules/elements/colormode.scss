@@ -5,26 +5,18 @@ $prefix: null;
 }
 
 @mixin darkMode {
-  --#{$prefix}off: #{value(white-20)};
-  --#{$prefix}off-text: #{value(white-90)};
-  --#{$prefix}foreground: #{value(white)};
-  --#{$prefix}foreground-accent: #{value(white-90)};
-  --#{$prefix}background: #{value(black-10)};
-  --#{$prefix}background-accent: #{value(black)};
-  --#{$prefix}text: #{value(white)};
-  --#{$prefix}accent: #{value(light-accent)};
+  --#{$prefix}foreground: #{value(light)};
+  --#{$prefix}foreground-accent: #{darken(value(light), 5%)};
+  --#{$prefix}background: #{value(dark)};
+  --#{$prefix}background-accent: #{lighten(value(dark), 5%)};
   --#{$prefix}code-lightness: 75;
   --#{$prefix}code-saturation: 50;
 }
 @mixin lightMode {
-  --#{$prefix}off: #{value(white-90)};
-  --#{$prefix}off-text: #{value(white-80)};
-  --#{$prefix}foreground: #{value(black-10)};
-  --#{$prefix}foreground-accent: #{value(black-20)};
-  --#{$prefix}background: #{value(white)};
-  --#{$prefix}background-accent: #{value(white-95)};
-  --#{$prefix}text: #{value(black-10)};
-  --#{$prefix}accent: #{value(dark-accent)};
+  --#{$prefix}foreground: #{value(dark)};
+  --#{$prefix}foreground-accent: #{lighten(value(dark), 10%)};
+  --#{$prefix}background: #{value(light)};
+  --#{$prefix}background-accent: #{darken(value(light), 5%)};
   --#{$prefix}code-lightness: 45;
   --#{$prefix}code-saturation: 50;
 }
