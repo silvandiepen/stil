@@ -26,7 +26,7 @@ $prefix: null;
 
   body {
     background-color: value(background);
-    color: value(text);
+    color: value(foreground);
   }
   @media (prefers-color-scheme: dark) {
     body {
