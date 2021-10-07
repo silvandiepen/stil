@@ -147,7 +147,7 @@
           }
           &--empty {
             position: relative;
-            background-color: value(background-accent);
+            background-color: value(accent);
             &::before {
               content: "?";
               position: absolute;
