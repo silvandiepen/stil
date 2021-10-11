@@ -1,6 +1,6 @@
 @mixin styled-header-image() {
   h1 + figure {
-    margin-top: value(space);
+    margin-top: calc(#{value(space)} * 2);
     width: 100%;
   }
   @media #{breakpoint(medium)} {
@@ -10,8 +10,11 @@
     }
   }
   h1 + figure img {
-    width: 100%;
-    border-radius: value(border-radius);
+    width: 100vw;
+    max-width: auto;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
   }
   h1 + figure + * {
     margin-top: value(space);

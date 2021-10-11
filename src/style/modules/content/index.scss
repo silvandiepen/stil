@@ -26,6 +26,11 @@
 @if export($output, "content.default") or export($output, "content.image") {
   @include content-image();
 }
+@if export($output, "content.default") or
+  export($output, "content.header.image")
+{
+  @include content-header-image();
+}
 @mixin styled-content() {
   @include content-table();
   @include content-lists();
