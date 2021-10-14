@@ -11,10 +11,7 @@
     "build:output": "node node_modules/@sil/jsonto/dist/index.js src/data/output.json build/default.scss src/data/default-output.scss.template",
     "dev:style": "npm run build:style -- --watch",
     "stylelint": "stylelint 'src/scss/**/*.scss'",
-    "stylelint:fix": "stylelint 'src/scss/**/*.scss' --fix",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "stylelint:fix": "stylelint 'src/scss/**/*.scss' --fix"
   },
   "repository": {
     "type": "git",
