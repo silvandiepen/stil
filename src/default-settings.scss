@@ -20,7 +20,7 @@ $stil-default-settings: (
 "logo.max-height": 3rem,
 "grid.total": 12,
 "grid.breakpoint.names": (small, medium, large),
-"grid.breakpoint.sizes": (full : 1/1, half : 1/2, third : 1/3, two-third : 2/3, quarter : 1/4, three-quarter : 3/4, fifth : 1/5, two-fifth : 2/5, three-fifth : 3/5, four-fifth : 4/5),
+"grid.breakpoint.sizes": (full : 100%, half : 50%, third : 33.333%, two-third : 66.666%, quarter : 25%, three-quarter : 75%, fifth : 20%, two-fifth : 40%, three-fifth : 60%, four-fifth : 80%),
 "grid.breakpoint.small": 0,
 "grid.breakpoint.medium": 720,
 "grid.breakpoint.large": 1280,
